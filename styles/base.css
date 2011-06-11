@@ -205,7 +205,54 @@ h5 { display: block; font-size: 1.1em; }
 	padding-top: 30px; 
 	padding-left: 10px; 
 	padding-right: 10px; 
-	width: 35%; 
+	width: 33%; 
 	height: 770px; 
 	background: #06A8F9; float: right; 
+}
+
+#search
+{
+	text-align: center;
+}
+
+.searchBox
+{
+	padding: 5px;
+	font: inherit;
+	padding-right: 30px;
+	color: black;
+}
+
+.searchBox.inactive 
+{
+	color: #999;
+}
+
+.searchButton
+{
+	padding: 8px;
+	font: inherit;
+	border: none;
+	background: #333333;
+	color: white;
+	font-weight: bold;
+	font-size: .9em;
+}
+
+.rightPartHint
+{
+	font-size: .9em;
+}
+
+#searchHint.rightPartHint
+{
+	padding-top: 5px;
+	display: none;
+}
+
+#magnifyingLens
+{
+	position: absolute;
+	display: none;
+	cursor: pointer;
 }

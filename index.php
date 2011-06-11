@@ -30,8 +30,8 @@
 	</div>
 	
 	
-	<script type="text/javascript" src="http://code.jquery.com/jquery-1.5.min.js"></script>
-	<script type="text/javascript" src="http://github.com/balupton/jquery-syntaxhighlighter/raw/master/scripts/jquery.syntaxhighlighter.min.js"></script>
+	<script type="text/javascript" src="scripts/external/jquery-1.5.min.js"></script>
+	<script type="text/javascript" src="scripts/external/jquery.syntaxhighlighter.min.js"></script>
 	<script type="text/javascript" src="scripts/jquery.json-2.2.min.js"></script>
     <script type="text/javascript" src="scripts/debug.js"></script>	
 	<script type="text/javascript" src="scripts/dynamic.js"></script>

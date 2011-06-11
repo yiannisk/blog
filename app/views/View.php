@@ -22,8 +22,9 @@
 		{
 			// all this does is declare all passed keys as local variables
 			// for ease of use.
-			foreach($this->context as $key => $value)
-				$$key = $value;
+			if (isset($this->context))
+				foreach($this->context as $key => $value)
+					$$key = $value;
 				
 			// now include the view, allowing it to render as a
 			// plain old PHP file.
