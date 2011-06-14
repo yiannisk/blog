@@ -4,8 +4,6 @@ $(function () {
 
 	/** A dynamic proxy effort, not yet complete. **/
 	ik.dynamic = ik.dynamic || {
-		version: "0.05.004",
-		
 		/** creation ala Ruby fits JavaScript more. **/
 		make: function () {
 			return {

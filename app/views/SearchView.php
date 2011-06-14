@@ -2,13 +2,13 @@
 	<input type="text" name="searchText" id="searchText" 
 		value="Search this site..." class="searchBox inactive" />
 		
-	<input type="button" class="searchButton" value="Older Posts" />
+	<a href="#" class="searchButton">Older Posts</a>
 	
-	<img src="resources/maglen.png" id="magnifyingLens" />
+	<div id="magnifyingLens" class="inactive"></div>
 	
 	<div id="searchHint" class="rightPartHint">
 		Click the magnifying lens or hit Enter to search.
 	</div>
 </div>
-<div class="searchResults">
+<div id="searchResults">
 </div>

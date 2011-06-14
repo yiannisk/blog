@@ -3,7 +3,6 @@ var ik = ik || {};
 $(function () {
 	
 	ik.layout = ik.layout || {
-		version: "0.02.006",
 		make: function () {
 			var core = ik.dynamic.make();
 		
@@ -64,25 +63,34 @@ $(function () {
 				// This method can alone handle the total functionality of 
 				// the layout. To use, create a view and hand it over, also 
 				// specifying the region to draw it on.
-				draw:
-					function (view, regionId, callback) {
-						var self = this;
-						var selectedView = view;	
-						var callBack = callback;
-						
-						// Register the view if it's not already done.
-						self.registerView(view);
-						
-						// Request the region passed for drawing the view in.
-						self.requestRegion(regionId, 
-							function() {
-								// When the region is freed, allow the new view 
-								// to start rendering, passing it the region's 
-								// reference so it draws itself.
-								selectedView.region = $("#" + regionId)[0];
-								selectedView.enter(callBack);
-							});
-					}
+				draw: function (view, regionId, callback) {
+					var self = this;
+					var selectedView = view;	
+					var callBack = callback;
+					
+					// Register the view if it's not already done.
+					self.registerView(view);
+					
+					// Request the region passed for drawing the view in.
+					self.requestRegion(regionId, function() {
+						// When the region is freed, allow the new view 
+						// to start rendering, passing it the region's 
+						// reference so it draws itself.
+						selectedView.region = $("#" + regionId)[0];
+						selectedView.enter(callBack);
+					});
+				},
+					
+				// sends a message to a specific view if it can be located.
+				sendMessage: function (view, message, callback) {
+					if (!this.views[view]) return false;
+					if (!this.views[view].message)
+						throw new Error(
+							"The view specified does not support messaging.");
+							
+					this.views[view].message(message, callback);
+					return true;
+				}
 			});
 			
 			return core;

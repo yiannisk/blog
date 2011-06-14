@@ -3,7 +3,6 @@ var ik = ik || {};
 $(function () {
 	ik.view = ik.view || {};
 	ik.view.search = ik.view.search || {
-		version: "0.02.000",
 		make: function (id) {
 			var core = ik.view.make();
 			var enterCallBack = null;
@@ -23,15 +22,48 @@ $(function () {
 				$(core.region).fadeOut("fast", callback);
 			};
 			
+			core.onMessageReceived = function (message, callback) {
+				if (message == "HEADER_HIDDEN")
+					core.adjustMagnifyingLensPosition();
+				
+				if (callback) callback();
+			}
+			
 			core.loadComplete = function (data, textStatus, jqXHR) {
 				$(core.region)
 					.html(data)
 					.hide()
 					.fadeIn();
 				
+				core.adjustMagnifyingLensPosition();
 				core.attachEventHandlers();
+
 				if (enterCallBack) enterCallBack();
 			};
+			
+			core.searchForText = function (text) {
+				$(".searchItem").unbind('hover');
+				
+				$.ajax({
+					url: "app/?i=search&a=search&term=" + text,
+					success: core.handlers.searchSuccess});
+			};
+			
+			core.adjustMagnifyingLensPosition = function () {
+				$("#magnifyingLens").css("left", 
+					$("#searchText").position().left 
+						+ $("#searchText").outerWidth()
+						- $("#magnifyingLens").width()
+						-3 
+						+ "px");
+						
+				$("#magnifyingLens").css("top", 
+					$("#searchText").position().top 
+						+ $("#searchText").outerHeight() 
+						- $("#magnifyingLens").width() 
+						-3 
+						+ "px");
+			}
 			
 			core.attachEventHandlers = function () {
 				$("#searchText")
@@ -57,37 +89,44 @@ $(function () {
 				},
 				
 				searchTextBlur: function (evt) {
-					if (evt.currentTarget.value == "")
+					if (evt.currentTarget.value == "") {	
 						evt.currentTarget.value = "Search this site...";
-					
-					$(evt.currentTarget).addClass('inactive');
+						$(evt.currentTarget).addClass('inactive');
+					}
 				},
 				
 				searchTextKeyUp: function (evt) {
 					if (evt.currentTarget.value != "")
 					{	
 						$("#searchHint").fadeIn();
-						$("#magnifyingLens").fadeIn();
-						
-						$("#magnifyingLens").css("left", 
-							$("#searchText").position().left 
-								+ $("#searchText").outerWidth() 
-								- $("#magnifyingLens").width() 
-								-3 
-								+ "px");
-								
-						$("#magnifyingLens").css("top", 
-							$("#searchText").position().top 
-								+ $("#searchText").outerHeight() 
-								- $("#magnifyingLens").width() 
-								-3 
-								+ "px");
+						$("#magnifyingLens").removeClass("inactive");
 					} 
 					else
 					{
 						$("#searchHint").fadeOut();
-						$("#magnifyingLens").fadeOut();
+						$("#magnifyingLens").addClass("inactive");
 					}
+					
+					if (!$(evt.currentTarget).hasClass('inactive'))
+						if (evt.originalEvent.keyCode == 13)
+							core.searchForText(evt.currentTarget.value);
+				},
+				
+				searchSuccess: function(data, textStatus, jqXHR) {
+					$("#searchResults").html(data);
+					$(".searchItem")
+						.hover(core.handlers.searchItemIn,
+							core.handlers.searchItemOut);
+				},
+				
+				searchItemIn: function (evt) {
+					$(evt.currentTarget).animate(
+						{backgroundColor: '#333333'}, 'fast');
+				},
+				
+				searchItemOut: function (evt) {
+					$(evt.currentTarget).animate(
+						{backgroundColor: '#06A8F9'}, 'fast');
 				}
 			};
 			

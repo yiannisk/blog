@@ -3,7 +3,6 @@ var ik = ik || {};
 $(function () {
 	ik.view = ik.view || {};
 	ik.view.header = ik.view.header || {
-		version: "0.01.003",
 		make:
 			function () {
 				var core = ik.view.make();
@@ -19,6 +18,7 @@ $(function () {
 				};
 				
 				core.onLeaveRegion = function (callback) {
+					core.detachEventHandlers();
 					$(region).fadeOut("fast", callback);
 				};
 				
@@ -28,6 +28,25 @@ $(function () {
 						.html(data)
 						.hide()
 						.fadeIn(enterCallBack);
+					
+					core.attachEventHandlers();
+				};
+				
+				core.attachEventHandlers = function () {
+					$("#closeIcon").bind('click', core.handlers.closeIconClick);
+				};
+				
+				core.detachEventHandlers = function () {
+					$("#closeIcon").unbind('click');
+				};
+				
+				core.handlers = {
+					closeIconClick: function (evt) {
+						$("#header").hide('slide', { direction: "up" }, 
+							function () {
+								layout.sendMessage("search","HEADER_HIDDEN");
+							});
+					}
 				};
 				
 				return core;

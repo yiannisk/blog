@@ -73,7 +73,7 @@ body
 	font-family: 'Philosopher',Arial,Helvetica; 
 	background: url(../resources/pattern02.gif); 
 	margin: 0px; 
-	color: white; 
+	color: white;
 }
 
 a { color: inherit; }
@@ -83,7 +83,7 @@ h3 { display: block; font-size: 1.5em; }
 h4 { display: block; font-size: 1.25em; }
 h5 { display: block; font-size: 1.1em; }
 
-.entry { width: 500px; }
+.entry { width: 500px; margin-bottom: 30px;}
 .preview { margin-top: 10px; }
 .time { font-size: .8em; margin-top: 7px; color: #ddd; display: inline-block; }
 
@@ -150,9 +150,9 @@ h5 { display: block; font-size: 1.1em; }
 	width: 1000px; 
 	height: 50px; 
 	margin-right: auto; 
-	margin-left: auto; 
+	margin-left: auto;
 	background: #333333; 
-	clear: both;  
+	clear: both;
 }
 
 #header h5 { float: left; padding: 5px; padding-left: 30px; width: 800px; }
@@ -237,6 +237,14 @@ h5 { display: block; font-size: 1.1em; }
 	color: white;
 	font-weight: bold;
 	font-size: .9em;
+	cursor: pointer;
+	text-decoration: none;
+}
+
+.searchButton:hover
+{
+	color: #06A8F9;
+	background: black;
 }
 
 .rightPartHint
@@ -252,7 +260,34 @@ h5 { display: block; font-size: 1.1em; }
 
 #magnifyingLens
 {
+	background: url(../resources/maglen_active.png) no-repeat;
 	position: absolute;
-	display: none;
 	cursor: pointer;
+	width: 24px;
+	height: 24px;
+}
+
+#magnifyingLens.inactive
+{
+	background: url(../resources/maglen_inactive.png) no-repeat;
+}
+
+#searchResults
+{
+	margin-top: 10px;
+	text-align: left;
+}
+
+.searchItemTitle
+{
+	font-weight: bold;
+}
+
+.searchItem
+{
+	margin-left: 5px;
+	margin-right: 5px;
+	padding: 5px;
+	cursor: pointer;
+	background: #06A8F9;
 }

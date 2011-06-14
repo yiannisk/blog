@@ -5,6 +5,7 @@
 	<title>Ioannis Karadimas' Blog</title>
 	
 	<link rel="stylesheet" type="text/css" href="styles/base.css" />
+	<link rel="stylesheet" type="text/css" href='styles/external/jquery-ui-1.8.13.custom.css' />
 	<!-- handle CSS compatibility issues below -->
 	<!--[if IE]>
 		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js">
@@ -13,7 +14,7 @@
 	
 	<!-- Fonts -->
 	<!--link href='http://fonts.googleapis.com/css?family=Arimo:regular,italic,bold,bolditalic' rel='stylesheet' type='text/css'-->
-	<link href='http://fonts.googleapis.com/css?family=Philosopher' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Philosopher' rel='stylesheet' type='text/css' />
 	<!--link href='http://fonts.googleapis.com/css?family=Cabin' rel='stylesheet' type='text/css'-->
 </head>
 <body id="home">
@@ -29,9 +30,10 @@
 		</div>
 	</div>
 	
-	
 	<script type="text/javascript" src="scripts/external/jquery-1.5.min.js"></script>
+	<script type="text/javascript" src="scripts/external/jquery-ui-1.8.13.custom.min.js"></script>
 	<script type="text/javascript" src="scripts/external/jquery.syntaxhighlighter.min.js"></script>
+	<!--script type="text/javascript" src="scripts/external/jquery.color.min.js"></script-->
 	<script type="text/javascript" src="scripts/jquery.json-2.2.min.js"></script>
     <script type="text/javascript" src="scripts/debug.js"></script>	
 	<script type="text/javascript" src="scripts/dynamic.js"></script>
