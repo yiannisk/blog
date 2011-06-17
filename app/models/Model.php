@@ -26,22 +26,6 @@
 			}
 		}
 		
-		protected function parseResults($qhandle)
-		{
-			$result = array();
-			while($row = $qhandle->fetch_array())
-				$result[] = array_slice($row, 1);
-			return $result;
-		}
-		
-		protected function parseSingleResult($qhandle)
-		{
-			if ($row = $qhandle->fetch_array())
-				return array_slice($row, 1);
-			
-			return array();
-		}
-		
 		protected function rows($statement)
 		{
 			$statement->execute();
