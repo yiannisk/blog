@@ -7,23 +7,23 @@ $(function () {
 			var core = ik.view.make();
 			var enterCallBack = null;
 			
-			core.name = "search";
+			core.name = 'search';
 			core.id = id;
 			
 			core.onEnterRegion = function (callback) {
 				enterCallBack = callback;
 				$.ajax({
-					url: "app/?i=search",
+					url: 'app/?i=search',
 					success: core.loadComplete});
 			};
 			
 			core.onLeaveRegion = function (callback) {
 				core.detachEventHandlers();
-				$(core.region).fadeOut("fast", callback);
+				$(core.region).fadeOut('fast', callback);
 			};
 			
 			core.onMessageReceived = function (message, callback) {
-				if (message == "HEADER_HIDDEN")
+				if (message == 'HEADER_HIDDEN')
 					core.adjustMagnifyingLensPosition();
 				
 				if (callback) callback();
@@ -42,31 +42,32 @@ $(function () {
 			};
 			
 			core.searchForText = function (text) {
-				$(".searchItem").unbind('hover');
+				$('.searchItem').unbind('hover');
+				$('#magnifyingLens').addClass('loading');
 				
 				$.ajax({
-					url: "app/?i=search&a=search&term=" + text,
+					url: 'app/?i=search&a=search&term=' + text,
 					success: core.handlers.searchSuccess});
 			};
 			
 			core.adjustMagnifyingLensPosition = function () {
-				$("#magnifyingLens").css("left", 
-					$("#searchText").position().left 
-						+ $("#searchText").outerWidth()
-						- $("#magnifyingLens").width()
+				$('#magnifyingLens').css('left', 
+					$('#searchText').position().left 
+						+ $('#searchText').outerWidth()
+						- $('#magnifyingLens').width()
 						-3 
-						+ "px");
+						+ 'px');
 						
-				$("#magnifyingLens").css("top", 
-					$("#searchText").position().top 
-						+ $("#searchText").outerHeight() 
-						- $("#magnifyingLens").width() 
+				$('#magnifyingLens').css('top', 
+					$('#searchText').position().top 
+						+ $('#searchText').outerHeight() 
+						- $('#magnifyingLens').width() 
 						-3 
-						+ "px");
+						+ 'px');
 			}
 			
 			core.attachEventHandlers = function () {
-				$("#searchText")
+				$('#searchText')
 					.bind('focus', core.handlers.searchTextFocus)
 					.bind('blur', core.handlers.searchTextBlur)
 					.bind('keyup', core.handlers.searchTextKeyUp);
@@ -74,7 +75,7 @@ $(function () {
 			
 			
 			core.detachEventHandlers = function () {
-				$("#searchText")
+				$('#searchText')
 					.unbind('focus')
 					.unbind('blur')
 					.unbind('keyup');
@@ -82,29 +83,32 @@ $(function () {
 			
 			core.handlers = {
 				searchTextFocus: function (evt) {
-					if (evt.currentTarget.value == "Search this site...")
-						evt.currentTarget.value = "";
+					if (evt.currentTarget.value == 'Search this site...')
+						evt.currentTarget.value = '';
 						
 					$(evt.currentTarget).removeClass('inactive');
 				},
 				
 				searchTextBlur: function (evt) {
-					if (evt.currentTarget.value == "") {	
-						evt.currentTarget.value = "Search this site...";
+					if (evt.currentTarget.value == '') {	
+						evt.currentTarget.value = 'Search this site...';
 						$(evt.currentTarget).addClass('inactive');
 					}
 				},
 				
 				searchTextKeyUp: function (evt) {
-					if (evt.currentTarget.value != "")
+					if (evt.currentTarget.value != '')
 					{	
-						$("#searchHint").fadeIn();
-						$("#magnifyingLens").removeClass("inactive");
+						$('#searchHint').fadeIn();
+						$('#magnifyingLens').removeClass('inactive');
+						$('#magnifyingLens').bind('click', 
+							core.handlers.magnifyingLensClick);
 					} 
 					else
 					{
-						$("#searchHint").fadeOut();
-						$("#magnifyingLens").addClass("inactive");
+						$('#searchHint').fadeOut();
+						$('#magnifyingLens').addClass('inactive');
+						$('#magnifyingLens').unbind('click');
 					}
 					
 					if (!$(evt.currentTarget).hasClass('inactive'))
@@ -113,8 +117,9 @@ $(function () {
 				},
 				
 				searchSuccess: function(data, textStatus, jqXHR) {
-					$("#searchResults").html(data);
-					$(".searchItem")
+					$('#magnifyingLens').removeClass('loading');
+					$('#searchResults').html(data);
+					$('.searchItem')
 						.hover(core.handlers.searchItemIn,
 							core.handlers.searchItemOut);
 				},
@@ -125,8 +130,16 @@ $(function () {
 				},
 				
 				searchItemOut: function (evt) {
+					console.log("In");
+					console.log($(evt.currentTarget));
 					$(evt.currentTarget).animate(
 						{backgroundColor: '#06A8F9'}, 'fast');
+				},
+				
+				magnifyingLensClick: function (evt) {
+					console.log("Out");
+					console.log($(evt.currentTarget));
+					core.searchForText($('#searchText').val());
 				}
 			};
 			

@@ -5,7 +5,11 @@
 		private $controllersLocation = 'controllers/';
 		private $viewsLocation = 'views/';
 		private $modelsLocation = 'models/';
-		private $dataSourceLocation = 'models/data/blog.sqlite';
+		
+		private $database = 'blog';
+		private $host = 'localhost';
+		private $username = 'root';
+		private $password = '';
 		
 		private function __construct() {}
 		
@@ -13,7 +17,11 @@
 		public final function getControllersLocation() { return $this->controllersLocation; }
 		public final function getViewsLocation() { return $this->viewsLocation; }
 		public final function getModelsLocation() { return $this->modelsLocation; }
-		public final function getDataSourceLocation() { return $this->dataSourceLocation; }
+		
+		public final function getDatabase() { return $this->database; }
+		public final function getHost() { return $this->host; }
+		public final function getUserName() { return $this->username; }
+		public final function getPassword() { return $this->password; }
 		
 		public final static function current() 
 		{

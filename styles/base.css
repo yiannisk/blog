@@ -141,7 +141,8 @@ h5 { display: block; font-size: 1.1em; }
 	display: block; 
 	background: url(../resources/close.png) no-repeat; 
 	width: 32px; 
-	height: 32px; 
+	height: 32px;
+	cursor: pointer;
 }
 
 #header 
@@ -265,11 +266,17 @@ h5 { display: block; font-size: 1.1em; }
 	cursor: pointer;
 	width: 24px;
 	height: 24px;
+	cursor: pointer;
 }
 
 #magnifyingLens.inactive
 {
 	background: url(../resources/maglen_inactive.png) no-repeat;
+}
+
+#magnifyingLens.loading
+{
+	background: url(../resources/loader.gif) no-repeat center center;
 }
 
 #searchResults

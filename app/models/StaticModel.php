@@ -6,9 +6,11 @@
 		function single($name)
 		{
 			$statement = parent::prepare(
-				"SELECT * FROM static WHERE name = :name");
-			$statement->bindValue(":name", $name);
-			return parent::parseSingleResult($statement->execute());
+				"SELECT * FROM static WHERE name = ?");
+			$statement->bind_param("s", $name);
+			
+			$statement->execute();
+			return parent::parseSingleResult($statement->get_result());
 		}
 	}
 ?>
