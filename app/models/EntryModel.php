@@ -7,9 +7,7 @@
 		{
 			$statement = parent::prepare('SELECT * FROM entry WHERE id = ?');
 			$statement->bind_param('i', $id);
-			
-			$statement->execute();
-			return parent::parseSingleResult($statement->get_result());
+			return parent::row($statement);
 		}
 	
 		function latest($count)
@@ -18,8 +16,7 @@
 				'SELECT * FROM entry ORDER BY createdon DESC LIMIT ?');
 			$statement->bind_param('i', $count);
 			
-			$statement->execute();
-			return parent::parseResults($statement->get_result());
+			return parent::rows($statement);
 		}
 		
 		function textsearch($term)
@@ -35,8 +32,7 @@
 			for($i = 0; $i < 4; $i++)
 				$statement->bind_param('s', $sanitizedTerm);
 			
-			$statement->execute();
-			return parent::parseResults($statement->get_result());
+			return parent::rows($statement);
 		}
 	}
 ?>
