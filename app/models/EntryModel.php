@@ -27,10 +27,10 @@
 				'	OR subtitle LIKE ?');
 				
 			$sanitizedTerm = 
-				'%' . parent::real_escape_string($term) . '%';
-			
-			for($i = 0; $i < 4; $i++)
-				$statement->bind_param('s', $sanitizedTerm);
+				'%' . parent::escapeString($term) . '%';
+				
+			$statement->bind_param('ssss', $sanitizedTerm, $sanitizedTerm, 
+				$sanitizedTerm, $sanitizedTerm);
 			
 			return parent::rows($statement);
 		}

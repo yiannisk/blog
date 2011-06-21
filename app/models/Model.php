@@ -78,5 +78,10 @@
 				
 			return $result;
 		}
+		
+		protected function escapeString($val)
+		{
+			return mysql_real_escape_string($val);
+		}
 	}
 ?>
