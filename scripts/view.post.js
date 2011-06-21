@@ -3,10 +3,10 @@ var ik = ik || {};
 $(function () {
 	ik.view = ik.view || {};
 	ik.view.post = ik.view.post || {
-		version: "0.02.000",
 		make: function (id) {
 			var core = ik.view.make();
 			var enterCallBack = null;
+			var leaveCallBack = null;
 			
 			core.name = "post";
 			core.id = id;
@@ -18,9 +18,19 @@ $(function () {
 					success: core.loadComplete});
 			
 			};
+			
 			core.onLeaveRegion = function (callback) {
+				console.log("Leaving region...");
+				leaveCallback = callback;
+				layout.requestRegion("comments", core.unloadComplete);
+			};
+			
+			core.unloadComplete = function () {
+				console.log("core.unloadComplete");
 				core.detachEventHandlers();
 				$(core.region).fadeOut("fast", callback);
+				
+				if (leaveCallBack) leaveCallBack();
 			};
 			
 			core.loadComplete = function (data, textStatus, jqXHR) {
@@ -30,6 +40,9 @@ $(function () {
 					.fadeIn();
 				
 				core.attachEventHandlers();
+				
+				layout.draw(ik.view.comments.make(id), "comments");
+				
 				if (enterCallBack) enterCallBack();
 			};
 			

@@ -27,6 +27,7 @@
 		</div>
 		<div id="rightPart">
 			<div id="search"></div>
+			<div id="comments"></div>
 		</div>
 	</div>
 	
@@ -43,6 +44,7 @@
 	<script type="text/javascript" src="scripts/view.header.js"></script>
 	<script type="text/javascript" src="scripts/view.post.js"></script>
 	<script type="text/javascript" src="scripts/view.search.js"></script>
+	<script type="text/javascript" src="scripts/view.comments.js"></script>
 	<script type="text/javascript">
 		var layout = {};
 		$(function () {

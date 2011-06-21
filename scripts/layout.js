@@ -23,6 +23,7 @@ $(function () {
 				// react, executing clean-up, animation or whatever other
 				// tasks needed.
 				requestRegion:  function (regionId, callback) {
+					console.log(regionId);
 					var self = this;
 					var callBack = callback;
 					

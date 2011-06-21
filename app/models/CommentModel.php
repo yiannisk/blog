@@ -3,12 +3,13 @@
 	
 	class CommentModel extends Model
 	{
-		function latest($count)
+		function latest($count, $entryid)
 		{
 			$statement = parent::prepare(
-				'SELECT * FROM Comment ORDER BY CreatedOn DESC LIMIT ?');
+				'SELECT * FROM Comment WHERE EntryId = ?'
+					. ' ORDER BY CreatedOn DESC LIMIT ?');
 			
-			$statement->bind_param('i', $count);
+			$statement->bind_param('ii', $entryid, $count);
 			
 			return parent::rows($statement);
 		}
