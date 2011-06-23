@@ -9,13 +9,31 @@ function Dynamic() {
 	}
 	
 	this.register = function (name, func) {
-		var _name = name;
-		var _func = _func;
-		var _self = this;
-		
 		this[name] = function() {
-			_self.dispatch(_name, _func, arguments);
-			return this;
+			this.dispatch(name, func, arguments);
 		}
+	}
+	
+	this.dispatch = function (name, func, args) {
+		this.queue.push({
+			method: name,
+			body: func, 
+			arguments: args
+		});
+		
+		if (this.queue.length == 1)
+			setTimeout(this.done, 1, this);
+	}
+	
+	this.done = function (dynamicObject) {
+		if (!dynamicObject) return;
+		if (dynamicObject.queue.length == 0) return;
+		if (dynamicObject.wait)
+			setTimeout(dynamicObject.done, dynamicObject.waittime);
+			
+		var currentCall = dynamicObject.queue.shift();
+		
+		currentCall.body.apply(dynamicObject, currentCall.arguments);
+		setTimeout(dynamicObject.done, 1, dynamicObject);
 	}
 }

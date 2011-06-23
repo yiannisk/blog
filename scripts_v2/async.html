@@ -1,0 +1,59 @@
+<html>
+<body>
+<script type="text/javascript">
+	var a = new AsyncWrapper(function() {
+		console.log("Method invoked.");
+	});
+	
+	a.addListener(new EventListener("complete", function() {
+		console.log("Complete!");
+	}));
+	
+	a.start();
+	console.log(a.complete);
+	//a.cancel();
+
+	function EventListener(event, listener) {
+		this.event = event;
+		this.listener = listener;
+	}
+	
+	function AsyncWrapper(func) {
+		this.method = func;
+		this.complete = false;
+		this.listeners = [];
+		this.timerHandle = null;
+		
+		this.wrapper = function(self) {
+			self.method();
+			self.complete = true;
+			self.dispatchEvent("complete");
+		}
+		
+		this.start = function() {
+			this.timerHandle = setTimeout(this.wrapper, 100, this);
+		}
+		
+		this.cancel = function () {
+			clearTimeout( this.timerHandle );
+		}
+		
+		this.addListener = function (obj) {
+			console.log("adding listener...");
+			this.listeners.push(obj);
+		}
+		
+		this.removeListeners = function () {
+			this.listeners = [];
+		}
+		
+		this.dispatchEvent = function (event) {
+			for(var i = 0; i < this.listeners.length; i++)
+				if (this.listeners[i].event == event)
+					this.listeners[i].listener();
+		}
+	}
+	
+</script>
+</body>
+</html>
