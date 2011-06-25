@@ -1,0 +1,20 @@
+Protocol:
+
+Retrieval
+	Verb: GET
+	Query String: entity, action, identifier, parameters [1..4]
+
+Persistence
+	Create
+		Verb: POST
+		Query String: entity
+		Post Data: Key - value pairs
+	Update
+		Verb: PUT
+		Query String: entity, identifier
+		Post Data: Key - value pairs
+
+Removal
+	Verb: DELETE
+	Query String: entity, identifier
+		

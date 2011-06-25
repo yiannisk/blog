@@ -1,0 +1,148 @@
+<html>
+	<head>
+		<title>Ajax Invocation Tests</title>
+		<script type="text/javascript" 
+			src="http://code.jquery.com/jquery-1.5.2.min.js"></script>
+		<script type="text/javascript" 
+			src="../scripts/external/jquery.tmpl.min.js"></script>
+	</head>
+	<body>
+		<div id="tests"></div>
+		
+		<script id="testResultTemplate" type="text/x-jquery-tmpl">
+			<div>
+				<b>Test: ${title}</b> <br />
+				<b>Status:</b> ${status} <br />
+				<b>Test Status:</b> ${testStatus} <br />
+				<b>Output</b><br /> 
+				<div style='border: 1px solid black; background: #ccc;
+					padding: 20px;'>
+					{{html result}}</div>
+				<br />
+			</div>
+		</script>
+
+		<script type="text/javascript">
+			$(function () {
+				var resultTemplate = $("#testResultTemplate").template();
+				
+				function perform(t) {
+					var test = t;
+					$.ajax({
+						url: config.base + test.url,
+						type: test.type,
+						dataType: "html",
+						complete: function (jqXHR, textStatus) {
+							var context = {
+								status: textStatus,
+								result: jqXHR.responseText,
+								title: test.title,
+								testStatus: 
+									textStatus == test.expectedStatus
+										? "passed"
+										: "failed"
+							};
+							
+							$.tmpl(resultTemplate, context).appendTo("#tests");
+						}
+					});
+					
+				};
+
+				var config = {
+					base: ''
+				};
+				
+				var tests = [
+					{
+						title: 'POST entry',
+						url: 'entry',
+						type: 'post',
+						expectedStatus: 'success'
+					},
+					{
+						title: 'POST entry/latest',
+						url: 'entry/latest',
+						type: 'post',
+						expectedStatus: 'error'
+					},
+					{
+						title: 'POST entry/latest/12',
+						url: 'entry/latest/12',
+						type: 'post',
+						expectedStatus: 'error'
+					},
+					{
+						title: 'PUT entry/1',
+						url: 'entry/1',
+						type: 'put',
+						expectedStatus: 'success'
+					},
+					{
+						title: 'PUT entry/1/2',
+						url: 'entry/1/2',
+						type: 'put',
+						expectedStatus: 'error'
+					},
+					{
+						title: 'PUT entry/1/2/3',
+						url: 'entry/1/2/3',
+						type: 'put',
+						expectedStatus: 'error'
+					},
+					{
+						title: 'DELETE entry',
+						url: 'entry',
+						type: 'delete',
+						expectedStatus: 'error'
+					},
+					{
+						title: 'DELETE entry/2',
+						url: 'entry/2',
+						type: 'delete',
+						expectedStatus: 'success'
+					},
+					{
+						title: 'DELETE entry/2/3',
+						url: 'entry/2/3',
+						type: 'delete',
+						expectedStatus: 'error'
+					},
+					{
+						title: 'DELETE entry/2/3/4',
+						url: 'entry/2/3/4',
+						type: 'delete',
+						expectedStatus: 'error'
+					},
+					{
+						title: 'GET entry',
+						url: 'entry',
+						type: 'get',
+						expectedStatus: 'success'
+					},
+					{
+						title: 'GET entry/2',
+						url: 'entry/2',
+						type: 'get',
+						expectedStatus: 'success'
+					},
+					{
+						title: 'GET entry/2/3',
+						url: 'entry/2/3',
+						type: 'get',
+						expectedStatus: 'success'
+					},
+					{
+						title: 'GET entry/2/3/4/5/6/7',
+						url: 'entry/2/3/4/5/6/7',
+						type: 'get',
+						expectedStatus: 'success'
+					}
+				];
+				
+				for(var i = 0; i < tests.length; i++)
+					perform(tests[i]);
+			});
+		</script>
+	</body>
+</html>

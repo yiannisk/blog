@@ -21,7 +21,7 @@ function Layout() {
 					this.views[viewName].leave(
 						function () { 
 							self.wait = false; 
-							callBack();
+							if (callBack) callBack();
 						});
 						
 					return;

@@ -4,7 +4,7 @@ function Dynamic() {
 	this.queue = [];
 	
 	this.map = function (mappings) {
-		for(key in mappings)
+		for (var key in mappings)
 			this.register(key, mappings[key]);
 	}
 	
