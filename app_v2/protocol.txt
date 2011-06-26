@@ -3,18 +3,22 @@ Protocol:
 Retrieval
 	Verb: GET
 	Query String: entity, action, identifier, parameters [1..4]
+	Action: Retrieve
 
 Persistence
 	Create
 		Verb: POST
 		Query String: entity
 		Post Data: Key - value pairs
+		Action: Create
 	Update
 		Verb: PUT
 		Query String: entity, identifier
 		Post Data: Key - value pairs
+		Action: Update
 
 Removal
 	Verb: DELETE
 	Query String: entity, identifier
+	Action: Remove
 		
