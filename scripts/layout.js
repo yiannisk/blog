@@ -23,7 +23,6 @@ $(function () {
 				// react, executing clean-up, animation or whatever other
 				// tasks needed.
 				requestRegion:  function (regionId, callback) {
-					console.log(regionId);
 					var self = this;
 					var callBack = callback;
 					
@@ -36,15 +35,12 @@ $(function () {
 					for(var viewName in self.views) {
 						if ((self.views[viewName].region) 
 						    && (self.views[viewName].region.id == regionId)) {
+
 							// A view has been found. Free it.
 							self.views[viewName].leave( 
-								function () { 
-									// Notify the base we're now free to 
-									// continue executing calls.
-									self.wait = false; 
-									
-									// Notify the requestRegion's invoker 
-									// we're done releasing the view.
+								function () {
+									self.views[viewName].region = null;
+									self.wait = false;
 									callBack();
 								});
 								
@@ -58,7 +54,7 @@ $(function () {
 					// taking calls again, and notify the invoker that 
 					// all's clear.
 					self.wait = false;
-					callback();
+					callBack();
 				},
 				
 				// This method can alone handle the total functionality of 

@@ -19,7 +19,6 @@ $(function () {
 			
 			};
 			core.onLeaveRegion = function (callback) {
-				console.log("Leaving comments region");
 				core.detachEventHandlers();
 				$(core.region).fadeOut("fast", callback);
 			};

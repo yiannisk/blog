@@ -36,11 +36,10 @@ $(function () {
 			};
 			
 			core.unloadComplete = function () {
-				console.log("core.unloadComplete");
 				core.detachEventHandlers();
-				$(core.region).fadeOut("fast", callback);
+				$(core.region).fadeOut().html('').fadeIn();
 				
-				if (leaveCallBack) leaveCallBack();
+				if (leaveCallback) leaveCallback();
 			};
 			
 			core.loadDataComplete = function (data, textStatus, jqXHR) {

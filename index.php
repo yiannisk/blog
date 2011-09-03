@@ -31,7 +31,8 @@
 		</div>
 	</div>
 	
-	<script type="text/javascript" src="scripts/external/jquery-1.5.min.js"></script>
+	<!--script type="text/javascript" src="scripts/external/jquery-1.5.min.js"></script-->
+	<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
 	<script type="text/javascript" src="scripts/external/jquery-ui-1.8.13.custom.min.js"></script>
 	<script type="text/javascript" src="scripts/external/jquery.syntaxhighlighter.min.js"></script>
 	<script type="text/javascript" src="scripts/external/jquery.json-2.2.min.js"></script>
@@ -48,10 +49,9 @@
 		var layout = {};
 		$(function () {
 			layout = ik.layout.make();
-			layout.draw(ik.view.postList.make(), "leftPartContents", 
-				function () { console.log("Testing view enter callback..."); });
+			layout.draw(ik.view.postList.make(), "leftPartContents");
 			layout.draw(ik.view.header.make(), "header");
-			//layout.draw(ik.view.search.make(), "search");
+			layout.draw(ik.view.search.make(), "search");
 		});
 	</script>
 </body>
