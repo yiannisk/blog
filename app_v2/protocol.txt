@@ -1,0 +1,40 @@
+Last Update: 7/2/2011
+Protocol:
+	Retrieval
+		Verb: GET
+		Query String: entity, action, identifier, parameters [1..4]
+		Action: Retrieve
+
+	Persistence
+		Create
+			Verb: POST
+			Query String: entity
+			Post Data: Key - value pairs
+			Action: Create
+		Update
+			Verb: PUT
+			Query String: entity, identifier
+			Post Data: Key - value pairs
+			Action: Update
+
+	Removal
+		Verb: DELETE
+		Query String: entity, identifier
+		Action: Remove
+
+	Login
+		Verb: POST
+		Query String: "login"
+		Post Data: username, password.
+		Action: Login
+		
+Security:
+	* User logs in, and obtains a security token which expires with
+	  the session. [Possible ?]
+	* User gains priviledges analogous to the access level assigned to her
+	  account. The level value is inversely proportional to the depth
+	  of access the user has. Each action is assigned a level of access. 
+	  Actions with a level higher or equal to a particular user's level are 
+	  accessible to that user. All actions for which no definition of level
+	  exists are by default assigned the level 0, and are only accessible to
+	  the root account, which possesses that level.

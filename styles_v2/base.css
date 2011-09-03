@@ -1,0 +1,326 @@
+/*------------------------------------*\
+  RESET
+\*------------------------------------*/
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0b1 | 201101
+   NOTE:WORK IN PROGRESS
+   USE WITH CAUTION AND TEST WITH ABANDON */
+
+html,body,div,span,applet,object,iframe,
+h1,h2,h3,h4,h5,h6,p,blockquote,pre,
+a,abbr,acronym,address,big,cite,code,
+del,dfn,em,img,ins,kbd,q,s,samp,
+small,strike,strong,sub,sup,tt,var,
+b,u,i,center,
+dl,dt,dd,ol,ul,li,
+fieldset,form,label,legend,
+table,caption,tbody,tfoot,thead,tr,th,td,
+article,aside,canvas,details,figcaption,figure,
+footer,header,hgroup,menu,nav,section,summary,
+time,mark,audio,video{
+  margin:0;
+  padding:0;
+  border:0;
+  outline:0;
+  font-size:100%;
+  font:inherit;
+  vertical-align:baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article,aside,details,figcaption,figure,
+footer,header,hgroup,menu,nav,section{
+  display:block;
+}
+body{
+  line-height:1;
+}
+ol,ul{
+  list-style:none;
+}
+blockquote,q{
+  quotes:none;
+}
+blockquote:before,blockquote:after,
+q:before,q:after{
+  content:'';
+  content:none;
+}
+/* remember to define visible focus styles!
+:focus{
+  outline:?????;
+} */
+
+/* remember to highlight inserts somehow! */
+ins{
+  text-decoration:none;
+}
+del{
+  text-decoration:line-through;
+}
+
+table{
+  border-collapse:collapse;
+  border-spacing:0;
+}
+
+/*------------------------------------*\
+  MAIN
+\*------------------------------------*/
+/* GO! */
+
+body 
+{ 
+	font-family: 'Philosopher',Arial,Helvetica; 
+	background: url(../resources/pattern02.gif); 
+	margin: 0px; 
+	color: white;
+}
+
+a { color: inherit; }
+h1 { display: block; font-size: 2em; }
+h2 { display: block; font-size: 1.75em; }
+h3 { display: block; font-size: 1.5em; }
+h4 { display: block; font-size: 1.25em; }
+h5 { display: block; font-size: 1.1em; }
+
+
+.loaderContainer 
+{ 
+	width: 100%; 
+	height: 0px; 
+	background-color: #000; 
+	border-bottom: 20px solid #222;
+	text-align: center;
+}
+
+.loader 
+{ 
+	background: url(../resources/loader.gif) no-repeat center 160px; 
+	padding-top: 200px;
+}
+
+.loader h5 { color: #CCC; }
+
+#layout {
+	position: absolute;
+	top: 0px;
+	z-index: 10;
+	
+}
+
+/******************** Old Styles ******************/
+.entry { width: 500px; margin-bottom: 30px;}
+.preview { margin-top: 10px; }
+.time { font-size: .8em; margin-top: 7px; color: #ddd; display: inline-block; }
+
+.retweet 
+{ 
+	margin-left: 10px; 
+	padding-left: 20px; 
+	margin-top: 8px; 
+	display: inline-block;
+	line-height: 1.3em;
+	background: url(../resources/twitter_blue_gray.png) no-repeat 0px 0px;
+}
+
+.backtotop, .backtolist
+{ 
+	background: #333; 
+	padding: 5px; 
+	margin-top: 15px; 
+	text-align: center; 
+	color: #06A8F9;
+	cursor: pointer;
+	display: inline-block;
+	text-decoration: none;
+	width: 46%;
+}
+
+.backtotop:hover, .backtolist:hover
+{
+	color: #333;
+	background: #06A8F9; 
+	font-weight: bold;
+}
+
+.readmore 
+{ 
+	background: #333; 
+	padding: 5px; 
+	margin-top: 15px; 
+	text-align: center; 
+	color: #06A8F9;
+	cursor: pointer;
+	display: block;
+	text-decoration: none;
+}
+
+.readmore:hover
+{
+	color: #333;
+	background: #06A8F9; 
+	font-weight: bold;
+}
+
+#closeIcon 
+{ 
+	display: block; 
+	background: url(../resources/close.png) no-repeat; 
+	width: 32px; 
+	height: 32px;
+	cursor: pointer;
+}
+
+#header 
+{ 
+	display: block; 
+	width: 1000px; 
+	height: 50px; 
+	margin-right: auto; 
+	margin-left: auto;
+	background: #333333; 
+	clear: both;
+}
+
+#header h5 { float: left; padding: 5px; padding-left: 30px; width: 800px; }
+#header #closeIcon { background-position: 9px 9px; float: right; padding: 9px; }
+
+#headerLogo 
+{ 
+	display: block; 
+	float: left; 
+	background: url(../resources/home_32x32.png) no-repeat 35px 9px; 
+	width: 32px; 
+	height: 32px; 
+	padding: 9px; 
+	padding-left: 35px; 
+}
+
+/*#layout 
+{ 
+	display: block; 
+	width: 1000px; 
+	height: 800px; 
+	margin-right: auto; 
+	margin-left: auto; 
+	background: #3F3F3F; 
+	clear: both; 
+}*/
+
+#logo, #leftPart { float: left; }
+#logo 
+{ 
+	display: block; 
+	background: url(../resources/logo.gif) no-repeat 20px 35px; 
+	padding-top: 35px; 
+	padding-left: 20px; 
+	padding-right: 10px; 
+	width: 68px; 
+	height: 402px; 
+}
+#leftPart 
+{ 
+	display: block; 
+	padding-top: 30px; 
+	padding-left: 10px; 
+	padding-right: 0px; 
+}
+
+#rightPart 
+{ 
+	display: block; 
+	padding-top: 30px; 
+	padding-left: 10px; 
+	padding-right: 10px; 
+	width: 33%; 
+	height: 770px; 
+	background: #06A8F9; float: right; 
+}
+
+#search
+{
+	text-align: center;
+}
+
+.searchBox
+{
+	padding: 5px;
+	font: inherit;
+	padding-right: 30px;
+	color: black;
+}
+
+.searchBox.inactive 
+{
+	color: #999;
+}
+
+.searchButton
+{
+	padding: 8px;
+	font: inherit;
+	border: none;
+	background: #333333;
+	color: white;
+	font-weight: bold;
+	font-size: .9em;
+	cursor: pointer;
+	text-decoration: none;
+}
+
+.searchButton:hover
+{
+	color: #06A8F9;
+	background: black;
+}
+
+.rightPartHint
+{
+	font-size: .9em;
+}
+
+#searchHint.rightPartHint
+{
+	padding-top: 5px;
+	display: none;
+}
+
+#magnifyingLens
+{
+	background: url(../resources/maglen_active.png) no-repeat;
+	position: absolute;
+	cursor: pointer;
+	width: 24px;
+	height: 24px;
+	cursor: pointer;
+}
+
+#magnifyingLens.inactive
+{
+	background: url(../resources/maglen_inactive.png) no-repeat;
+}
+
+#magnifyingLens.loading
+{
+	background: url(../resources/loader.gif) no-repeat center center;
+}
+
+#searchResults
+{
+	margin-top: 10px;
+	text-align: left;
+}
+
+.searchItemTitle
+{
+	font-weight: bold;
+}
+
+.searchItem
+{
+	margin-left: 5px;
+	margin-right: 5px;
+	padding: 5px;
+	cursor: pointer;
+	background: #06A8F9;
+}
