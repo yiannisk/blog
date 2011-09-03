@@ -9,12 +9,9 @@ $(function () {
 			core.views = [];
 
 			core.map({
-				// This is used to keep track of all view objects. Each view
-				// must have a unique name. It could be different, but I 
-				// like things labelled, to more easily track any problems.
+				// This is used to keep track of all current view objects.
 				registerView: function (view) {
-					if (!this.views[view.name])
-						this.views[view.name] = view;
+					this.views[view.name] = view;
 				},
 			
 				// In order for the layout to function properly, a view
@@ -37,7 +34,9 @@ $(function () {
 						    && (self.views[viewName].region.id == regionId)) {
 
 							// A view has been found. Free it.
-							self.views[viewName].leave( 
+							console.log("Leaving " + viewName);
+							
+							self.views[viewName].leave(
 								function () {
 									self.views[viewName].region = null;
 									self.wait = false;

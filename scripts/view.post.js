@@ -6,7 +6,6 @@ $(function () {
 		make: function (id) {
 			var core = ik.view.make();
 			var enterCallBack = null;
-			var leaveCallBack = null;
 			
 			core.name = "post";
 			core.template = 'entryTemplate';
@@ -31,15 +30,9 @@ $(function () {
 			};
 			
 			core.onLeaveRegion = function (callback) {
-				leaveCallback = callback;
-				layout.requestRegion("comments", core.unloadComplete);
-			};
-			
-			core.unloadComplete = function () {
 				core.detachEventHandlers();
 				$(core.region).fadeOut().html('').fadeIn();
-				
-				if (leaveCallback) leaveCallback();
+				if (callback) callback();
 			};
 			
 			core.loadDataComplete = function (data, textStatus, jqXHR) {
@@ -62,9 +55,11 @@ $(function () {
 			
 			core.handlers = {
 				backtToListClick: function (evt) {
-					layout.draw(
-						ik.view.postList.make(), 
-						"leftPartContents");
+					layout.requestRegion("comments", function () {
+						layout.draw(
+							ik.view.postList.make(), 
+							"leftPartContents");
+					});
 					
 					return false;
 				}

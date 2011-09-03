@@ -180,9 +180,8 @@ $(function () {
 				},
 				
 				magnifyingLensClick: function (evt) {
-					console.log("Out");
-					console.log($(evt.currentTarget));
 					core.searchForText($('#searchText').val());
+					return false;
 				}
 			};
 			

@@ -283,6 +283,15 @@ h5 { display: block; font-size: 1.1em; }
 {
 	margin-top: 10px;
 	text-align: left;
+	display: none;
+}
+
+#searchResults:before {
+	Content: "Search Results";
+	font-weight: bold;
+	font-size: 1.3em;
+	padding-top: 10px;
+	margin-left: 10px;
 }
 
 .searchItemTitle
@@ -292,10 +301,37 @@ h5 { display: block; font-size: 1.1em; }
 
 .searchItem
 {
-	margin-left: 7px;
-	margin-right: 5px;
+	margin-left: 5px;
+	margin-right: 10px;
 	padding: 5px;
 	cursor: pointer;
 	background: #06A8F9;
 	/*text-align: center;*/
+}
+
+#comments {
+	display: none;
+	margin-top: 5px;
+	/*background: #000;*/
+	margin-left: -10px;
+	margin-right: -10px;
+	padding: 5px;
+}
+
+#comments:before {
+	Content: "Comments";
+		/*url(../resources/chat_bubble_message_square_icon24.png);*/
+	font-weight: bold;
+	/*text-align: center;*/
+	display: block;
+	font-size: 1.3em;
+	padding-top: 10px;
+	margin-left: 15px;
+}
+
+.comment
+{
+	margin-left: 10px;
+	margin-right: 10px;
+	padding: 5px;
 }
