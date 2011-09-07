@@ -43,10 +43,14 @@ $(function () {
 			
 			core.attachEventHandlers = function () {
 				$(".readmore").click( core.handlers.readMoreClick );
+				$(".retweet").hover(
+					core.handlers.retweetIn,
+					core.handlers.retweetOut);
 			};
 			
 			core.detachEventHandlers = function () {
 				$(".readmore").unbind("click");
+				$(".retweet").unbind("hover");
 			};
 			
 			core.handlers = {
@@ -59,6 +63,16 @@ $(function () {
 					layout.draw(ik.view.post.make(id), 'leftPartContents');
 					
 					return false;
+				},
+				
+				retweetIn: function (evt) {
+					$(evt.currentTarget).animate(
+						{backgroundColor: '#000000'}, 'fast');
+				},
+				
+				retweetOut: function (evt) {
+					$(evt.currentTarget).animate(
+						{backgroundColor: '#3F3F3F'}, 'fast');
 				}
 			};
 			

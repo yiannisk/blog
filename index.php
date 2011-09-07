@@ -31,12 +31,12 @@
 		</div>
 	</div>
 	
-	<!--script type="text/javascript" src="scripts/external/jquery-1.5.min.js"></script-->
 	<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
 	<script type="text/javascript" src="scripts/external/jquery-ui-1.8.13.custom.min.js"></script>
 	<script type="text/javascript" src="scripts/external/jquery.syntaxhighlighter.min.js"></script>
 	<script type="text/javascript" src="scripts/external/jquery.json-2.2.min.js"></script>
-	<script type="text/javascript" src="scripts/external/jquery.tmpl.min.js"></script>
+	<script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery.templates/beta1/jquery.tmpl.js"></script>
+	<script type="text/javascript" src="scripts/external/date.format.js"></script>
 	<script type="text/javascript" src="scripts/dynamic.js"></script>
 	<script type="text/javascript" src="scripts/layout.js"></script>
 	<script type="text/javascript" src="scripts/view.js"></script>
@@ -52,6 +52,16 @@
 			layout.draw(ik.view.postList.make(), "leftPartContents");
 			layout.draw(ik.view.header.make(), "header");
 			layout.draw(ik.view.search.make(), "search");
+			
+			$.extend(jQuery.tmpl.tag, {
+				'unixdate': {
+					_default: { $1: "Please enter some text..." },
+					open: 'var newDate = new Date(); ' 
+						+ 'newDate.setTime($1*1000);'
+						+ 'dateString = newDate.format("dd/mm/yyyy HH:MM");'
+						+ '_=_.concat(dateString);'
+				}
+			});
 		});
 	</script>
 </body>

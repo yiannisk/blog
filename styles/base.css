@@ -87,14 +87,29 @@ h5 { display: block; font-size: 1.1em; }
 .preview { margin-top: 10px; }
 .time { font-size: .8em; margin-top: 7px; color: #ddd; display: inline-block; }
 
+.retweet:before 
+{ 
+	Content: url(../resources/twitter_plain_white.png);
+	line-height: 1.3em;
+	display: inline-block;
+	vertical-align: middle;
+	padding: 1px;
+	padding-left: 5px;
+	padding-right: 5px;
+	cursor: pointer;
+}
+
 .retweet 
 { 
+	padding: 1px;
+	padding-left: 0px;
+	padding-right: 5px;
 	margin-left: 10px; 
-	padding-left: 20px; 
-	margin-top: 8px; 
 	display: inline-block;
 	line-height: 1.3em;
-	background: url(../resources/twitter_blue_gray.png) no-repeat 0px 0px;
+	vertical-align: middle;
+	font-size: .7em;
+	cursor: pointer;
 }
 
 .backtotop, .backtolist
@@ -282,8 +297,8 @@ h5 { display: block; font-size: 1.1em; }
 #searchResults
 {
 	margin-top: 10px;
-	text-align: left;
 	display: none;
+	text-align: left;
 }
 
 #searchResults:before {
@@ -306,27 +321,20 @@ h5 { display: block; font-size: 1.1em; }
 	padding: 5px;
 	cursor: pointer;
 	background: #06A8F9;
-	/*text-align: center;*/
 }
 
 #comments {
 	display: none;
-	margin-top: 5px;
-	/*background: #000;*/
-	margin-left: -10px;
-	margin-right: -10px;
-	padding: 5px;
+	margin-top: 10px;
 }
 
 #comments:before {
 	Content: "Comments";
-		/*url(../resources/chat_bubble_message_square_icon24.png);*/
 	font-weight: bold;
-	/*text-align: center;*/
 	display: block;
 	font-size: 1.3em;
 	padding-top: 10px;
-	margin-left: 15px;
+	margin-left: 10px;
 }
 
 .comment
