@@ -29,6 +29,15 @@ $(function () {
 						$.tmpl(core.template, data)
 							.appendTo($(core.region));			
 						
+				
+						$('<img src="resources/delete.png" id="clearSearch" />')
+							.appendTo('#search');
+							
+						$('#clearSearch')
+							.css({position: "absolute", display: "none"})
+							.bind('click', core.handlers.clearSearch);
+							
+						core.adjustClearSearchPosition();
 						
 						$(core.region).fadeIn();
 						core.adjustMagnifyingLensPosition();
@@ -63,6 +72,7 @@ $(function () {
 			};
 			
 			core.searchForText = function (text) {
+				core.handlers.clearSearch();
 				$('.searchItem').unbind('hover');
 				$('#magnifyingLens').addClass('loading');
 				$('#searchResults').fadeOut().html('');
@@ -70,6 +80,22 @@ $(function () {
 					url: 'app_v2/entry/search/' + text,
 					dataType: 'json',
 					success: core.handlers.searchSuccess});
+			};
+			
+			core.adjustClearSearchPosition = function () {
+				$('#clearSearch').css('left', 
+					$('#searchText').position().left 
+						+ $('#searchText').outerWidth()
+						- $('#clearSearch').width()
+						-25
+						+ 'px');
+						
+				$('#clearSearch').css('top', 
+					$('#searchText').position().top 
+						+ $('#searchText').outerHeight() 
+						- $('#clearSearch').width() 
+						-6
+						+ 'px');
 			};
 			
 			core.adjustMagnifyingLensPosition = function () {
@@ -86,7 +112,7 @@ $(function () {
 						- $('#magnifyingLens').width() 
 						-3 
 						+ 'px');
-			}
+			};
 			
 			core.attachEventHandlers = function () {
 				$('#searchText')
@@ -138,30 +164,45 @@ $(function () {
 							core.searchForText(evt.currentTarget.value);
 				},
 				
+				clearSearch: function() {
+					$('#searchResults').html('').fadeOut();
+					$('#searchHint').fadeOut();
+					$('#searchText').val('');
+					$('#clearSearch').fadeOut();
+				},
+				
 				searchSuccess: function(data, textStatus, jqXHR) {
 					$('#magnifyingLens').removeClass('loading');
+					
 					var searchData = data;
 					
+					if (!searchData.length) return;
+					
 					$.ajax({
-					url: "template/entrySearchResults.html",
-					dataType: "html",
-					success: function (data, textStatus, jqXHR) {
-						$('body').append(data);
-						$('#' + core.resultsTemplate)
-							.template(core.resultsTemplate);
-							
-						$.tmpl(core.resultsTemplate, searchData)
-							.appendTo('#searchResults');			
-						
-						$('#searchResults').fadeIn();
-						
-						$('.searchItem')
-							.hover(core.handlers.searchItemIn,
-								core.handlers.searchItemOut);
+						url: "template/entrySearchResults.html",
+						dataType: "html",
+						success: function (data, textStatus, jqXHR) {
+							$('body').append(data);
+							$('#' + core.resultsTemplate)
+								.template(core.resultsTemplate);
 								
-						$('.searchItem')
-							.click(core.handlers.searchItemClick);
-					}});
+							$.tmpl(core.resultsTemplate, searchData)
+								.appendTo('#searchResults');			
+							
+							$('#searchResults').fadeIn();
+							
+							core.adjustClearSearchPosition();
+							$('#clearSearch').fadeIn();
+							
+							$('.searchItem')
+								.hover(core.handlers.searchItemIn,
+									core.handlers.searchItemOut);
+						
+									
+							$('.searchItem')
+								.click(core.handlers.searchItemClick);
+						}
+					});
 				},
 				
 				searchItemIn: function (evt) {
