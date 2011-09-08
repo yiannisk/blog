@@ -86,7 +86,7 @@ $(function () {
 							
 					this.views[view].message(message, callback);
 					return true;
-				}
+				},
 			});
 			
 			return core;
