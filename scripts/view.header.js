@@ -55,7 +55,7 @@ $(function () {
 				
 				core.handlers = {
 					closeIconClick: function (evt) {
-						$("#header").hide('slide', { direction: "up" }, 
+						$("#header").fadeOut(
 							function () {
 								layout.sendMessage("search","HEADER_HIDDEN");
 							});

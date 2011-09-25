@@ -11,6 +11,18 @@ $(function () {
 				wait: false,
 				waittime: 100,
 				
+				hold: function () {
+					this.wait = true;
+				},
+				
+				resume: function () { 
+					this.wait = false; 
+				},
+				
+				isHolding: function () { 
+					return this.wait; 
+				},
+				
 				// the queue of deferred calls
 				queue: [],
 				
@@ -20,8 +32,7 @@ $(function () {
 					for(entry in map) this.register(entry, map[entry]);
 				},
 				
-				// registers a deferred method with the internals of the
-				// object.
+				// registers a wrapper to invoke the method.
 				register: function (name, func) {
 					var self = this;
 					var nameForDispatch = name;
@@ -70,8 +81,10 @@ $(function () {
 					
 					// if something in the call needs waiting, wait
 					// as long as necessary.
-					if (self.wait)
+					if (self.wait) {
 						setTimeout(self.done, self.waittime, self);
+						return;
+					}
 					
 					// get and call the current function.
 					var currentCall = self.queue.shift();
@@ -79,6 +92,23 @@ $(function () {
 					
 					// move to the next item asynchronously.
 					setTimeout( function () { self.done(self); }, 1 );
+				},
+				
+				// provides an alternative ajax method that is aware
+				// of dynamic's capabilities.
+				ajax: function (call) {
+					var self = this;
+					var oldComplete = call.complete;
+
+					call.complete = function (jqXHR, textStatus) {
+						if (oldComplete)
+							oldComplete(jqXHR, textStatus);
+						
+						self.resume();
+					};
+					
+					self.hold();
+					$.ajax(call);
 				}
 			};
 		}
