@@ -26,9 +26,12 @@
 			<div id="leftPartContents"></div>
 		</div>
 		<div id="rightPart">
+			<div id="bioSide"></div>
 			<div id="search"></div>
 			<div id="comments"></div>
 		</div>
+		
+		<div id="bio"></div>
 	</div>
 	
 	<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
@@ -46,6 +49,7 @@
 	<script type="text/javascript" src="scripts/view.post.js"></script>
 	<script type="text/javascript" src="scripts/view.search.js"></script>
 	<script type="text/javascript" src="scripts/view.comments.js"></script>
+	<script type="text/javascript" src="scripts/view.bio.js"></script>
 	<script type="text/javascript">
 		var layout = {};
 		$(function () {
@@ -53,30 +57,7 @@
 			layout.draw(ik.view.postList.make(), "leftPartContents");
 			layout.draw(ik.view.header.make(), "header");
 			layout.draw(ik.view.search.make(), "search"); 
-			
-			$('<div id="bio"></div>').appendTo('#layout');
-			$('#bio').hide();
-			
-			$('#logo').hover(
-				function () {
-					$('#bio').css({
-						width: "550px",
-						height: $('#layout').innerHeight() + "px",
-						position: "absolute",
-						background: "#222",
-						left: ($('#layout').position().left
-								- 126
-								+ (($('#layout').outerWidth() - 550) / 2)) 
-								+ "px"
-					});
-					
-					$('#bio').fadeIn('slow');
-				},
-				function () {
-					$('#bio').fadeOut('fast');
-				}
-			);
-			
+			layout.draw(ik.view.bio.make(), "bio");
 		});
 	</script>
 </body>

@@ -344,3 +344,21 @@ h5 { display: block; font-size: 1.1em; }
 	margin-right: 10px;
 	padding: 5px;
 }
+
+#bio {
+	display: none;
+	background: #222;
+	position: absolute;
+	width: 550px;
+}
+
+.marginBottom10px { margin-bottom: 10px; }
+.moderateText { font-size: 1.1em; }
+.justified { text-align: justify; }
+.blue { color: #57c7ff; }
+.lightGrey { color: #ddd; }
+
+.bioContainer { margin: 30px; margin-top: 35px; }
+.bioText { float: left; width: 440px; }
+.bioPhoto { float: right; margin-left: 20px; margin-bottom: 10px; }
+.bioClose { float: right; cursor: pointer; }
