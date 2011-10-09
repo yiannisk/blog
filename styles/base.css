@@ -338,6 +338,22 @@ h5 { display: block; font-size: 1.1em; }
 	margin-left: 10px;
 }
 
+#comments a.addComment {
+	font-size: .75em;
+	margin-left: 10px;
+	margin-right: 10px;
+	margin-top: 5px;
+	padding: 5px;
+	display: block;
+	background: #006ea5;
+	text-align: right;
+	text-decoration: none;
+}
+
+#comments a.addComment:hover {
+	background: black;
+}
+
 .comment
 {
 	margin-left: 10px;
@@ -350,6 +366,19 @@ h5 { display: block; font-size: 1.1em; }
 	background: #222;
 	position: absolute;
 	width: 550px;
+}
+
+#bioSide {
+	display: none;
+	margin-left: 20px;
+}
+
+#bioSide a {
+	text-decoration: none;
+}
+
+#bioSide a:hover {
+	text-decoration: underline;
 }
 
 .marginBottom10px { margin-bottom: 10px; }

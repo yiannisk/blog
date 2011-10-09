@@ -38,7 +38,7 @@
 	<script type="text/javascript" src="scripts/external/jquery-ui-1.8.13.custom.min.js"></script>
 	<script type="text/javascript" src="scripts/external/jquery.syntaxhighlighter.min.js"></script>
 	<script type="text/javascript" src="scripts/external/jquery.json-2.2.min.js"></script>
-	<script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery.templates/beta1/jquery.tmpl.js"></script>
+	<script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery.templates/beta1/jquery.tmpl.min.js"></script>
 	<script type="text/javascript" src="scripts/external/date.format.js"></script>
 	<script type="text/javascript" src="scripts/jquery.tmpl.unixdate.js"></script>
 	<script type="text/javascript" src="scripts/dynamic.js"></script>
@@ -50,6 +50,7 @@
 	<script type="text/javascript" src="scripts/view.search.js"></script>
 	<script type="text/javascript" src="scripts/view.comments.js"></script>
 	<script type="text/javascript" src="scripts/view.bio.js"></script>
+	<script type="text/javascript" src="scripts/template.js"></script>
 	<script type="text/javascript">
 		var layout = {};
 		$(function () {

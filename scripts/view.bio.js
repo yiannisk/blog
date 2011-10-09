@@ -6,34 +6,25 @@ $(function () {
 		make: function () {
 			var core = ik.view.make();
 			core.name = 'bio';
-			core.template = 'bioTemplate';
-			core.sideTemplate = 'bioSideTemplate';
 			core.showSearch = false;
 			core.showComments = false;
 			
 			core.onEnterRegion = function (callback) {
-				$.ajax({
-						url: 'template/bioSide.html',
-						dataType: 'html',
-						success: function (data, textStatus, jqXHR) {
-							$('body').append(data);
-							$('#' + core.sideTemplate) 
-								.template(core.sideTemplate);
-						}});
+				var cb = callback;
 			
-				$.ajax({
-						url: 'template/bio.html',
-						dataType: 'html',
-						success: function (data, textStatus, jqXHR) {
-							$('body').append(data);
-							$('#' + core.template) 
-								.template(core.template);
-								
-							$.tmpl(core.template, data)
-								.appendTo($(core.region));
-							
-							core.attachEventHandlers();
-						}});
+				core.template2('bioSide', function () {
+					core.templates.bioSide.apply(null, function (data) {
+						$("#bioSide").hide().html(data);
+					})
+				});
+				
+				core.template2('bio', function () {
+					core.templates.bio.apply(null, function (data) {
+						$(data).appendTo($(core.region));
+						core.attachEventHandlers();
+						if (cb) cb();
+					});
+				});
 			};
 			
 			core.onLeaveRegion = function (callback) {
@@ -69,22 +60,24 @@ $(function () {
 						
 					if (core.showComments)
 						$("#comments").fadeOut("fast");
-					
-					$("#bioSide").html(
-						$.tmpl(core.sideTemplate, null));
 
-					$("#bioSide").fadeIn("slow");
+					setTimeout(function () {
+						$("#bioSide").fadeIn("slow");}, 150);
 				},
 				
 				bioCloseClick: function () {
 					$("#bioSide").fadeOut("fast");
 					$(core.region).fadeOut("fast");
 					
-					if (core.showSearch)
-						$("#search").fadeIn("slow");
-						
-					if (core.showComments)
-						$("#comments").fadeIn("slow");
+					setTimeout(function () {
+						if (core.showSearch) {
+							$("#search").fadeIn("slow");
+							console.log("Should show search.");
+						}
+							
+						if (core.showComments)
+							$("#comments").fadeIn("slow");
+					}, 150);
 				}
 			};
 			

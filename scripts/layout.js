@@ -33,9 +33,6 @@ $(function () {
 						if ((self.views[viewName].region) 
 						    && (self.views[viewName].region.id == regionId)) {
 
-							// A view has been found. Free it.
-							console.log("Leaving " + viewName);
-							
 							self.views[viewName].leave(
 								function () {
 									self.views[viewName].region = null;

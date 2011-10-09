@@ -1,7 +1,10 @@
 <script id="latestCommentsTemplate" type="text/x-jquery-tmpl">
-<div class="comment" id="comment${Id}">
-	<div class="time">{{unixdate CreatedOn}}</div>
-	<div class="author">${Author}</div>
-	<div class="content">{{html Content}}</div>
+<a href="#addComment"class="addComment">Add Comment</a>
+{{each(i, comment) Comments}}
+<div class="comment" id="comment${comment.Id}">
+	<div class="time">{{unixdate comment.CreatedOn}}</div>
+	<div class="author">${comment.Author}</div>
+	<div class="content">{{html comment.Content}}</div>
 </div>
+{{/each}}
 </script>
