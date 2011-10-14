@@ -6,6 +6,7 @@
 	
 	<link rel="stylesheet" type="text/css" href="styles/base.css" />
 	<link rel="stylesheet" type="text/css" href='styles/external/jquery-ui-1.8.13.custom.css' />
+	<link rel="stylesheet" type="text/css" href='styles/external/colorbox.css' />
 	<!-- handle CSS compatibility issues below -->
 	<!--[if IE]>
 		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js">
@@ -35,10 +36,11 @@
 	</div>
 	
 	<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+	<script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery.templates/beta1/jquery.tmpl.min.js"></script>
 	<script type="text/javascript" src="scripts/external/jquery-ui-1.8.13.custom.min.js"></script>
 	<script type="text/javascript" src="scripts/external/jquery.syntaxhighlighter.min.js"></script>
 	<script type="text/javascript" src="scripts/external/jquery.json-2.2.min.js"></script>
-	<script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery.templates/beta1/jquery.tmpl.min.js"></script>
+	<script type="text/javascript" src="scripts/external/jquery.colorbox-min.js"></script>
 	<script type="text/javascript" src="scripts/external/date.format.js"></script>
 	<script type="text/javascript" src="scripts/jquery.tmpl.unixdate.js"></script>
 	<script type="text/javascript" src="scripts/dynamic.js"></script>

@@ -63,6 +63,8 @@ table{
   border-spacing:0;
 }
 
+*:focus, *:active {-moz-outline:0px none red; outline:0px none red;}
+
 /*------------------------------------*\
   MAIN
 \*------------------------------------*/
@@ -338,7 +340,8 @@ h5 { display: block; font-size: 1.1em; }
 	margin-left: 10px;
 }
 
-#comments a.addComment {
+#comments a.addComment 
+{
 	font-size: .75em;
 	margin-left: 10px;
 	margin-right: 10px;
@@ -350,7 +353,8 @@ h5 { display: block; font-size: 1.1em; }
 	text-decoration: none;
 }
 
-#comments a.addComment:hover {
+#comments a.addComment:hover 
+{
 	background: black;
 }
 
@@ -361,14 +365,79 @@ h5 { display: block; font-size: 1.1em; }
 	padding: 5px;
 }
 
-#bio {
+.addCommentTitle 
+{
+	text-align: center;
+}
+
+#addComment 
+{ 
+	background: #06A8F9 url(../resources/commentsBackground.jpg) repeat-x; 
+	height: 360px;
+	width: 340px;
+	padding: 20px;
+	padding-left: 30px;
+	padding-right: 30px;
+	text-align: left;
+}
+
+#addComment label 
+{ 
+	font-size: .9em; 
+	display: inline-block; 
+	margin-bottom: 5px; 
+}
+
+#addComment input, #addComment textarea { 
+	width: 99%; 
+	border: 1px solid white;
+	background: #333;
+	font-family: inherit;
+	font-size: 1em;
+	color: white;
+} 
+#addComment textarea { 
+	height: 150px;
+}
+
+#commentLabel {
+	float: left;
+}
+
+#textCounter {
+	float: right;
+	color: #ccc;
+}
+
+#questionBox 
+{
+	float: left;
+}
+
+#question 
+{
+	font-size: .9em;
+	margin-top: 25px;
+	font-weight: bold;
+}
+
+#answer 
+{
+	margin-top: 5px;
+	font-size: 1.6em;
+	font-weight: bold;
+}
+
+#bio 
+{
 	display: none;
 	background: #222;
 	position: absolute;
 	width: 550px;
 }
 
-#bioSide {
+#bioSide 
+{
 	display: none;
 	margin-left: 20px;
 }
@@ -379,6 +448,32 @@ h5 { display: block; font-size: 1.1em; }
 
 #bioSide a:hover {
 	text-decoration: underline;
+}
+
+.answerButton 
+{
+	background: url(../resources/buttonOut.png) no-repeat;
+	display: inline-block;
+	width: 58px;
+	height: 22px;
+	padding: 15px;
+	margin-top: 25px;
+	margin-left: 10px;
+	font-size: 1.3em;
+	text-align: center;
+	text-decoration: none;
+	color: #06A8F9;
+}
+
+.answerButton:hover
+{
+	background: url(../resources/buttonIn.png) no-repeat;
+	color: white;
+}
+
+#addComment .answerButton
+{
+	float: right;
 }
 
 .marginBottom10px { margin-bottom: 10px; }

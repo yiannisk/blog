@@ -10,8 +10,24 @@ $(function () {
 			core.name = 'latestComments';
 			core.mainTemplate = 'latestCommentsTemplate';
 			core.entryid = entryid;
+			core.images = [];
 			
 			core.onEnterRegion = function (callback) {
+				// preload the button images for the
+				// add comment dialog.
+				var imgs = [
+					"resources/buttonIn.png",
+					"resources/buttonOut.png",
+					"resources/commentsBackground.jpg"
+				];
+				
+				for(var i = 0; i < imgs.length; i++) {
+					var img = new Image();
+					img.src = imgs[i];
+					core.images.push(img);
+				}
+					
+			
 				enterCallBack = callback;
 				core.template2('latestComments', function () {
 					$.ajax({
@@ -29,9 +45,6 @@ $(function () {
 			
 			core.loadDataComplete = function (data, textStatus, jqXHR) {
 				$(core.region).hide().html('');
-
-				//if (!data.length) return;
-				console.log({Comments: data});
 				core.templates.latestComments.apply({Comments: data}, 
 					function (rendered) {
 						$(core.region).html(rendered).fadeIn();
@@ -40,10 +53,17 @@ $(function () {
 					});
 			};
 			
-			core.attachEventHandlers = function () {};
-			core.detachEventHandlers = function () {};
+			core.attachEventHandlers = function () {
+				$("a.addComment").colorbox(
+					{inline: true, width: "410px", height: "430px"});
+			};
 			
-			core.handlers = {};
+			core.detachEventHandlers = function () {
+				// how to remove the colorbox?
+			};
+			
+			core.handlers = {
+			};
 			
 			return core;
 		}

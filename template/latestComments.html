@@ -7,4 +7,24 @@
 	<div class="content">{{html comment.Content}}</div>
 </div>
 {{/each}}
+<div style="display: none;">
+	<div id="addComment">
+		<div class="addCommentTitle"><h3>Add Comment</h3></div>
+		<br />
+		<fieldset>
+		<label for="email">Email:</label>
+		<input type="text" name="email" id="email" />
+		<br /><br />
+		<label for="comment" id="commentLabel">Your comment:</label>
+		<label for="comment" id="textCounter">0/500</label>
+		<textarea id="comment" name="comment"></textarea>
+		</fieldset>
+		<div id="questionBox">
+			<div id="question">Is that right?</div>
+			<div id="answer">2 x 3 = 6</div>
+		</div>
+		<a href="#" class="answerButton">No</a>
+		<a href="#" class="answerButton">Yes</a>
+	</div>
+</div>
 </script>
