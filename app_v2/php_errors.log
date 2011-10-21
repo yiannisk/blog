@@ -1,8 +1,0 @@
-[21-Oct-2011 23:18:51] PHP Fatal error:  Call to a member function bind_param() on a non-object in /home/kl1nt/Dropbox/latest blog resources/www/app_v2/model/EntryModel.php on line 17
-[21-Oct-2011 23:19:00] PHP Fatal error:  Call to a member function bind_param() on a non-object in /home/kl1nt/Dropbox/latest blog resources/www/app_v2/model/EntryModel.php on line 17
-[21-Oct-2011 23:19:07] PHP Fatal error:  Call to a member function bind_param() on a non-object in /home/kl1nt/Dropbox/latest blog resources/www/app_v2/model/EntryModel.php on line 17
-[21-Oct-2011 23:19:08] PHP Fatal error:  Call to a member function bind_param() on a non-object in /home/kl1nt/Dropbox/latest blog resources/www/app_v2/model/EntryModel.php on line 17
-[21-Oct-2011 23:19:17] PHP Fatal error:  Call to a member function bind_param() on a non-object in /home/kl1nt/Dropbox/latest blog resources/www/app_v2/model/EntryModel.php on line 17
-[21-Oct-2011 23:19:17] PHP Fatal error:  Call to a member function bind_param() on a non-object in /home/kl1nt/Dropbox/latest blog resources/www/app_v2/model/StaticModel.php on line 9
-[21-Oct-2011 23:19:33] PHP Fatal error:  Call to a member function bind_param() on a non-object in /home/kl1nt/Dropbox/latest blog resources/www/app_v2/model/EntryModel.php on line 17
-[21-Oct-2011 23:22:20] PHP Fatal error:  Call to a member function bind_param() on a non-object in /home/kl1nt/Dropbox/latest blog resources/www/app_v2/model/EntryModel.php on line 19
