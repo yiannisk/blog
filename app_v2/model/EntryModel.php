@@ -14,6 +14,7 @@
 		{
 			$statement = parent::prepare(
 				'SELECT * FROM entry ORDER BY createdon DESC LIMIT ?');
+
 			$statement->bind_param('i', $count);
 			
 			return parent::rows($statement);

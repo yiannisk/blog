@@ -23,19 +23,23 @@
 		public function handleRawRequest($_SERVER, $_GET, $_POST) {
 			$url = $this->getFullUrl($_SERVER);
 			$method = $_SERVER['REQUEST_METHOD'];
-			
 			$item = isset($_GET['item']) ? $_GET['item'] : '';
 			$action = isset($_GET['action']) ? $_GET['action'] : '';
 			$identifier = isset($_GET['id']) ? $_GET['id'] : '';
 			$route = new Route($item, $action, $identifier);
 			
 			$arguments = array();
-			
+			#var_dump($route);
+			#var_dump($method);
+
 			switch ($method) {
 				case 'GET':
 					for($i = 0; $i < 4; $i++)
 						if (isset($_GET["p$i"])) 
 							$arguments["p$i"] = $_GET["p$i"];
+					
+					#var_dump($arguments);
+					#die("All cool");
 
 					break;
 					

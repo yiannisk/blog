@@ -6,8 +6,8 @@
 		function latest($count, $entryid)
 		{
 			$statement = parent::prepare(
-				'SELECT * FROM Comment WHERE EntryId = ?'
-					. ' ORDER BY CreatedOn DESC LIMIT ?');
+				'SELECT * FROM comment WHERE entryid = ?'
+					. ' ORDER BY createdon DESC LIMIT ?');
 			
 			$statement->bind_param('ii', $entryid, $count);
 			

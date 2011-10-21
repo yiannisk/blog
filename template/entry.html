@@ -1,11 +1,11 @@
 <script id="entryTemplate" type="text/x-jquery-tmpl">
-	<div class="entry" id="entry${Id}">
-		<h1>${Title}</h1>
-		<h3>${Subtitle}</h3>
-		<div class="time">{{unixdate CreatedOn}}</div>
+	<div class="entry" id="entry${id}">
+		<h1>${title}</h1>
+		<h3>${subtitle}</h3>
+		<div class="time">{{unixdate createdon}}</div>
 		<div class="retweet">retweet</div>
-		<div class="preview" id="preview${Id}">{{html Preview}}</div>
-		<div class="content" id="content${Id}">{{html Contents}}</div>
+		<div class="preview" id="preview${id}">{{html preview}}</div>
+		<div class="content" id="content${id}">{{html contents}}</div>
 		<a href="#" class="backtolist">Posts list</a>
 		<a href="#" class="backtotop">Back to top</a>
 	</div>

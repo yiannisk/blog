@@ -3,7 +3,6 @@ RewriteEngine on
 
 RewriteBase /blog/app_v2/
 
-
 RewriteCond %{REQUEST_URI} !^(index.php|ajax.invoke.tests.html)$
 
 RewriteCond %{REQUEST_METHOD} ^POST$
