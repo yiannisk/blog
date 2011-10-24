@@ -1,4 +1,9 @@
 <!DOCTYPE html>
+<?php
+	session_start();
+	$_SESSION['userLevel'] = 50; // public.
+	$_SESSION['canPostComment'] = false;
+?>
 <html lang="en">
 <head>
 	<meta charset="utf-8" />
