@@ -138,7 +138,14 @@
 		}
 		
 		public function put($req) {
-			$this->respond('Ok');
+			try {
+				$req->route->loadController(DEFAULT_CONTROLLER);
+				$req->route->loadAction(PUT_DEFAULT);
+				$req->route->dispatch($req);
+				$this->respond('Ok');
+			} catch (Exception $e) {
+				$this->respond('InternalServerError');
+			}
 		}
 		
 		public function delete($req) {

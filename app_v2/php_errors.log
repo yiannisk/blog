@@ -13,3 +13,13 @@
 [22-Oct-2011 19:11:30] PHP Notice:  A session had already been started - ignoring session_start() in /home/kl1nt/Dropbox/latest blog resources/www/app_v2/controller/Controller.php on line 2
 [22-Oct-2011 19:13:38] PHP Notice:  Undefined property: Request::$id in /home/kl1nt/Dropbox/latest blog resources/www/app_v2/controller/MathController.php on line 43
 [22-Oct-2011 19:13:50] PHP Notice:  Undefined property: Request::$identifier in /home/kl1nt/Dropbox/latest blog resources/www/app_v2/controller/MathController.php on line 43
+[25-Oct-2011 21:27:53] PHP Notice:  Undefined variable: userLevel in /home/kl1nt/Dropbox/latest blog resources/www/app_v2/controller/CommentsController.php on line 40
+[25-Oct-2011 22:05:56] PHP Warning:  mysql_real_escape_string(): Access denied for user 'kl1nt'@'localhost' (using password: NO) in /home/kl1nt/Dropbox/latest blog resources/www/app_v2/controller/CommentsController.php on line 62
+[25-Oct-2011 22:05:56] PHP Warning:  mysql_real_escape_string(): A link to the server could not be established in /home/kl1nt/Dropbox/latest blog resources/www/app_v2/controller/CommentsController.php on line 62
+[25-Oct-2011 22:05:56] PHP Warning:  mysql_real_escape_string(): Access denied for user 'kl1nt'@'localhost' (using password: NO) in /home/kl1nt/Dropbox/latest blog resources/www/app_v2/controller/CommentsController.php on line 64
+[25-Oct-2011 22:05:56] PHP Warning:  mysql_real_escape_string(): A link to the server could not be established in /home/kl1nt/Dropbox/latest blog resources/www/app_v2/controller/CommentsController.php on line 64
+[25-Oct-2011 22:11:42] PHP Notice:  Undefined index: entryId in /home/kl1nt/Dropbox/latest blog resources/www/app_v2/controller/CommentsController.php on line 59
+[25-Oct-2011 23:32:09] PHP Notice:  Undefined variable: statement in /home/kl1nt/Dropbox/latest blog resources/www/app_v2/controller/CommentsController.php on line 80
+[25-Oct-2011 23:32:09] PHP Fatal error:  Call to a member function execute() on a non-object in /home/kl1nt/Dropbox/latest blog resources/www/app_v2/controller/CommentsController.php on line 80
+[25-Oct-2011 23:33:47] PHP Fatal error:  Call to a member function bind_param() on a non-object in /home/kl1nt/Dropbox/latest blog resources/www/app_v2/model/CommentsModel.php on line 30
+[25-Oct-2011 23:34:41] PHP Fatal error:  Call to a member function bind_param() on a non-object in /home/kl1nt/Dropbox/latest blog resources/www/app_v2/model/CommentsModel.php on line 31

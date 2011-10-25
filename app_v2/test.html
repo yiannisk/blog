@@ -1,0 +1,24 @@
+<html>
+	<body>
+		<script type="text/javascript" 
+			src="http://code.jquery.com/jquery-latest.min.js"></script>
+			
+		<script type="text/javascript">
+			$(function () {
+				$.ajax({
+					url: 'comments',
+					dataType: 'text',
+					data: {
+						entryId: 1,
+						author: 'ikaradimas@hotmail.com',
+						contents: 'test tst test'
+					},
+					type: 'POST',
+					success: function (data) {
+						$("body").append(data);
+					}
+				});
+			});
+		</script>
+	</body>
+</html>

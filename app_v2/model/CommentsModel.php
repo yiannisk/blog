@@ -13,5 +13,24 @@
 			
 			return parent::rows($statement);
 		}
+
+
+		public function lastCommentCreatedOn() {
+			$statement = parent::prepare(
+				'SELECT max(CreatedOn) as LastCreatedOn FROM comment');
+
+			return parent::scalar($statement);
+		}
+
+		public function create($entryid, $author, $contents) {
+			$statement = parent::prepare(
+				'INSERT INTO comment (entryid, author, contents, createdon) '
+					. 'VALUES (?, ?, ?, ?)');
+
+			$statement->bind_param('issi', $entryid, $author, 
+				$contents, time());
+
+			$statement->execute();
+		}
 	}
 ?>

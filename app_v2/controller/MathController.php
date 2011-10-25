@@ -41,7 +41,7 @@
 
 			$_SESSION['canPostComment'] = $success;
 			
-			echo $success ? "succeeded" : "failed";
+			echo $success ? "success" : "failure";
 		}
 	}
 ?>
