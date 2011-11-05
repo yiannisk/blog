@@ -23,3 +23,5 @@
 [25-Oct-2011 23:32:09] PHP Fatal error:  Call to a member function execute() on a non-object in /home/kl1nt/Dropbox/latest blog resources/www/app_v2/controller/CommentsController.php on line 80
 [25-Oct-2011 23:33:47] PHP Fatal error:  Call to a member function bind_param() on a non-object in /home/kl1nt/Dropbox/latest blog resources/www/app_v2/model/CommentsModel.php on line 30
 [25-Oct-2011 23:34:41] PHP Fatal error:  Call to a member function bind_param() on a non-object in /home/kl1nt/Dropbox/latest blog resources/www/app_v2/model/CommentsModel.php on line 31
+[05-Nov-2011 02:40:23] PHP Notice:  Undefined index: canPosWtComment in /home/kl1nt/Dropbox/latest blog resources/www/app_v2/controller/CommentsController.php on line 47
+[05-Nov-2011 14:18:31] PHP Notice:  session_start(): ps_files_cleanup_dir: opendir(/var/lib/php5) failed: Permission denied (13) in /home/kl1nt/Dropbox/latest blog resources/www/app_v2/index.php on line 7

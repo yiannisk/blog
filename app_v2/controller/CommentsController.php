@@ -39,13 +39,13 @@
 				echo "failure";
 				return;
 			}
-			
+
 			// check captcha trigger.
-			/*if (!isset($_SESSION['canPostComment']) ||
-!$_SESSION['canPostComment']) {
+			if (!isset($_SESSION['canPostComment']) 
+				 || !$_SESSION['canPostComment']) {
 				echo "failure";
 				return;
-			}*/
+			}
 
 			// check flood limit.
 			$commentsModel = new CommentsModel();
@@ -69,7 +69,7 @@
 				isset($req->arguments['contents'])
 					? $req->arguments['contents']
 					: '');
-
+			
 			if ($entryId == 0 || strlen($author) == 0 || strlen($contents) == 0) {
 				echo "failure";
 				return;
@@ -80,6 +80,7 @@
 				$commentsModel->create($entryId, $author, $contents);
 				echo "success";
 			} catch (Exception $e) {
+				echo $e;
 				echo "failure";
 			}
 		}

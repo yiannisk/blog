@@ -11,7 +11,6 @@
 	
 	<link rel="stylesheet" type="text/css" href="styles/base.css" />
 	<link rel="stylesheet" type="text/css" href='styles/external/jquery-ui-1.8.13.custom.css' />
-	<link rel="stylesheet" type="text/css" href='styles/external/colorbox.css' />
 	<!-- handle CSS compatibility issues below -->
 	<!--[if IE]>
 		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js">
@@ -22,6 +21,7 @@
 	<!--link href='http://fonts.googleapis.com/css?family=Arimo:regular,italic,bold,bolditalic' rel='stylesheet' type='text/css'-->
 	<link href='http://fonts.googleapis.com/css?family=Philosopher' rel='stylesheet' type='text/css' />
 	<!--link href='http://fonts.googleapis.com/css?family=Cabin' rel='stylesheet' type='text/css'-->
+	<link rel="stylesheet" type="text/css" href='styles/external/colorbox.css' />
 </head>
 <body id="home">
 

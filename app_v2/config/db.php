@@ -3,5 +3,5 @@
 	define('DB', 'blog');
 	define('USERNAME', 'root');
 	define('PASSWORD', '');
-	define('FLOOD_LIMIT', 60);
+	define('FLOOD_LIMIT', 10);
 ?>

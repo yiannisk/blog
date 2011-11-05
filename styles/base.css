@@ -365,6 +365,16 @@ h5 { display: block; font-size: 1.1em; }
 	padding: 5px;
 }
 
+.comment .author {
+	color: #eee;
+	padding-bottom: 3px;
+}
+
+.comment .content {
+	font-size: .9em;
+	color: #444;
+}
+
 .addCommentTitle 
 {
 	text-align: center;
@@ -396,6 +406,11 @@ h5 { display: block; font-size: 1.1em; }
 	font-size: 1em;
 	color: white;
 } 
+
+#addComment input {
+	padding: 3px;
+}
+
 #addComment textarea { 
 	height: 150px;
 }
@@ -424,7 +439,7 @@ h5 { display: block; font-size: 1.1em; }
 #answer 
 {
 	margin-top: 5px;
-	font-size: 1.6em;
+	font-size: 1.4em;
 	font-weight: bold;
 }
 
@@ -486,3 +501,8 @@ h5 { display: block; font-size: 1.1em; }
 .bioText { float: left; width: 440px; }
 .bioPhoto { float: right; margin-left: 20px; margin-bottom: 10px; }
 .bioClose { float: right; cursor: pointer; }
+
+.invalid {
+	border: 1px solid yellow !important;
+	color: yellow !important;
+}
