@@ -60,21 +60,22 @@
 				? $req->arguments['entryId']
 				: 0;
 
-			$author = mysql_real_escape_string(
+			$author = 
 				substr(isset($req->arguments['author'])
 					? $req->arguments['author']
-					: '', 0, 250));
+					: '', 0, 250);
 
-			$contents = mysql_real_escape_string(
+			$contents = 
 				isset($req->arguments['contents'])
 					? $req->arguments['contents']
-					: '');
+					: '';
 			
 			if ($entryId == 0 || strlen($author) == 0 || strlen($contents) == 0) {
 				echo "failure";
 				return;
 			}
 			
+			ob_start();
 			try {
 				// perform insert query.
 				$commentsModel->create($entryId, $author, $contents);
@@ -83,6 +84,7 @@
 				echo $e;
 				echo "failure";
 			}
+			ob_end_flush();
 		}
 	}
 ?>

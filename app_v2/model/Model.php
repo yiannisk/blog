@@ -99,7 +99,7 @@
 		
 		protected function escapeString($val)
 		{
-			return mysql_real_escape_string($val);
+			return $this->handle->real_escape_string($val);
 		}
 	}
 ?>

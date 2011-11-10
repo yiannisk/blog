@@ -1,9 +1,9 @@
-<!DOCTYPE html>
 <?php
 	session_start();
 	$_SESSION['userLevel'] = 50; // public.
 	$_SESSION['canPostComment'] = false;
 ?>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 	<meta charset="utf-8" />
@@ -41,9 +41,13 @@
 	</div>
 	
 	<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
-	<script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery.templates/beta1/jquery.tmpl.min.js"></script>
+	<script type="text/javascript" src="scripts/windowExtensions.js"></script>
+	<script type="text/javascript"
+src="http://ajax.aspnetcdn.com/ajax/jquery.templates/beta1/jquery.tmpl.min.js"><
+/script>
 	<script type="text/javascript" src="scripts/external/jquery-ui-1.8.13.custom.min.js"></script>
-	<script type="text/javascript" src="scripts/external/jquery.syntaxhighlighter.min.js"></script>
+	<script type="text/javascript"
+src="scripts/external/jquery.snippet.min.js"></script>
 	<script type="text/javascript" src="scripts/external/jquery.json-2.2.min.js"></script>
 	<script type="text/javascript" src="scripts/external/jquery.colorbox-min.js"></script>
 	<script type="text/javascript" src="scripts/external/date.format.js"></script>
@@ -51,6 +55,7 @@
 	<script type="text/javascript" src="scripts/dynamic.js"></script>
 	<script type="text/javascript" src="scripts/layout.js"></script>
 	<script type="text/javascript" src="scripts/view.js"></script>
+	<script type="text/javascript" src="scripts/markdown.js"></script>
 	<script type="text/javascript" src="scripts/view.postlist.js"></script>
 	<script type="text/javascript" src="scripts/view.header.js"></script>
 	<script type="text/javascript" src="scripts/view.post.js"></script>
@@ -61,11 +66,20 @@
 	<script type="text/javascript">
 		var layout = {};
 		$(function () {
+			if (!console || !window.console)
+				window.console = { log: function () {} };
+
 			layout = ik.layout.make();
 			layout.draw(ik.view.postList.make(), "leftPartContents");
 			layout.draw(ik.view.header.make(), "header");
-			layout.draw(ik.view.search.make(), "search"); 
-			layout.draw(ik.view.bio.make(), "bio");
+			layout.draw(ik.view.search.make(), "search");
+			layout.draw(ik.view.bio.make(), "bio",
+				function () {
+					if (location.hash != null && location.hash.length > 1)
+						layout.hash(location.hash);
+				});
+
+			
 		});
 	</script>
 </body>

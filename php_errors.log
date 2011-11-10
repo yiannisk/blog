@@ -1,0 +1,1 @@
+[11-Nov-2011 01:15:26] PHP Notice:  session_start(): ps_files_cleanup_dir: opendir(/var/lib/php5) failed: Permission denied (13) in /home/kl1nt/Dropbox/latest blog resources/www/index.php on line 2

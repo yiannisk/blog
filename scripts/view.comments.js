@@ -97,8 +97,6 @@ $(function () {
 			
 			core.handlers = {
 				colorboxComplete: function () {
-					console.log("colorboxComplete");
-					
 					$('#comment').bind(
 						'keypress keyup keydown change', 
 						core.handlers.commentChange);
@@ -111,6 +109,8 @@ $(function () {
 				},
 				
 				addCommentClick: function (evt) {
+					evt.stopPropagation();
+					
 					core.ajax({
 						url: 'app_v2/math/question',
 						dataType: 'text',
@@ -124,6 +124,8 @@ $(function () {
 							});
 						}	
 					});
+					
+					return false;
 				},
 				
 				commentChange: function () {

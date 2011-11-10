@@ -116,6 +116,8 @@
 		}
 		
 		public function get($req) {
+			ob_start();
+
 			try {
 				$req->route->loadController(DEFAULT_CONTROLLER);
 				$req->route->loadAction(GET_DEFAULT);
@@ -124,6 +126,8 @@
 			} catch (Exception $e) {
 				$this->respond('InternalServerError');
 			}
+
+			ob_end_flush();
 		}
 		
 		public function post($req) {

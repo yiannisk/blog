@@ -10,6 +10,12 @@ $(function () {
 			core.name = 'postList';
 			core.template = 'latestEntriesTemplate';
 			
+			core.supportedHashes = ["post"];
+			
+			core.onHashRequest = function (hashName, hashValue) {
+				$("#readmore" + hashValue).click();
+			};
+			
 			core.onEnterRegion = function (callback) {
 				enterCallBack = callback;
 				$.ajax({
@@ -31,6 +37,15 @@ $(function () {
 				$(core.region).hide().html('');
 				$.tmpl(core.template, data).appendTo($(core.region));			
 				$(core.region).fadeIn();
+				
+				var baseLayoutHeight = 800;
+				var targetLayoutHeight = 
+					($(core.region).height() > baseLayoutHeight)
+						? $(core.region).height() + 100
+						: baseLayoutHeight;
+					
+				$('#layout').css('height', targetLayoutHeight + 'px');
+				$('#rightPart').css('height', (targetLayoutHeight - 30 ) + 'px');
 				
 				core.attachEventHandlers();
 				if (enterCallBack) enterCallBack();

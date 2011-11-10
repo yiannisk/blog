@@ -8,7 +8,7 @@
 
 html,body,div,span,applet,object,iframe,
 h1,h2,h3,h4,h5,h6,p,blockquote,pre,
-a,abbr,acronym,address,big,cite,code,
+a,abbr,acronym,address,big,cite,
 del,dfn,em,img,ins,kbd,q,s,samp,
 small,strike,strong,sub,sup,tt,var,
 b,u,i,center,
@@ -33,9 +33,6 @@ footer,header,hgroup,menu,nav,section{
 }
 body{
   line-height:1;
-}
-ol,ul{
-  list-style:none;
 }
 blockquote,q{
   quotes:none;
@@ -85,7 +82,12 @@ h3 { display: block; font-size: 1.5em; }
 h4 { display: block; font-size: 1.25em; }
 h5 { display: block; font-size: 1.1em; }
 
-.entry { width: 500px; margin-bottom: 30px;}
+.entry { width: 500px; margin-bottom: 30px; }
+
+.entry .preview, .entry .contents {
+	line-height: 1.1em;
+}
+
 .preview { margin-top: 10px; }
 .time { font-size: .8em; margin-top: 7px; color: #ddd; display: inline-block; }
 
@@ -191,7 +193,7 @@ h5 { display: block; font-size: 1.1em; }
 { 
 	display: block; 
 	width: 1000px; 
-	height: 800px; 
+	min-height: 800px; 
 	margin-right: auto; 
 	margin-left: auto; 
 	background: #3F3F3F; 
@@ -505,4 +507,34 @@ h5 { display: block; font-size: 1.1em; }
 .invalid {
 	border: 1px solid yellow !important;
 	color: yellow !important;
+}
+
+ol {
+	margin-left: 15px;
+	margin-bottom: 10px;
+}
+
+.bullets1 li {
+	display: list-item;
+	list-item-type: disc !important;
+	margin-bottom: 10px;
+	margin-left: 10px;
+}
+
+code, pre {
+	font-family: 'courier new', courier;
+	font-size: .8em;
+	font-weight: bold;
+	background: #222;
+	color: #a5c9e0;
+	padding-left: 5px;
+	padding-right: 5px;
+}
+
+pre.blockCode, code.blockCode {
+	display: block;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	margin-top: 15px;
+	margin-bottom: 15px;
 }

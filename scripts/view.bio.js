@@ -9,6 +9,12 @@ $(function () {
 			core.showSearch = false;
 			core.showComments = false;
 			
+			core.supportedHashes = ["profile"];
+			
+			core.onHashRequest = function (hashName, hashValue) {
+				core.handlers.logoClick();
+			};
+			
 			core.onEnterRegion = function (callback) {
 				var cb = callback;
 			
@@ -42,6 +48,8 @@ $(function () {
 			
 			core.handlers = {
 				logoClick: function () {
+					location.hash = "#profile";
+					
 					$(core.region).css({
 						height: $('#layout').innerHeight() + "px",
 						left: ($('#layout').position().left
@@ -66,13 +74,14 @@ $(function () {
 				},
 				
 				bioCloseClick: function () {
+					location.hash = "";
+					
 					$("#bioSide").fadeOut("fast");
 					$(core.region).fadeOut("fast");
 					
 					setTimeout(function () {
 						if (core.showSearch) {
 							$("#search").fadeIn("slow");
-							console.log("Should show search.");
 						}
 							
 						if (core.showComments)

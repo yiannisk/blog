@@ -84,6 +84,15 @@ $(function () {
 					this.views[view].message(message, callback);
 					return true;
 				},
+				
+				hash: function (hashValue) {
+					for(viewName in this.views) {
+						if (this.views[viewName].canHandle(hashValue)) {
+							this.views[viewName].hash(hashValue);
+							return;
+						}
+					}
+				}
 			});
 			
 			return core;

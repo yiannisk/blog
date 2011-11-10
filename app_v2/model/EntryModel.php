@@ -5,8 +5,14 @@
 	{
 		function single($id)
 		{
-			$statement = parent::prepare('SELECT * FROM entry WHERE id = ?');
-			$statement->bind_param('i', $id);
+			if (is_numeric($id)) {
+				$statement = parent::prepare('SELECT * FROM entry WHERE id = ?');
+				$statement->bind_param('i', $id);
+			} else {
+				$statement = parent::prepare('SELECT * FROM entry WHERE code = ?');
+				$statement->bind_param('s', $id);
+			}
+
 			return parent::row($statement);
 		}
 	

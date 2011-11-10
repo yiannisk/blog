@@ -8,13 +8,22 @@ $(function () {
 			core.region = null;
 			core.name = 'baseView';
 			core.templates = {};
-			
 			core.templatePrefix = 'Template';
 			core.templateBase = 'template/';
 			
 			core.templateName = function (name) {
 				return name + core.templatePrefix;
-			}
+			};
+			
+			core.supportedHashes = [];
+			core.canHandle = function (hash) {
+				var parts = hash.substring(1).split(".");
+				for(supportedHash in core.supportedHashes)
+					if (parts[0] == core.supportedHashes[supportedHash])
+						return true;
+					
+				return false;
+			};
 			
 			core.map({
 				enter: function (callback) {
@@ -59,6 +68,12 @@ $(function () {
 					if (this.onMessageReceived) 
 						this.onMessageReceived(message, callback);
 					else if (callback) callback();
+				},
+				
+				hash: function (hashString) {
+					var hashParts = hashString.substring(1).split(".");
+					if (this.onHashRequest)
+						this.onHashRequest(hashParts[0], hashParts[1]);
 				}
 			});
 			
