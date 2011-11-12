@@ -5,7 +5,11 @@ $(function () {
 	ik.layout = ik.layout || {
 		make: function () {
 			var core = ik.dynamic.make();
-		
+			core.completeJoin = ik.join.make(function () {
+				core.hash(location.hash);
+				if (core.loadComplete) core.loadComplete();
+			});
+			
 			core.views = [];
 
 			core.map({
@@ -60,6 +64,7 @@ $(function () {
 					var self = this;
 					var selectedView = view;	
 					var callBack = callback;
+					var joinCall = core.completeJoin.add();
 					
 					// Register the view if it's not already done.
 					self.registerView(view);
@@ -70,7 +75,10 @@ $(function () {
 						// to start rendering, passing it the region's 
 						// reference so it draws itself.
 						selectedView.region = $("#" + regionId)[0];
-						selectedView.enter(callBack);
+						selectedView.enter(function () {
+							if (callBack) callBack();
+							joinCall();
+						});
 					});
 				},
 					

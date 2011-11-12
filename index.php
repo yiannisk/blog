@@ -53,6 +53,7 @@ src="scripts/external/jquery.snippet.min.js"></script>
 	<script type="text/javascript" src="scripts/external/date.format.js"></script>
 	<script type="text/javascript" src="scripts/jquery.tmpl.unixdate.js"></script>
 	<script type="text/javascript" src="scripts/dynamic.js"></script>
+	<script type="text/javascript" src="scripts/join.js"></script>
 	<script type="text/javascript" src="scripts/layout.js"></script>
 	<script type="text/javascript" src="scripts/view.js"></script>
 	<script type="text/javascript" src="scripts/markdown.js"></script>
@@ -73,13 +74,9 @@ src="scripts/external/jquery.snippet.min.js"></script>
 			layout.draw(ik.view.postList.make(), "leftPartContents");
 			layout.draw(ik.view.header.make(), "header");
 			layout.draw(ik.view.search.make(), "search");
-			layout.draw(ik.view.bio.make(), "bio",
-				function () {
-					if (location.hash != null && location.hash.length > 1)
-						layout.hash(location.hash);
-				});
+			layout.draw(ik.view.bio.make(), "bio");
 
-			
+			layout.hash(location.hash);
 		});
 	</script>
 </body>
