@@ -27,7 +27,7 @@ $(function () {
 							.template(core.template);
 
 						$.ajax({
-							url: "app_v2/entry/latest/3",
+							url: "app_v2/entry/latest/5",
 							dataType: "json",
 							success: core.loadDataComplete});
 					}});

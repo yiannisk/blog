@@ -15,7 +15,7 @@ ik.join = ik.join || {
 				if (triggerCallback)
 					triggerCallback();
 		};
-
+        
 		return this;
 	}
 };

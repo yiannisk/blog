@@ -9,7 +9,7 @@
 				: 3;
 				
 			$model = new EntryModel();
-			$latestEntries = $model->latest(3);
+			$latestEntries = $model->latest($latestLimit);
 			
 			echo json_encode($latestEntries);
 		}

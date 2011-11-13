@@ -67,9 +67,6 @@ src="scripts/external/jquery.snippet.min.js"></script>
 	<script type="text/javascript">
 		var layout = {};
 		$(function () {
-			if (!console || !window.console)
-				window.console = { log: function () {} };
-
 			layout = ik.layout.make();
 			layout.draw(ik.view.postList.make(), "leftPartContents");
 			layout.draw(ik.view.header.make(), "header");
