@@ -4,4 +4,5 @@
 	define('POST_DEFAULT', 'create');
 	define('PUT_DEFAULT', 'update');
 	define('DELETE_DEFAULT', 'remove');
+    define('LATEST_ENTRIES_COUNT', 3);
 ?>

@@ -41,15 +41,14 @@
 	</div>
 	
 	<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+	<script type="text/javascript" src="scripts/external/jquery.color.js"></script>
 	<script type="text/javascript" src="scripts/windowExtensions.js"></script>
-	<script type="text/javascript"
-src="http://ajax.aspnetcdn.com/ajax/jquery.templates/beta1/jquery.tmpl.min.js"><
-/script>
+	<script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery.templates/beta1/jquery.tmpl.min.js"></script>
 	<script type="text/javascript" src="scripts/external/jquery-ui-1.8.13.custom.min.js"></script>
-	<script type="text/javascript"
-src="scripts/external/jquery.snippet.min.js"></script>
+	<script type="text/javascript" src="scripts/external/jquery.snippet.min.js"></script>
 	<script type="text/javascript" src="scripts/external/jquery.json-2.2.min.js"></script>
 	<script type="text/javascript" src="scripts/external/jquery.colorbox-min.js"></script>
+	<script type="text/javascript" src="scripts/external/jquery.ba-hashchange.min.js"></script>
 	<script type="text/javascript" src="scripts/external/date.format.js"></script>
 	<script type="text/javascript" src="scripts/jquery.tmpl.unixdate.js"></script>
 	<script type="text/javascript" src="scripts/dynamic.js"></script>
@@ -72,8 +71,7 @@ src="scripts/external/jquery.snippet.min.js"></script>
 			layout.draw(ik.view.header.make(), "header");
 			layout.draw(ik.view.search.make(), "search");
 			layout.draw(ik.view.bio.make(), "bio");
-
-			layout.hash(location.hash);
+			layout.hash();
 		});
 	</script>
 </body>

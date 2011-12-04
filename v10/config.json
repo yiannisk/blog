@@ -1,0 +1,32 @@
+{
+	"ApplicationName": "Blog",
+	
+	"ViewsBase": "views/",
+	"Views": [ 
+		"appview", 
+		"header"
+	],
+	
+	"ModelsBase": "models/",
+	"Models": [
+		"header"
+	],
+	
+	"TemplatesBase": "templates/",
+	"Templates": [
+		"application"
+	],
+	
+	"ControllersBase": "controllers/",
+	
+	"ScriptsBase": "scripts/",
+	"Scripts": [
+		"underscore/underscore",
+		"backbone/backbone.0.5.3",
+		"json2/json2",
+		"hashchange/jquery.ba-hashchange",
+		"layout/layoutmonitor"
+	],
+	
+	"InitialView": "AppView"
+}

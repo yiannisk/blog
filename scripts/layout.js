@@ -94,6 +94,7 @@ $(function () {
 				},
 				
 				hash: function (hashValue) {
+					var hashValue = location.hash;
 					for(viewName in this.views) {
 						if (this.views[viewName].canHandle(hashValue)) {
 							this.views[viewName].hash(hashValue);
@@ -101,6 +102,10 @@ $(function () {
 						}
 					}
 				}
+			});
+			
+			$(window).hashchange(function () {
+				core.hash();
 			});
 			
 			return core;

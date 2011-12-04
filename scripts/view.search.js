@@ -14,6 +14,12 @@ $(function () {
 			
 			core.id = id;
 			
+			core.supportedHashes = ["allposts"];
+			
+			core.onHashRequest = function (hashName, hashValue) {
+				$("#allposts").click();
+			};
+			
 			core.onEnterRegion = function (callback) {
 				enterCallBack = callback;
 				
@@ -30,11 +36,13 @@ $(function () {
 							.appendTo($(core.region));			
 						
 				
-						$('<img src="resources/delete.png" id="clearSearch" />')
-							.appendTo('#search');
+						$('<img src="resources/delete.png" '
+							+ 'id="clearSearch" />')
+								.appendTo('#search');
 							
 						$('#clearSearch')
-							.css({position: "absolute", display: "none"})
+							.css({	position: "absolute", 
+									display: "none"})
 							.bind('click', core.handlers.clearSearch);
 							
 						core.adjustClearSearchPosition();
@@ -72,7 +80,7 @@ $(function () {
 			};
 			
 			core.searchForText = function (text) {
-				core.handlers.clearSearch();
+				core.handlers.clearSearch(true);
 				$('.searchItem').unbind('hover');
 				$('#magnifyingLens').addClass('loading');
 				$('#searchResults').fadeOut().html('');
@@ -119,6 +127,9 @@ $(function () {
 					.bind('focus', core.handlers.searchTextFocus)
 					.bind('blur', core.handlers.searchTextBlur)
 					.bind('keyup', core.handlers.searchTextKeyUp);
+					
+				$("#allposts")
+					.bind('click', core.handlers.allPostsClick);
 			};
 			
 			
@@ -131,7 +142,7 @@ $(function () {
 			
 			core.handlers = {
 				searchTextFocus: function (evt) {
-					if (evt.currentTarget.value == 'Search this site...')
+					if (evt.currentTarget.value=='Search this site...')
 						evt.currentTarget.value = '';
 						
 					$(evt.currentTarget).removeClass('inactive');
@@ -164,10 +175,13 @@ $(function () {
 							core.searchForText(evt.currentTarget.value);
 				},
 				
-				clearSearch: function() {
+				clearSearch: function(keepText) {
 					$('#searchResults').html('').fadeOut();
 					$('#searchHint').fadeOut();
-					$('#searchText').val('');
+					
+					if (keepText !== true)
+						$('#searchText').val('');
+					
 					$('#clearSearch').fadeOut();
 				},
 				
@@ -217,11 +231,24 @@ $(function () {
 				
 				searchItemClick: function (evt) {
 					var id = evt.currentTarget.id.substring(10);
-					layout.draw(ik.view.post.make(id), 'leftPartContents');
+					layout.draw(ik.view.post.make(id), 
+						'leftPartContents');
 				},
 				
 				magnifyingLensClick: function (evt) {
 					core.searchForText($('#searchText').val());
+					return false;
+				},
+				
+				allPostsClick: function (evt) {
+					evt.stopPropagation();
+					
+					$("#searchText")
+						.val("allposts")
+						.trigger("keyup");
+						
+					core.searchForText($("#searchText").val());
+					
 					return false;
 				}
 			};
