@@ -48,6 +48,9 @@ $(function () {
 			
 			core.handlers = {
 				logoClick: function () {
+					core.showSearch = $("#search").is(":visible");
+					core.showComments = $("#comments").is(":visible");
+
 					location.hash = "#profile";
 					
 					$(core.region).css({
@@ -59,9 +62,6 @@ $(function () {
 					});
 						
 					$(core.region).fadeIn("slow");
-					
-					core.showSearch = $("#search").is(":visible");
-					core.showComments = $("#comments").is(":visible");
 					
 					if (core.showSearch)
 						$("#search").fadeOut("fast");

@@ -233,7 +233,8 @@ h5 { display: block; font-size: 1.1em; }
 
 #search
 {
-	text-align: center;
+	margin-left: 10px;
+	margin-right: 10px;
 }
 
 .searchBox
@@ -242,6 +243,7 @@ h5 { display: block; font-size: 1.1em; }
 	font: inherit;
 	padding-right: 30px;
 	color: black;
+	width: 200px;
 }
 
 .searchBox.inactive 
@@ -311,7 +313,6 @@ h5 { display: block; font-size: 1.1em; }
 	font-weight: bold;
 	font-size: 1.3em;
 	padding-top: 10px;
-	margin-left: 10px;
 }
 
 .searchItemTitle
@@ -321,9 +322,8 @@ h5 { display: block; font-size: 1.1em; }
 
 .searchItem
 {
-	margin-left: 5px;
-	margin-right: 10px;
 	padding: 5px;
+	padding-left: 1px;
 	cursor: pointer;
 	background: #06A8F9;
 }

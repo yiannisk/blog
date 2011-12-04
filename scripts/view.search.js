@@ -48,7 +48,9 @@ $(function () {
 						core.adjustClearSearchPosition();
 						
 						$(core.region).fadeIn();
-						core.adjustMagnifyingLensPosition();
+						setTimeout(
+							core.adjustMagnifyingLensPosition,
+							100);
 						
 						core.attachEventHandlers();
 						if (enterCallBack) enterCallBack();
@@ -61,8 +63,10 @@ $(function () {
 			};
 			
 			core.onMessageReceived = function (message, callback) {
-				if (message == 'HEADER_HIDDEN')
+				if (message == 'HEADER_HIDDEN') {
 					core.adjustMagnifyingLensPosition();
+					core.adjustClearSearchPosition();
+				}
 				
 				if (callback) callback();
 			}
@@ -170,13 +174,15 @@ $(function () {
 						$('#magnifyingLens').unbind('click');
 					}
 					
-					if (!$(evt.currentTarget).hasClass('inactive'))
+					if (!$(evt.currentTarget).hasClass('inactive')
+						&& evt.originalEvent)
 						if (evt.originalEvent.keyCode == 13)
 							core.searchForText(evt.currentTarget.value);
 				},
 				
 				clearSearch: function(keepText) {
-					$('#searchResults').html('').fadeOut();
+					console.log("clear search");
+					$('#searchResults').fadeOut().html('');
 					$('#searchHint').fadeOut();
 					
 					if (keepText !== true)
@@ -211,7 +217,6 @@ $(function () {
 							$('.searchItem')
 								.hover(core.handlers.searchItemIn,
 									core.handlers.searchItemOut);
-						
 									
 							$('.searchItem')
 								.click(core.handlers.searchItemClick);

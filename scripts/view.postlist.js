@@ -45,7 +45,8 @@ $(function () {
 						: baseLayoutHeight;
 					
 				$('#layout').css('height', targetLayoutHeight + 'px');
-				$('#rightPart').css('height', (targetLayoutHeight - 30 ) + 'px');
+				$('#rightPart').css('height', 
+					(targetLayoutHeight - 30 ) + 'px');
 				
 				core.attachEventHandlers();
 				if (enterCallBack) enterCallBack();
@@ -75,7 +76,8 @@ $(function () {
 						.id
 						.substring("readmore".length);
 					
-					layout.draw(ik.view.post.make(id), 'leftPartContents');
+					layout.draw(ik.view.post.make(id), 
+						'leftPartContents');
 					
 					return false;
 				},
