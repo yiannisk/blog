@@ -181,7 +181,6 @@ $(function () {
 				},
 				
 				clearSearch: function(keepText) {
-					console.log("clear search");
 					$('#searchResults').fadeOut().html('');
 					$('#searchHint').fadeOut();
 					
@@ -235,8 +234,8 @@ $(function () {
 				},
 				
 				searchItemClick: function (evt) {
-					var id = evt.currentTarget.id.substring(10);
-					layout.draw(ik.view.post.make(id), 
+					var code = evt.currentTarget.id.substring(10);
+					layout.draw(ik.view.post.make(code), 
 						'leftPartContents');
 				},
 				

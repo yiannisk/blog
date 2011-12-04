@@ -323,7 +323,7 @@ h5 { display: block; font-size: 1.1em; }
 .searchItem
 {
 	padding: 5px;
-	padding-left: 1px;
+	padding-left: 2px;
 	cursor: pointer;
 	background: #06A8F9;
 }
