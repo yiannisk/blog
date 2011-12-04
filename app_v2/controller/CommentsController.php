@@ -7,17 +7,15 @@
 	class CommentsController extends Controller {
 		public function latest($req)
 		{
-			$entryId = isset($req->route->identifier)
-				? intval($req->route->identifier)
-				: 0;
+			$entryId = $req->route->identifier;
 
 			$latestLimit = isset($req->arguments['p0'])
 				? intval($req->arguments['p0']) > 0
-					? intval($req->arguments['p0'])
-					: 3
-				: 3;
+                        ? intval($req->arguments['p0'])
+                        : LATEST_ENTRIES_COUNT
+				: LATEST_ENTRIES_COUNT;
 				
-			$model = new CommentsModel();
+							$model = new CommentsModel();
 			
 			$latestComments = 
 				$model->latest($latestLimit, $entryId);

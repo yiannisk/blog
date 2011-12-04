@@ -31,8 +31,7 @@ $(function () {
 				core.template2('latestComments', function () {
 					core.ajax({
 						url: 'app_v2/comments/latest/' 
-							+ core.entryid
-							+ '/3',
+							+ core.entryid,
 						dataType: 'json',
 						success: core.loadDataComplete
 					});

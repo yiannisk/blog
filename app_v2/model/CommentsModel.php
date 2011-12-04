@@ -5,11 +5,21 @@
 	{
 		function latest($count, $entryid)
 		{
-			$statement = parent::prepare(
-				'SELECT * FROM comment WHERE entryid = ?'
-					. ' ORDER BY createdon DESC LIMIT ?');
-			
-			$statement->bind_param('ii', $entryid, $count);
+			if (is_numeric($entryid))
+			{
+				$statement = parent::prepare(
+					'SELECT * FROM comment WHERE entryid = ?'
+						. ' ORDER BY createdon DESC LIMIT ?');
+				
+				$statement->bind_param('ii', $entryid, $count);
+			} else {
+				$statement = parent::prepare(
+					'SELECT * FROM comment WHERE entryid = '
+						. '(SELECT id FROM entry WHERE code = ? '
+						. ' LIMIT 1) ORDER BY createdon DESC LIMIT ?');
+				
+				$statement->bind_param('si', $entryid, $count);
+			}
 			
 			return parent::rows($statement);
 		}
