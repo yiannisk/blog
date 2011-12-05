@@ -5,7 +5,6 @@
 	}
 	
 	session_start();
-	
 	$service = new BlogRestService();
 	$service->handleRawRequest($_SERVER, $_GET, $_POST);
 ?>

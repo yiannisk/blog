@@ -30,27 +30,29 @@
 				: 50; // public default.
 			
 			$securityModel = new SecurityModel();
-			$createLevel = $securityModel->getActionLevel('comments/create');
+			$createLevel = 
+				$securityModel->getActionLevel('comments/create');
 			
 			// check for adequately low user level.
 			if ($userlevel > $createLevel) {
-				echo "failure";
+				echo "failure - inadequate user level";
 				return;
 			}
 
 			// check captcha trigger.
 			if (!isset($_SESSION['canPostComment']) 
 				 || !$_SESSION['canPostComment']) {
-				echo "failure";
+				echo "failure - captcha trigger";
 				return;
 			}
 
 			// check flood limit.
 			$commentsModel = new CommentsModel();
 			$lastCreatedOn = $commentsModel->lastCommentCreatedOn();
-			if ($lastCreatedOn != null && time() - $lastCreatedOn < FLOOD_LIMIT) {
-				echo "failure";
-				return;
+			if ($lastCreatedOn != null && time() - $lastCreatedOn 
+				< FLOOD_LIMIT) {
+					echo "failure - flood limit";
+					return;
 			}
 
 			// sanitize inputs.
@@ -68,21 +70,19 @@
 					? $req->arguments['contents']
 					: '';
 			
-			if ($entryId == 0 || strlen($author) == 0 || strlen($contents) == 0) {
-				echo "failure";
-				return;
+			if (!isset($entryId) || strlen($author) == 0 
+				|| strlen($contents) == 0) {
+					echo "failure - insufficient data.";
+					return;
 			}
 			
-			ob_start();
 			try {
 				// perform insert query.
 				$commentsModel->create($entryId, $author, $contents);
 				echo "success";
 			} catch (Exception $e) {
-				echo $e;
-				echo "failure";
+				echo "failure - " . $e->getMessage();
 			}
-			ob_end_flush();
 		}
 	}
 ?>

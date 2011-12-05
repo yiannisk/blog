@@ -33,15 +33,29 @@
 		}
 
 		public function create($entryid, $author, $contents) {
-			$statement = parent::prepare(
-				'INSERT INTO comment (entryid, author, contents, createdon) '
-					. 'VALUES (?, ?, ?, ?)');
+			if (is_numeric($entryid)) {
+				$statement = parent::prepare(
+					'INSERT INTO comment (entryid, author, contents, '
+						. 'createdon) VALUES (?, ?, ?, ?)');
 
-			$statement->bind_param('issi', 
-				parent::escapeString($entryid), 
-				parent::escapeString($author), 
-				parent::escapeString($contents), 
-				time());
+				$statement->bind_param('issi', 
+					parent::escapeString($entryid), 
+					parent::escapeString($author), 
+					parent::escapeString($contents), 
+					time());
+			} else {
+				$statement = parent::prepare(
+					'INSERT INTO comment (entryid, author, contents, '
+						. 'createdon) VALUES ((SELECT id FROM entry '
+						. ' WHERE code = ? LIMIT 1), ?, ?, ?)');
+
+				$statement->bind_param('sssi', 
+					parent::escapeString($entryid), 
+					parent::escapeString($author), 
+					parent::escapeString($contents), 
+					time());
+			}
+			
 
 			$statement->execute();
 		}
