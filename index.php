@@ -10,18 +10,20 @@
 	<title>Ioannis Karadimas' Blog</title>
 	
 	<link rel="stylesheet" type="text/css" href="styles/base.css" />
-	<link rel="stylesheet" type="text/css" href='styles/external/jquery-ui-1.8.13.custom.css' />
+	<link rel="stylesheet" type="text/css" 
+		href='styles/external/jquery-ui-1.8.13.custom.css' />
+		
 	<!-- handle CSS compatibility issues below -->
 	<!--[if IE]>
-		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js">
-		</script>
+		<script src="scripts/external/html5-shiv-ie.js"></script>
 	<![endif]-->
 	
 	<!-- Fonts -->
-	<!--link href='http://fonts.googleapis.com/css?family=Arimo:regular,italic,bold,bolditalic' rel='stylesheet' type='text/css'-->
-	<link href='http://fonts.googleapis.com/css?family=Philosopher' rel='stylesheet' type='text/css' />
-	<!--link href='http://fonts.googleapis.com/css?family=Cabin' rel='stylesheet' type='text/css'-->
-	<link rel="stylesheet" type="text/css" href='styles/external/colorbox.css' />
+	<link href='http://fonts.googleapis.com/css?family=Philosopher' 
+		rel='stylesheet' type='text/css' />
+		
+	<link rel="stylesheet" type="text/css" 
+		href='styles/external/colorbox.css' />
 </head>
 <body id="home">
 
@@ -40,32 +42,47 @@
 		<div id="bio"></div>
 	</div>
 	
-	<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
-	<script type="text/javascript" src="scripts/external/jquery.color.js"></script>
-	<script type="text/javascript" src="scripts/windowExtensions.js"></script>
-	<script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery.templates/beta1/jquery.tmpl.min.js"></script>
-	<script type="text/javascript" src="scripts/external/jquery-ui-1.8.13.custom.min.js"></script>
-	<script type="text/javascript" src="scripts/external/jquery.snippet.min.js"></script>
-	<script type="text/javascript" src="scripts/external/jquery.json-2.2.min.js"></script>
-	<script type="text/javascript" src="scripts/external/jquery.colorbox-min.js"></script>
-	<script type="text/javascript" src="scripts/external/jquery.ba-hashchange.min.js"></script>
-	<script type="text/javascript" src="scripts/external/date.format.js"></script>
-	<script type="text/javascript" src="scripts/jquery.tmpl.unixdate.js"></script>
+	<script type="text/javascript" 
+		src="http://code.jquery.com/jquery-latest.min.js"></script>
+	<script type="text/javascript" 
+		src="scripts/external/jquery.color.js"></script>
+	<script type="text/javascript" 
+		src="scripts/windowExtensions.js"></script>
+	<script type="text/javascript" 
+		src="scripts/external/jquery.tmpl.min.js"></script>
+	<script type="text/javascript" 
+		src="scripts/external/jquery-ui-1.8.13.custom.min.js"></script>
+	<script type="text/javascript" 
+		src="scripts/external/jquery.snippet.min.js"></script>
+	<script type="text/javascript" 
+		src="scripts/external/jquery.json-2.2.min.js"></script>
+	<script type="text/javascript" 
+		src="scripts/external/jquery.colorbox-min.js"></script>
+	<script type="text/javascript" 
+		src="scripts/external/jquery.ba-hashchange.min.js"></script>
+	<script type="text/javascript" 
+		src="scripts/external/date.format.js"></script>
+	<script type="text/javascript" 
+		src="scripts/jquery.tmpl.unixdate.js"></script>
 	<script type="text/javascript" src="scripts/dynamic.js"></script>
 	<script type="text/javascript" src="scripts/join.js"></script>
 	<script type="text/javascript" src="scripts/layout.js"></script>
-	<script type="text/javascript" src="scripts/view.js"></script>
 	<script type="text/javascript" src="scripts/markdown.js"></script>
-	<script type="text/javascript" src="scripts/view.postlist.js"></script>
-	<script type="text/javascript" src="scripts/view.header.js"></script>
-	<script type="text/javascript" src="scripts/view.post.js"></script>
-	<script type="text/javascript" src="scripts/view.search.js"></script>
-	<script type="text/javascript" src="scripts/view.comments.js"></script>
-	<script type="text/javascript" src="scripts/view.bio.js"></script>
 	<script type="text/javascript" src="scripts/template.js"></script>
 	<script type="text/javascript" src="scripts/router.js"></script>
+	
+	<!-- Views -->
+	<script type="text/javascript" src="views/view.js"></script>
+	<script type="text/javascript" src="views/postlistview.js"></script>
+	<script type="text/javascript" src="views/headerview.js"></script>
+	<script type="text/javascript" src="views/postview.js"></script>
+	<script type="text/javascript" src="views/searchview.js"></script>
+	<script type="text/javascript" src="views/commentsview.js"></script>
+	<script type="text/javascript" src="views/bioview.js"></script>
+	
 	<script type="text/javascript">
 		var layout = {};
+		
 		$(function () {
 			window.router = new Router();
 			window.layout = new Layout();
