@@ -63,14 +63,17 @@
 	<script type="text/javascript" src="scripts/view.comments.js"></script>
 	<script type="text/javascript" src="scripts/view.bio.js"></script>
 	<script type="text/javascript" src="scripts/template.js"></script>
+	<script type="text/javascript" src="scripts/router.js"></script>
 	<script type="text/javascript">
 		var layout = {};
 		$(function () {
-			layout = ik.layout.make();
-			layout.draw(ik.view.postList.make(), "leftPartContents");
-			layout.draw(ik.view.header.make(), "header");
-			layout.draw(ik.view.search.make(), "search");
-			layout.draw(ik.view.bio.make(), "bio");
+			window.router = new Router();
+			window.layout = new Layout();
+			
+			layout.draw(new PostListView(), "leftPartContents");
+			layout.draw(new HeaderView(), "header");
+			layout.draw(new SearchView(), "search");
+			layout.draw(new BioView(), "bio");
 			layout.hash();
 		});
 	</script>

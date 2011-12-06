@@ -1,9 +1,7 @@
-var ik = ik || {};
-
-$(function () {
-	ik.markdown = ik.markdown || {
+function Markdown() {
+	return {
 		parse: function (str) {
 			return str;
 		}
 	};
-});
+}

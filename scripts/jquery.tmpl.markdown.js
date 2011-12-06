@@ -6,7 +6,7 @@
 	$.extend(jQuery.tmpl.tag, {
 		'markdown': {
 			_default: { $1: "Please enter some text..." },
-			open: 'ik.markdown.parse($1);'
+			open: 'new Markdown().parse($1);'
 		}
 	});
 })(jQuery);
