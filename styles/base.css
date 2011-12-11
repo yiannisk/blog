@@ -175,8 +175,10 @@ h5 { display: block; font-size: 1.1em; }
 	clear: both;
 }
 
-#header h5 { float: left; padding: 5px; padding-left: 30px; width: 800px; }
-#header #closeIcon { background-position: 9px 9px; float: right; padding: 9px; }
+#header h5 { float: left; padding: 5px; padding-left: 30px; 
+	width: 800px; }
+#header #closeIcon { background-position: 9px 9px; float: right; 
+	padding: 9px; }
 
 #headerLogo 
 { 
@@ -187,9 +189,10 @@ h5 { display: block; font-size: 1.1em; }
 	height: 32px; 
 	padding: 9px; 
 	padding-left: 35px; 
+	cursor: pointer;
 }
 
-#layout 
+#layout
 { 
 	display: block; 
 	width: 1000px; 
@@ -384,7 +387,8 @@ h5 { display: block; font-size: 1.1em; }
 
 #addComment 
 { 
-	background: #06A8F9 url(../resources/commentsBackground.jpg) repeat-x; 
+	background: #06A8F9 url(../resources/commentsBackground.jpg) 
+		repeat-x; 
 	height: 360px;
 	width: 340px;
 	padding: 20px;
@@ -509,7 +513,7 @@ h5 { display: block; font-size: 1.1em; }
 	color: yellow !important;
 }
 
-ol {
+ol, ul {
 	margin-left: 25px;
 	margin-bottom: 10px;
 }
@@ -537,4 +541,19 @@ pre.blockCode, code.blockCode {
 	padding-bottom: 5px;
 	margin-top: 15px;
 	margin-bottom: 15px;
+}
+
+.tags {
+	margin-top: 5px;
+	margin-bottom: -5px;
+}
+
+.tag {
+	display: inline-block;
+	border: 1px solid #666;
+	background: #222;
+	font-size: .7em;
+	color: #06A8F9;
+	padding: 3px;
+	margin: 2px;
 }

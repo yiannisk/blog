@@ -84,14 +84,15 @@
 		var layout = {};
 		
 		$(function () {
-			window.router = new Router();
 			window.layout = new Layout();
+			window.router = new Router();
 			
-			layout.draw(new PostListView(), "leftPartContents");
 			layout.draw(new HeaderView(), "header");
 			layout.draw(new SearchView(), "search");
 			layout.draw(new BioView(), "bio");
 			layout.hash();
+			
+			router.initialize();
 		});
 	</script>
 </body>

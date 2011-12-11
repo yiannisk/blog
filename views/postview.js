@@ -32,8 +32,6 @@ function PostView(id) {
 	};
 	
 	core.loadDataComplete = function (data, textStatus, jqXHR) {
-		location.hash = "#post." + core.id;
-		
 		$(core.region).hide().html('');
 		$.tmpl(core.template, data).appendTo($(core.region));
 		$(core.region).fadeIn();
@@ -45,7 +43,7 @@ function PostView(id) {
 				: baseLayoutHeight;
 			
 		$('#layout').css('height', targetLayoutHeight + 'px');
-		$('#rightPart').css('height', (targetLayoutHeight - 30 ) + 'px');
+		$('#rightPart').css('height', (targetLayoutHeight - 30) + 'px');
 			
 		core.attachEventHandlers();
 		layout.draw(new CommentsView(id), "comments");
@@ -53,12 +51,10 @@ function PostView(id) {
 	};
 	
 	core.attachEventHandlers = function () {
-		$(".backtolist").click( core.handlers.backtToListClick );
 		$(".backtotop").click( core.handlers.backToTopClick );
 	};
 	
 	core.detachEventHandlers = function () {
-		$(".backtolist").unbind("click");
 		$(".backtotop").unbind("click");
 	};
 	
@@ -66,15 +62,6 @@ function PostView(id) {
 		backToTopClick: function (evt) {
 			evt.stopPropagation();
 			window.toTop();
-			return false;
-		},
-		
-		backtToListClick: function (evt) {
-			layout.requestRegion("comments", function () {
-				layout.draw(new PostListView(), "leftPartContents");
-				window.toTop();
-			});
-			
 			return false;
 		}
 	};

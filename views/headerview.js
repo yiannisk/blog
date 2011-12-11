@@ -28,7 +28,6 @@ function HeaderView() {
 		$(region).fadeOut("fast", callback);
 	};
 	
-	
 	core.loadDataComplete = function (data, textStatus, jqXHR) {
 		$(core.region).hide().html('');
 		$.tmpl(core.template, data).appendTo($(core.region));
@@ -41,10 +40,12 @@ function HeaderView() {
 	
 	core.attachEventHandlers = function () {
 		$("#closeIcon").bind('click', core.handlers.closeIconClick);
+		$("#headerLogo").bind('click', core.handlers.headerLogoClick);
 	};
 	
 	core.detachEventHandlers = function () {
 		$("#closeIcon").unbind('click');
+		$("#headerLogo").unbind('click');
 	};
 	
 	core.handlers = {
@@ -53,6 +54,10 @@ function HeaderView() {
 				function () {
 					layout.sendMessage("search","HEADER_HIDDEN");
 				});
+		},
+		
+		headerLogoClick: function () {
+			location.hash = "#";
 		}
 	};
 	

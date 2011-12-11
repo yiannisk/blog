@@ -4,12 +4,6 @@ function BioView() {
 	core.showSearch = false;
 	core.showComments = false;
 	
-	core.supportedHashes = ["profile"];
-	
-	core.onHashRequest = function (hashName, hashValue) {
-		core.handlers.logoClick();
-	};
-	
 	core.onEnterRegion = function (callback) {
 		var cb = callback;
 	

@@ -4,13 +4,7 @@ function PostListView() {
 	
 	core.name = 'postList';
 	core.template = 'latestEntriesTemplate';
-	
-	core.supportedHashes = ["post"];
-	
-	core.onHashRequest = function (hashName, hashValue) {
-		$("#readmore" + hashValue).click();
-	};
-	
+
 	core.onEnterRegion = function (callback) {
 		enterCallBack = callback;
 		$.ajax({
@@ -30,7 +24,25 @@ function PostListView() {
 	
 	core.loadDataComplete = function (data, textStatus, jqXHR) {
 		$(core.region).hide().html('');
-		$.tmpl(core.template, data).appendTo($(core.region));			
+		$.tmpl(core.template, data).appendTo($(core.region));
+		
+		for(var index in data) {
+			var item = data[index];
+			console.log(item);
+			if (item.contents == "") {
+				$("#readmore" + item.code).hide();
+			}
+			
+			if (item.tags != "") {
+				console.log(item.tags);
+				$("#tags" + item.id).html(
+					"<div class='tag'>"
+						 + item.tags.replace(/,/gi, 
+							"</div><div class='tag'>")
+						 + "</div");
+			}
+		}
+		
 		$(core.region).fadeIn();
 		
 		var baseLayoutHeight = 800;
@@ -53,30 +65,16 @@ function PostListView() {
 	};
 	
 	core.attachEventHandlers = function () {
-		$(".readmore").click( core.handlers.readMoreClick );
 		$(".retweet").hover(
 			core.handlers.retweetIn,
 			core.handlers.retweetOut);
 	};
 	
 	core.detachEventHandlers = function () {
-		$(".readmore").unbind("click");
 		$(".retweet").unbind("hover");
 	};
 	
 	core.handlers = {
-		readMoreClick: function (evt) {
-			var id = evt
-				.currentTarget
-				.id
-				.substring("readmore".length);
-			
-			layout.draw(new PostView(id), 
-				'leftPartContents');
-			
-			return false;
-		},
-		
 		retweetIn: function (evt) {
 			$(evt.currentTarget).animate(
 				{backgroundColor: '#000000'}, 'fast');
