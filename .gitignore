@@ -3,3 +3,5 @@ protocol.txt
 hash.php
 *.log
 *test*
+static/*.html
+static/*.xml

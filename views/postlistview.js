@@ -28,13 +28,11 @@ function PostListView() {
 		
 		for(var index in data) {
 			var item = data[index];
-			console.log(item);
 			if (item.contents == "") {
 				$("#readmore" + item.code).hide();
 			}
 			
-			if (item.tags != "") {
-				console.log(item.tags);
+			if (item.tags && item.tags != "") {
 				$("#tags" + item.id).html(
 					"<div class='tag'>"
 						 + item.tags.replace(/,/gi, 

@@ -36,6 +36,12 @@
 			return parent::rows($statement);
 		}
 		
+		function codes()
+		{
+			$statement = parent::prepare('SELECT code FROM entry');
+			return parent::rows($statement);
+		}
+		
 		function search($term)
 		{
 			if (strlen($term) == 0) return array();

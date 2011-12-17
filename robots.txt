@@ -1,0 +1,7 @@
+User-agent: *
+Disallow: /static/
+Disallow: /app_v2/
+Disallow: /database/
+Disallow: /template/
+Disallow: /scripts/
+Disallow: /views/

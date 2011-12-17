@@ -5,7 +5,7 @@ function Layout() {
 		if (core.loadComplete) core.loadComplete();
 	});
 	
-	core.views = [];
+	core.views = {};
 
 	core.map({
 		// This is used to keep track of all current view objects.
@@ -88,8 +88,11 @@ function Layout() {
 			return true;
 		},
 		
-		hash: function (hashValue) {
-			var hashValue = location.hash;
+		hash: function () {
+			var hashValue = location.hash.indexOf("#!") == 0 ? 
+				location.hash.substring(2) :
+				location.hash.substring(1) ;
+				
 			for(viewName in this.views) {
 				if (this.views[viewName].canHandle(hashValue)) {
 					this.views[viewName].hash(hashValue);

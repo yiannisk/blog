@@ -11,9 +11,12 @@ function View() {
 		return name + core.templatePrefix;
 	};
 	
+	// deprecated
 	core.supportedHashes = [];
+	
+	// deprecated
 	core.canHandle = function (hash) {
-		var parts = hash.substring(1).split(".");
+		var parts = hash.split(".");
 		for(supportedHash in core.supportedHashes)
 			if (parts[0] == core.supportedHashes[supportedHash])
 				return true;
@@ -66,8 +69,9 @@ function View() {
 			else if (callback) callback();
 		},
 		
+		// deprecated
 		hash: function (hashString) {
-			var hashParts = hashString.substring(1).split(".");
+			var hashParts = hashString.split(".");
 			if (this.onHashRequest)
 				this.onHashRequest(hashParts[0], hashParts[1]);
 		}

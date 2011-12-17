@@ -3,6 +3,11 @@ function BioView() {
 	core.name = 'bio';
 	core.showSearch = false;
 	core.showComments = false;
+	core.supportedHashes = ["profile"];
+	
+	core.onHashRequest = function (hash) {
+		if (hash == "profile") $("#logo").click();
+	};
 	
 	core.onEnterRegion = function (callback) {
 		var cb = callback;
@@ -40,7 +45,7 @@ function BioView() {
 			core.showSearch = $("#search").is(":visible");
 			core.showComments = $("#comments").is(":visible");
 
-			location.hash = "#profile";
+			location.hash = "#!profile";
 			
 			$(core.region).css({
 				height: $('#layout').innerHeight() + "px",

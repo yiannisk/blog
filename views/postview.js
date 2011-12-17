@@ -34,6 +34,15 @@ function PostView(id) {
 	core.loadDataComplete = function (data, textStatus, jqXHR) {
 		$(core.region).hide().html('');
 		$.tmpl(core.template, data).appendTo($(core.region));
+		
+		if (data.tags && data.tags != "") {
+			$("#tags" + data.id).html(
+				"<div class='tag'>"
+					 + data.tags.replace(/,/gi, 
+						"</div><div class='tag'>")
+					 + "</div");
+		}
+		
 		$(core.region).fadeIn();
 		
 		var baseLayoutHeight = 800;

@@ -32,5 +32,16 @@
 			
 			echo json_encode($results);
 		}
+		
+		public function codes($req) {
+			$model = new EntryModel();
+			$results = $model->codes();
+
+			$str = '';
+			for($i = 0; $i < count($results); $i ++)
+				$str .= "\n" . $results[$i]['code'];
+			
+			echo substr($str, 1);
+		}
 	}
 ?>
