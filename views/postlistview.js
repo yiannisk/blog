@@ -16,7 +16,7 @@ function PostListView() {
 					.template(core.template);
 
 				$.ajax({
-					url: "app_v2/entry/latest",
+					url: "app/entry/latest",
 					dataType: "json",
 					success: core.loadDataComplete});
 			}});

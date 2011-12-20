@@ -18,7 +18,7 @@ function PostView(id) {
 					.template(core.template);
 
 				$.ajax({
-					url: "app_v2/entry/single/" + core.id,
+					url: "app/entry/single/" + core.id,
 					dataType: "json",
 					success: core.loadDataComplete});
 			}});

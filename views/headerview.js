@@ -16,10 +16,10 @@ function HeaderView() {
 				$('#' + core.template) 
 					.template(core.template);
 
-			$.ajax({
-				url: 'app_v2/static/single/header',
-				dataType: 'json',
-				success: core.loadDataComplete});
+				$.ajax({
+					url: 'app/static/single/header',
+					dataType: 'json',
+					success: core.loadDataComplete});
 		}});
 	};
 	
@@ -50,10 +50,9 @@ function HeaderView() {
 	
 	core.handlers = {
 		closeIconClick: function (evt) {
-			$("#header").fadeOut(
-				function () {
-					layout.sendMessage("search","HEADER_HIDDEN");
-				});
+			$("#header").fadeOut(function () {
+				layout.sendMessage("search","HEADER_HIDDEN");
+			});
 		},
 		
 		headerLogoClick: function () {

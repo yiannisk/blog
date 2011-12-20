@@ -3,7 +3,6 @@ function CommentsView(entryid) {
 	var enterCallBack = null;
 	
 	core.name = 'latestComments';
-	core.mainTemplate = 'latestCommentsTemplate';
 	core.entryid = entryid;
 	core.images = [];
 	
@@ -25,7 +24,7 @@ function CommentsView(entryid) {
 		enterCallBack = callback;
 		core.template2('latestComments', function () {
 			core.ajax({
-				url: 'app_v2/comments/latest/' 
+				url: 'app/comments/latest/' 
 					+ core.entryid,
 				dataType: 'json',
 				success: core.loadDataComplete
@@ -106,7 +105,7 @@ function CommentsView(entryid) {
 			evt.stopPropagation();
 			
 			core.ajax({
-				url: 'app_v2/math/question',
+				url: 'app/math/question',
 				dataType: 'text',
 				success: function (data) {
 					$("#questionBox #answer").html(data);
@@ -135,7 +134,7 @@ function CommentsView(entryid) {
 			if (!core.validateForm()) return false;
 			evt.stopPropagation();
 			core.ajax({
-				url: 'app_v2/math/answer/false',
+				url: 'app/math/answer/false',
 				dataType: 'text',
 				success: core.handlers.answerSuccess,
 				error: $.colorbox.close
@@ -148,7 +147,7 @@ function CommentsView(entryid) {
 			if (!core.validateForm()) return false;
 			evt.stopPropagation();
 			core.ajax({
-				url: 'app_v2/math/answer/true',
+				url: 'app/math/answer/true',
 				dataType: 'text',
 				success: core.handlers.answerSuccess,
 				error: $.colorbox.close
@@ -160,7 +159,7 @@ function CommentsView(entryid) {
 		answerSuccess: function (data) {
 			if (data == 'success') {
 				core.ajax({
-					url: 'app_v2/comments',
+					url: 'app/comments',
 					type: 'post',
 					dataType: 'text',
 					data: {
@@ -172,7 +171,7 @@ function CommentsView(entryid) {
 					success: function (data) {
 						if (data == 'success') {
 							core.ajax({
-								url: 'app_v2/comments/latest/' 
+								url: 'app/comments/latest/' 
 									+ core.entryid
 									+ '/3',
 								dataType: 'json',
@@ -195,7 +194,7 @@ function CommentsView(entryid) {
 			}
 			
 			core.ajax({
-				url: 'app_v2/math/question',
+				url: 'app/math/question',
 				dataType: 'text',
 				success: function (data) {
 					$("#questionBox #answer").html(data);

@@ -2,7 +2,7 @@ require 'rubygems'
 require 'json'
 require 'net/http'
 
-url = 'http://ioanniskaradimas.info/app_v2/entry/search/allposts'
+url = 'http://ioanniskaradimas.info/app/entry/search/allposts'
 response = Net::HTTP.get_response(URI.parse(url))
 data = response.body
 results = JSON.parse(data)

@@ -80,7 +80,7 @@ function SearchView() {
 		$('#magnifyingLens').addClass('loading');
 		$('#searchResults').fadeOut().html('');
 		$.ajax({
-			url: 'app_v2/entry/search/' + text,
+			url: 'app/entry/search/' + text,
 			dataType: 'json',
 			success: core.handlers.searchSuccess});
 	};

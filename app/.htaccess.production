@@ -1,0 +1,28 @@
+Options +FollowSymLinks
+RewriteEngine on
+
+RewriteBase /app/
+
+RewriteCond %{REQUEST_URI} !^(index.php|ajax.invoke.tests.html)$
+
+RewriteCond %{REQUEST_METHOD} ^POST$
+RewriteCond %{REQUEST_URI} ^login$
+RewriteRule ^(login)$ index.php?item=$1 [QSA]
+
+RewriteCond %{REQUEST_METHOD} ^(GET|POST)$
+RewriteCond %{REQUEST_URI} !login(.+)
+RewriteRule ^([a-zA-Z0-9\-]{1,30})/?$ index.php?item=$1 [QSA]
+
+RewriteCond %{REQUEST_METHOD} ^(GET)$
+RewriteCond %{REQUEST_URI} !login(.+)
+RewriteRule ^([a-zA-Z0-9\-]{1,30})/([a-zA-Z0-9\-]{1,30})/?$ index.php?item=$1&action=$2 [QSA]
+
+RewriteCond %{REQUEST_METHOD} ^(PUT|DELETE)$
+RewriteCond %{REQUEST_URI} !login(.+)
+RewriteRule ^([a-zA-Z0-9\-]{1,30})/([a-zA-Z0-9\-]{1,30})/?$ index.php?item=$1&id=$2 [QSA]
+
+RewriteCond %{REQUEST_METHOD} ^(GET)$
+RewriteCond %{REQUEST_URI} !login(.+)
+RewriteRule ^([a-zA-Z0-9\-]{1,30})/([a-zA-Z0-9\-]{1,30})/([a-zA-Z0-9\-]{1,30})/?([a-zA-Z0-9\-]{1,30})?/?([a-zA-Z0-9\-]{1,30})?/?([a-zA-Z0-9\-]{1,30})?/?([a-zA-Z0-9\-]{1,30})?/?$ index.php?item=$1&action=$2&id=$3&p0=$4&p1=$5&p2=$6&p3=$7 [QSA]
+
+ErrorDocument 404 /404.shtml
