@@ -45,11 +45,10 @@ File.open("sitemap.xml", "w") do |sitemap|
 
 	# create static pages and sitemap.
 	pages.each do |page|
-		# add sitemap entry. 
-		sitemap.puts "<url><loc>#{page[:url]}</loc><lastmod>#{page[:lastmod]}</lastmod><changefreq>#{page[:changefreq]}</changefreq><priority>#{page[:priority]}</priority></url>"
-		
-		
 		next if page[:contents_length] == 0
+		
+		# add sitemap entry. 
+		sitemap.puts "<url><loc>#{page[:url]}</loc><lastmod>#{page[:lastmod]}</lastmod><changefreq>#{page[:change_freq]}</changefreq><priority>#{page[:priority]}</priority></url>"
 		
 		# create static page.
 		puts "#{page[:file]}: #{page[:url]}, contents length: #{page[:contents_length]}"

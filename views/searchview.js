@@ -207,9 +207,6 @@ function SearchView() {
 					$('.searchItem')
 						.hover(core.handlers.searchItemIn,
 							core.handlers.searchItemOut);
-							
-					$('.searchItem')
-						.click(core.handlers.searchItemClick);
 				}
 			});
 		},
@@ -222,12 +219,6 @@ function SearchView() {
 		searchItemOut: function (evt) {
 			$(evt.currentTarget).animate(
 				{backgroundColor: '#06A8F9'}, 'fast');
-		},
-		
-		searchItemClick: function (evt) {
-			var code = evt.currentTarget.id.substring(10);
-			layout.draw(new PostView(code), 
-				'leftPartContents');
 		},
 		
 		magnifyingLensClick: function (evt) {

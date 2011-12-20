@@ -2,7 +2,11 @@ function Route(pattern, action) {
 	this.pattern = pattern;
 	this.action = action;
 	this.applies = function (str) {
-		if (this.pattern.test(str)) {
+		var s = str;
+		// pattern is stateful, so for lack of a better cleanup method,
+		// recompiling it will clean it up.
+		this.pattern.compile(this.pattern);
+		if (this.pattern.exec(s) != null) {
 			this.action();
 			return true;
 		}
@@ -13,11 +17,13 @@ function Route(pattern, action) {
 
 function Router() {
 	var core = new Dynamic();
-	var relativePath = '';
-	var routes = [
+	
+	core.relativePath = '';
+	
+	core.routes = [
 		new Route(/^post./gi, function () {
 			layout.draw(
-				new PostView(relativePath.substring(5)),
+				new PostView(core.relativePath.substring(5)),
 				"leftPartContents");
 		}),
 		
@@ -25,12 +31,8 @@ function Router() {
 			layout.draw(new PostListView(), "leftPartContents");
 		})
 	];
-	
-	core.getRelativePath = function () {
-		return relativePath;
-	};
-	
-	core.getHash = function () {
+ 
+ 	core.getHash = function () {
 		return location.hash.indexOf("#!") == 0 ? 
 			location.hash.substring(2) :
 			location.hash.substring(1) ;
@@ -38,25 +40,20 @@ function Router() {
 	
 	core.map({
 		updateView: function () {
-			for(var route in routes)
-				if (routes[route].applies(relativePath))
-					return;
+			for(var idx in core.routes)
+				if (core.routes[idx].applies(core.relativePath))
+					break;
+		}, 
+		
+		initialize: function () {
+			$(window).hashchange();
 		}
 	});
 	
 	$(window).hashchange(function () {
-		var path = core.getHash();
-		
-		updateDecision = relativePath != path;
-		relativePath = path;
-		
-		if (updateDecision) core.updateView();
-	});
-	
-	core.initialize = function () {
-		relativePath = core.getHash();
+		core.relativePath = (core.getHash() || "").trim();
 		core.updateView();
-	}
+	});
 	
 	return core;
 }

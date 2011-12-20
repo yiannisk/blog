@@ -5,15 +5,21 @@
 	
 	if (isset($_REQUEST['_escaped_fragment_'])) {
 		$escapedFragment = $_REQUEST['_escaped_fragment_'];
-		if (strlen($escapedFragment) == 0)
-			header("location: static/home.html");
+
+		if (strlen($escapedFragment) == 0) {
+			include("static/home.html");
+			die();
+		}
 		
-		if ($escapedFragment == "profile")
-			header("location: static/profile.html");
+		if ($escapedFragment == "profile") {
+			include("static/profile.html");
+			die();
+		}
 		
 		if (stristr($escapedFragment, "post.") !== FALSE) {
 			$postUrl = str_replace('post.', '', $escapedFragment);
-			header("location: static/$postUrl.html");
+			include("static/$postUrl.html");
+			die();
 		}
 	}
 ?>
@@ -21,7 +27,7 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8" />
-	<meta name="fragment" content="!">
+	<!--meta name="fragment" content="!"-->
 	<title>Ioannis Karadimas' Blog</title>
 	
 	<link rel="stylesheet" type="text/css" href="styles/base.css" />
