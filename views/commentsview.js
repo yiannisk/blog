@@ -148,8 +148,8 @@ function CommentsView(entryid) {
 						contents: $("#comment").val()
 					}, 'text', function() {
 						if (data != 'success') return;
-						core.model.latest(core.entryid, 
-							core.loadDataComplete);
+						var complete = core.loadDataComplete;
+						core.model.latest(core.entryid, complete);
 					});
 
 				return;

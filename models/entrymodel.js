@@ -3,5 +3,6 @@ function EntryModel() {
 	core.resource = 'entry';
 	core.mapMethod('latest');
 	core.mapMethod('single');
+	core.mapMethod('search');
 	return core;
 }

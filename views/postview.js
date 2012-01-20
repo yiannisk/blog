@@ -3,7 +3,10 @@ function PostView(id) {
 	var enterCallBack = null;
 	
 	core.name = "post";
-	core.template = 'entryTemplate';
+	
+	//TODO: Check if commenting the line below will cause problems.
+	//core.template = 'entryTemplate';
+	
 	core.model = new EntryModel();
 	core.id = id;
 	

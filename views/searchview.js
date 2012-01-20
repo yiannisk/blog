@@ -3,9 +3,12 @@ function SearchView() {
 	var enterCallBack = null;
 	
 	core.name = 'search';
+	core.model = new EntryModel();
+
 	core.template = 'entrySearchTemplate';
 	core.resultsTemplate = 'entrySearchResultsTemplate';
 	core.supportedHashes = ["allposts"];
+	
 	
 	core.onHashRequest = function (hashName, hashValue) {
 		$("#allposts").click();
@@ -14,19 +17,11 @@ function SearchView() {
 	core.onEnterRegion = function (callback) {
 		enterCallBack = callback;
 		
-		$.ajax({
-			url: "template/entrySearch.html",
-			dataType: "html",
-			success: function (data, textStatus, jqXHR) {
-				$('body').append(data);
-				$('#' + core.template)
-					.template(core.template);
-					
+		core.template2('entrySearch', function () {
+			core.templates.entrySearch.apply(null, function (tplData) {
 				$(core.region).hide().html('');
-				$.tmpl(core.template, data)
-					.appendTo($(core.region));			
+				$(tplData).appendTo($(core.region));
 				
-		
 				$('<img src="resources/delete.png" '
 					+ 'id="clearSearch" />')
 						.appendTo('#search');
@@ -45,7 +40,8 @@ function SearchView() {
 				
 				core.attachEventHandlers();
 				if (enterCallBack) enterCallBack();
-			}});
+			});
+		});
 	};
 	
 	core.onLeaveRegion = function (callback) {
@@ -79,10 +75,7 @@ function SearchView() {
 		$('.searchItem').unbind('hover');
 		$('#magnifyingLens').addClass('loading');
 		$('#searchResults').fadeOut().html('');
-		$.ajax({
-			url: 'app/entry/search/' + text,
-			dataType: 'json',
-			success: core.handlers.searchSuccess});
+		core.model.search(text, core.handlers.searchSuccess);
 	};
 	
 	core.adjustClearSearchPosition = function () {
@@ -151,33 +144,27 @@ function SearchView() {
 		},
 		
 		searchTextKeyUp: function (evt) {
-			if (evt.currentTarget.value != '')
-			{	
+			if (evt.currentTarget.value != '') {	
 				$('#searchHint').fadeIn();
 				$('#magnifyingLens').removeClass('inactive');
 				$('#magnifyingLens').bind('click', 
 					core.handlers.magnifyingLensClick);
-			} 
-			else
-			{
+			} else {
 				$('#searchHint').fadeOut();
 				$('#magnifyingLens').addClass('inactive');
 				$('#magnifyingLens').unbind('click');
 			}
 			
 			if (!$(evt.currentTarget).hasClass('inactive')
-				&& evt.originalEvent)
-				if (evt.originalEvent.keyCode == 13)
+				&& evt.originalEvent 
+				&& evt.originalEvent.keyCode == 13)
 					core.searchForText(evt.currentTarget.value);
 		},
 		
 		clearSearch: function(keepText) {
 			$('#searchResults').fadeOut().html('');
 			$('#searchHint').fadeOut();
-			
-			if (keepText !== true)
-				$('#searchText').val('');
-			
+			if (keepText !== true) $('#searchText').val('');
 			$('#clearSearch').fadeOut();
 		},
 		
@@ -185,29 +172,19 @@ function SearchView() {
 			$('#magnifyingLens').removeClass('loading');
 			
 			var searchData = data;
-			
 			if (!searchData.length) return;
 			
-			$.ajax({
-				url: "template/entrySearchResults.html",
-				dataType: "html",
-				success: function (data, textStatus, jqXHR) {
-					$('body').append(data);
-					$('#' + core.resultsTemplate)
-						.template(core.resultsTemplate);
-						
-					$.tmpl(core.resultsTemplate, searchData)
-						.appendTo('#searchResults');			
-					
-					$('#searchResults').fadeIn();
-					
-					core.adjustClearSearchPosition();
-					$('#clearSearch').fadeIn();
-					
-					$('.searchItem')
-						.hover(core.handlers.searchItemIn,
+			core.template2('entrySearchResults', function () {
+				core.templates.entrySearchResults.apply(searchData,
+					function(tplData) {
+						$(tplData).appendTo('#searchResults');
+						$('#searchResults').fadeIn();					
+						core.adjustClearSearchPosition();
+						$('#clearSearch').fadeIn();				
+						$('.searchItem').hover(
+							core.handlers.searchItemIn,
 							core.handlers.searchItemOut);
-				}
+					});
 			});
 		},
 		
@@ -228,13 +205,8 @@ function SearchView() {
 		
 		allPostsClick: function (evt) {
 			evt.stopPropagation();
-			
-			$("#searchText")
-				.val("allposts")
-				.trigger("keyup");
-				
+			$("#searchText").val("allposts").trigger("keyup");
 			core.searchForText($("#searchText").val());
-			
 			return false;
 		}
 	};

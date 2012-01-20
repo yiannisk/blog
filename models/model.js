@@ -13,7 +13,7 @@ function Model() {
 				 
 			core.ajax({
 				url: resourceUri,
-				dataType: type ?? "json",
+				dataType: type || "json",
 				success: function (data) {
 					if (callback) callback(data);
 				}

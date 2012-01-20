@@ -48,9 +48,7 @@ function HeaderView() {
 		},
 		
 		// TODO: Change this into a link.
-		headerLogoClick: function () {
-			location.hash = "#";
-		}
+		headerLogoClick: function () { location.hash = "#"; }
 	};
 	
 	return core;
