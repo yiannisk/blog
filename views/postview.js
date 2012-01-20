@@ -4,59 +4,54 @@ function PostView(id) {
 	
 	core.name = "post";
 	core.template = 'entryTemplate';
+	core.model = new EntryModel();
 	core.id = id;
 	
 	core.onEnterRegion = function (callback) {
 		enterCallBack = callback;
 		
-		$.ajax({
-			url: "template/entry.html",
-			dataType: "html",
-			success: function (data, textStatus, jqXHR) {
-				$('body').append(data);
-				$('#' + core.template) 
-					.template(core.template);
-
-				$.ajax({
-					url: "app/entry/single/" + core.id,
-					dataType: "json",
-					success: core.loadDataComplete});
-			}});
+		core.template2('entry', function () {
+			core.model.single(core.id, core.loadDataComplete);
+		});
 	};
 	
 	core.onLeaveRegion = function (callback) {
 		location.hash = "";
 		core.detachEventHandlers();
 		$(core.region).fadeOut().html('').fadeIn();
+		layout.requestRegion('comments');
 		if (callback) callback();
 	};
 	
 	core.loadDataComplete = function (data, textStatus, jqXHR) {
-		$(core.region).hide().html('');
-		$.tmpl(core.template, data).appendTo($(core.region));
-		
-		if (data.tags && data.tags != "") {
-			$("#tags" + data.id).html(
-				"<div class='tag'>"
-					 + data.tags.replace(/,/gi, 
-						"</div><div class='tag'>")
-					 + "</div");
-		}
-		
-		$(core.region).fadeIn();
-		
-		var baseLayoutHeight = 800;
-		var targetLayoutHeight = 
-			($(core.region).height() > baseLayoutHeight)
-				? $(core.region).height() + 100
-				: baseLayoutHeight;
+		core.templates.entry.apply(data, function (tplData) {
+			$(core.region).hide().html('');
+			$(tplData).appendTo($(core.region));
 			
-		$('#layout').css('height', targetLayoutHeight + 'px');
-		$('#rightPart').css('height', (targetLayoutHeight - 30) + 'px');
+			if (data.tags && data.tags != "") {
+				$("#tags" + data.id).html(
+					"<div class='tag'>"
+						 + data.tags.replace(/,/gi, 
+							"</div><div class='tag'>")
+						 + "</div");
+			}
 			
-		core.attachEventHandlers();
-		layout.draw(new CommentsView(id), "comments");
-		if (enterCallBack) enterCallBack();
+			$(core.region).fadeIn();
+			
+			var baseLayoutHeight = 800;
+			var targetLayoutHeight = 
+				($(core.region).height() > baseLayoutHeight)
+					? $(core.region).height() + 100
+					: baseLayoutHeight;
+				
+			$('#layout').css('height', targetLayoutHeight + 'px');
+			$('#rightPart').css('height', 
+				(targetLayoutHeight - 30) + 'px');
+				
+			core.attachEventHandlers();
+			layout.draw(new CommentsView(id), "comments");
+			if (enterCallBack) enterCallBack();
+		});
 	};
 	
 	core.attachEventHandlers = function () {

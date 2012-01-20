@@ -5,6 +5,8 @@ function CommentsView(entryid) {
 	core.name = 'latestComments';
 	core.entryid = entryid;
 	core.images = [];
+	core.model = new CommentModel();
+	core.mathModel = new MathModel();
 	
 	core.onEnterRegion = function (callback) {
 		// preload the button images for the
@@ -23,12 +25,7 @@ function CommentsView(entryid) {
 			
 		enterCallBack = callback;
 		core.template2('latestComments', function () {
-			core.ajax({
-				url: 'app/comments/latest/' 
-					+ core.entryid,
-				dataType: 'json',
-				success: core.loadDataComplete
-			});
+			core.model.latest(core.entryid, core.loadDataComplete);
 		});
 	};
 	
@@ -104,18 +101,17 @@ function CommentsView(entryid) {
 		addCommentClick: function (evt) {
 			evt.stopPropagation();
 			
-			core.ajax({
-				url: 'app/math/question',
-				dataType: 'text',
-				success: function (data) {
-					$("#questionBox #answer").html(data);
-					$.colorbox({
-						html:$("#addCommentContainer").html(),
-						width: '410px',
-						height: '430px',
-						onComplete: core.handlers.colorboxComplete
-					});
-				}	
+			console.log(core.mathModel.question);
+			core.mathModel.question(function (data) {
+				console.log(data);
+				$("#questionBox #answer").html(data);
+				
+				$.colorbox({
+					html:$("#addCommentContainer").html(),
+					width: '410px',
+					height: '430px',
+					onComplete: core.handlers.colorboxComplete
+				});
 			});
 			
 			return false;
@@ -133,33 +129,22 @@ function CommentsView(entryid) {
 		noButtonClick: function (evt) {
 			if (!core.validateForm()) return false;
 			evt.stopPropagation();
-			core.ajax({
-				url: 'app/math/answer/false',
-				dataType: 'text',
-				success: core.handlers.answerSuccess,
-				error: $.colorbox.close
-			});
-			
+			core.mathModel.answer("false", core.handlers.answerSuccess);
 			return false;
 		},
 
 		yesButtonClick: function (evt) {
 			if (!core.validateForm()) return false;
 			evt.stopPropagation();
-			core.ajax({
-				url: 'app/math/answer/true',
-				dataType: 'text',
-				success: core.handlers.answerSuccess,
-				error: $.colorbox.close
-			});
-			
+			core.mathModel.answer("true", core.handlers.answerSuccess);
 			return false;
 		},
 
 		answerSuccess: function (data) {
 			if (data == 'success') {
+				//core.model.
 				core.ajax({
-					url: 'app/comments',
+					url: 'app/comment',
 					type: 'post',
 					dataType: 'text',
 					data: {
@@ -171,7 +156,7 @@ function CommentsView(entryid) {
 					success: function (data) {
 						if (data == 'success') {
 							core.ajax({
-								url: 'app/comments/latest/' 
+								url: 'app/comment/latest/' 
 									+ core.entryid
 									+ '/3',
 								dataType: 'json',
@@ -193,12 +178,8 @@ function CommentsView(entryid) {
 				return;
 			}
 			
-			core.ajax({
-				url: 'app/math/question',
-				dataType: 'text',
-				success: function (data) {
-					$("#questionBox #answer").html(data);
-				}	
+			core.mathModel.question(function (data) {
+				$("#questionBox #answer").html(data);
 			});
 		}
 	};

@@ -101,6 +101,13 @@
 	<script type="text/javascript" src="views/commentsview.js"></script>
 	<script type="text/javascript" src="views/bioview.js"></script>
 	
+	<!-- Models -->
+	<script type="text/javascript" src="models/model.js"></script>
+	<script type="text/javascript" src="models/staticmodel.js"></script>
+	<script type="text/javascript" src="models/entrymodel.js"></script>
+	<script type="text/javascript" src="models/commentmodel.js"></script>
+	<script type="text/javascript" src="models/mathmodel.js"></script>
+
 	<script type="text/javascript">
 		var layout = {};
 		

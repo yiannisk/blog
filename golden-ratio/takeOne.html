@@ -1,0 +1,54 @@
+<html>
+	<head>
+		<title>Looking for sample applications of the golden ratio.</title>
+	</head>
+	<body>
+		<table>
+			<caption>Font And Line Sizes</caption>
+			<tr>
+				<th>Method</th>
+				<th>Font size range</th>
+			</tr>
+			<tr>
+				<td>Size difference</td>
+				<td class="sizeDifference"></td>
+				<td class="sizeDifferenceSamples"></td>
+			</tr>
+		</table>
+		
+		<script src="http://code.jquery.com/jquery-1.7.1.min.js"
+				type="text/javascript"></script>
+				
+		<script type="text/javascript"
+				src="scripts/math.js"></script>
+				
+		<script type="text/javascript">
+			$(function () {
+				window.ratio = 1.61803399;
+				
+				window.writeSizeDifference = function () {
+					$(".sizeDifference").html((function () {
+						var result = "", start = 3.0;
+						for(var i in [1,2,3,4,5,6])
+							result += Math.descend(i, start) 
+								+ "em</td></tr><tr><td>";
+						return result;
+					})());
+					
+					$(".sizeDifferenceSamples").html((function () {
+						var result = "", start = 3.0;
+						for(var i in [1,2,3,4,5,6]) {
+							var size = Math.descend(i, start);
+							result += "<span style='font-size:" + size 
+								+ "em'>Sample</span></td></tr><tr><td>";
+						}
+						return result;
+					})());
+				};
+				
+				writeSizeDifference();
+			});
+		</script>
+			
+	</body>
+</html>

@@ -4,23 +4,14 @@ function HeaderView() {
 	
 	core.name = 'header';
 	core.template = 'headerTemplate';
+	core.model = new StaticModel();
 	
 	core.onEnterRegion = function (callback) {
 		enterCallBack = callback;
 		
-		$.ajax({
-			url: "template/header.html",
-			dataType: "html",
-			success: function (data, textStatus, jqXHR) {
-				$('body').append(data);
-				$('#' + core.template) 
-					.template(core.template);
-
-				$.ajax({
-					url: 'app/static/single/header',
-					dataType: 'json',
-					success: core.loadDataComplete});
-		}});
+		core.template2('header', function () {
+			core.model.single('header', core.loadDataComplete);
+		});
 	};
 	
 	core.onLeaveRegion = function (callback) {
@@ -29,12 +20,13 @@ function HeaderView() {
 	};
 	
 	core.loadDataComplete = function (data, textStatus, jqXHR) {
-		$(core.region).hide().html('');
-		$.tmpl(core.template, data).appendTo($(core.region));
-		$(core.region).fadeIn();
+		core.templates.header.apply(data, function (data) {
+			$(core.region).hide().html('');
+			$(data).appendTo($(core.region));
+			$(core.region).fadeIn();
+		});
 		
 		core.attachEventHandlers();
-		
 		if (enterCallBack) enterCallBack();
 	};
 	
@@ -55,6 +47,7 @@ function HeaderView() {
 			});
 		},
 		
+		// TODO: Change this into a link.
 		headerLogoClick: function () {
 			location.hash = "#";
 		}

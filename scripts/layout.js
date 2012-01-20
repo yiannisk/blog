@@ -36,7 +36,7 @@ function Layout() {
 						function () {
 							self.views[viewName].region = null;
 							self.wait = false;
-							callBack();
+							if (callBack) callBack();
 						});
 						
 					// Return; Everything else will happen 
