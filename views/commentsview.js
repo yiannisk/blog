@@ -142,39 +142,16 @@ function CommentsView(entryid) {
 
 		answerSuccess: function (data) {
 			if (data == 'success') {
-				//core.model.
-				core.ajax({
-					url: 'app/comment',
-					type: 'post',
-					dataType: 'text',
-					data: {
+				core.model.post({
 						entryId: core.entryid,
 						author: $("#email").val(),
 						contents: $("#comment").val()
-					},
-			 
-					success: function (data) {
-						if (data == 'success') {
-							core.ajax({
-								url: 'app/comment/latest/' 
-									+ core.entryid
-									+ '/3',
-								dataType: 'json',
-								success: function (data) {
-									core.templates.latestComments.apply(
-										{Comments: data}, 
-										function (rendered) {
-											$(core.region).html(rendered).fadeIn();
-											core.attachEventHandlers();
-										});
-									
-									$.colorbox.close();
-								}
-							});
-						}
-					}
-				});
-				
+					}, 'text', function() {
+						if (data != 'success') return;
+						core.model.latest(core.entryid, 
+							core.loadDataComplete);
+					});
+
 				return;
 			}
 			

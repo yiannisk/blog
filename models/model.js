@@ -4,14 +4,30 @@ function Model() {
 
 	core.resourcesBase = 'app';
 	
+	core.map({
+		post: function (data, type, callback) {
+			var callback = callback;
+			
+			var resourceUri = core.resourcesBase
+				 + "/" + core.resource;
+				 
+			core.ajax({
+				url: resourceUri,
+				dataType: type ?? "json",
+				success: function (data) {
+					if (callback) callback(data);
+				}
+			});
+		}
+	});
+	
 	core.mapMethod = function (method, cacheable, dataType) {
 		var method = method, obj = {}, 
 			cacheable = cacheable || true,
 			dataType = dataType || 'json';
 
 		obj[method] = function () {
-			var args = [], callback = null/*, cacheable = cacheable,
-				dataType = dataType*/;
+			var args = [], callback = null;
 				
 			for(var i = 0; i < arguments.length; i++)
 				args.push(arguments[i]);
