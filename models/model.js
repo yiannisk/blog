@@ -13,7 +13,9 @@ function Model() {
 				 
 			core.ajax({
 				url: resourceUri,
+				type: "POST",
 				dataType: type || "json",
+				data: data,
 				success: function (data) {
 					if (callback) callback(data);
 				}
@@ -23,7 +25,7 @@ function Model() {
 	
 	core.mapMethod = function (method, cacheable, dataType) {
 		var method = method, obj = {}, 
-			cacheable = cacheable || true,
+			cacheable = cacheable == null ? true : cacheable,
 			dataType = dataType || 'json';
 
 		obj[method] = function () {

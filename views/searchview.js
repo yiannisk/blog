@@ -5,10 +5,7 @@ function SearchView() {
 	core.name = 'search';
 	core.model = new EntryModel();
 
-	core.template = 'entrySearchTemplate';
-	core.resultsTemplate = 'entrySearchResultsTemplate';
 	core.supportedHashes = ["allposts"];
-	
 	
 	core.onHashRequest = function (hashName, hashValue) {
 		$("#allposts").click();

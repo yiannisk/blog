@@ -27,7 +27,6 @@
 		public function lastCommentCreatedOn() {
 			$statement = parent::prepare(
 				'SELECT max(CreatedOn) as LastCreatedOn FROM comment');
-
 			return parent::scalar($statement);
 		}
 

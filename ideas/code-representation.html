@@ -1,0 +1,62 @@
+<html>
+	<head>
+		<style>
+			body { font-family: "courier new", "lucida console"; }
+			.condition { border-bottom: 2px solid #ccc; }
+			td { padding: 4px; }
+			.margin { width: 0px; border-right: 2px solid #ccc; }
+			
+			.object { padding: 10px; cursor: pointer; }
+			
+			.highlightBorder { 
+				border: 1px solid black; 
+				background-color: skyblue; 
+				padding: 9px;
+			}
+			
+			.highlightBorder table, .highlightBorder td {
+				color: black;
+				border-color: black;
+			}
+			
+			.object.highlightBorder {  }
+		</style>
+	</head>
+	<body>
+		<div class="masterContainer">
+			<table cellpadding="0" cellspacing="0" class="draggable object">
+				<tr><td colspan="2" class="condition">a + b > c</td></tr>
+				<tr>
+					<td class="margin"></td>
+					<td class="content draggable object">
+						"C is greater than a + b."
+						<br /><br />
+						<table cellpadding="0" cellspacing="0">
+							<tr><td colspan="2" 
+									class="condition">index = 1..10</td></tr>
+							<tr>
+								<td class="margin"></td>
+								<td class="content">item[index] >>= 8;</td>
+							</tr>
+						</table>			
+					</td>
+				</tr>
+			</table>
+		</div>
+
+		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.0/jquery.min.js"></script>
+		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.9/jquery-ui.min.js"></script>
+		
+		<script type="text/javascript">
+			$(function () {
+				$(".draggable").draggable();
+				
+				$(".object").hover(function () {
+					$(this).addClass("highlightBorder");
+				}, function () {
+					$(this).removeClass("highlightBorder");
+				});
+			});
+		</script>
+	</body>
+</html>

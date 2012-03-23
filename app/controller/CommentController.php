@@ -56,9 +56,10 @@
 			}
 
 			// sanitize inputs.
-			$entryId = (int) isset($req->arguments['entryId']) 
-				? $req->arguments['entryId']
-				: 0;
+			$entryId = 
+				isset($req->arguments['entryId']) 
+					? $req->arguments['entryId']
+					: '';
 
 			$author = 
 				substr(isset($req->arguments['author'])
@@ -70,9 +71,15 @@
 					? $req->arguments['contents']
 					: '';
 			
-			if (!isset($entryId) || strlen($author) == 0 
+			if (strlen($entryId) == 0 || strlen($author) == 0 
 				|| strlen($contents) == 0) {
-					echo "failure - insufficient data.";
+					$resp = "failure - insufficient data.";
+					
+					error_log($resp, 0);
+					error_log('Received a write request with: ' .
+						var_export($req, true), 0);
+						
+					echo $resp;
 					return;
 			}
 			

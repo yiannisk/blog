@@ -59,6 +59,8 @@
 					else
 					{
 						$arguments = $_POST;
+						error_log('Arguments: ' . var_export($arguments, true), 0);
+						error_log('POST: ' . var_export($_POST, true), 0);
 					}
 					
 					break;

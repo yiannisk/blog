@@ -100,10 +100,7 @@ function CommentsView(entryid) {
 		
 		addCommentClick: function (evt) {
 			evt.stopPropagation();
-			
-			console.log(core.mathModel.question);
 			core.mathModel.question(function (data) {
-				console.log(data);
 				$("#questionBox #answer").html(data);
 				
 				$.colorbox({
@@ -146,9 +143,14 @@ function CommentsView(entryid) {
 						entryId: core.entryid,
 						author: $("#email").val(),
 						contents: $("#comment").val()
-					}, 'text', function() {
+					}, 'text', function(data) {
 						if (data != 'success') return;
-						var complete = core.loadDataComplete;
+						
+						var complete = function (data) {
+							$.colorbox.close();
+							core.loadDataComplete(data);
+						}
+						
 						core.model.latest(core.entryid, complete);
 					});
 

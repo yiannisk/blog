@@ -55,6 +55,7 @@
 			<div id="leftPartContents"></div>
 		</div>
 		<div id="rightPart">
+			<div id="adminSide"></div>
 			<div id="bioSide"></div>
 			<div id="search"></div>
 			<div id="comments"></div>
@@ -100,6 +101,7 @@
 	<script type="text/javascript" src="views/searchview.js"></script>
 	<script type="text/javascript" src="views/commentsview.js"></script>
 	<script type="text/javascript" src="views/bioview.js"></script>
+	<script type="text/javascript" src="views/adminview.js"></script>
 	
 	<!-- Models -->
 	<script type="text/javascript" src="models/model.js"></script>
@@ -118,6 +120,7 @@
 			layout.draw(new HeaderView(), "header");
 			layout.draw(new SearchView(), "search");
 			layout.draw(new BioView(), "bio");
+			layout.draw(new AdminView(), "adminSide");
 
 			router.initialize();
 		});
