@@ -26,8 +26,7 @@ function PostListView() {
 				
 				if (item.tags && item.tags != "") {
 					$("#tags" + item.id).html("<div class='tag'>"
-						 + item.tags.replace(/,/gi, 
-							"</div><div class='tag'>")
+						 + item.tags.replace(/,/gi, "</div><div class='tag'>")
 						 + "</div");
 				}
 			}

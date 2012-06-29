@@ -22,7 +22,6 @@ function BioView() {
 			core.templates.bio.apply(null, function (data) {
 				$(data).appendTo($(core.region));
 				core.attachEventHandlers();
-				console.log("Loaded bio");
 				core.handlers.adjustPosition();
 				if (cb) cb();
 			});
@@ -43,6 +42,13 @@ function BioView() {
 		$("#bio").unbind();
 	};
 	
+	core.onMessageReceived = function (message, callback) {
+		if (message == 'HEADER_HIDDEN')
+		core.handlers.adjustPosition();
+		
+		if (callback) callback();
+	};
+
 	core.handlers = {
 		adjustPosition: function () {
 			$(core.region).css({
