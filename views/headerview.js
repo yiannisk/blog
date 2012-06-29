@@ -24,10 +24,9 @@ function HeaderView() {
 			$(core.region).hide().html('');
 			$(data).appendTo($(core.region));
 			$(core.region).fadeIn();
+			core.attachEventHandlers();
+			if (enterCallBack) enterCallBack();
 		});
-		
-		core.attachEventHandlers();
-		if (enterCallBack) enterCallBack();
 	};
 	
 	core.attachEventHandlers = function () {

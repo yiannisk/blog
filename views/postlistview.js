@@ -33,17 +33,9 @@ function PostListView() {
 			}
 			
 			$(core.region).fadeIn();
-			
-			var baseLayoutHeight = 800;
-			var targetLayoutHeight = 
-				($(core.region).height() > baseLayoutHeight)
-					? $(core.region).height() + 100
-					: baseLayoutHeight;
-				
-			$('#layout').css('height', targetLayoutHeight + 'px');
-			$('#rightPart').css('height', 
-				(targetLayoutHeight - 30 ) + 'px');
-			
+			core.handlers.resizeBaseLayout(null, function () {
+				$(window).trigger('resize');
+			});
 			core.attachEventHandlers();
 			if (enterCallBack) enterCallBack();
 		});
@@ -55,9 +47,8 @@ function PostListView() {
 	};
 	
 	core.attachEventHandlers = function () {
-		$(".retweet").hover(
-			core.handlers.retweetIn,
-			core.handlers.retweetOut);
+		$(window).bind('resize', 
+			core.handlers.resizeBaseLayout);
 	};
 	
 	core.detachEventHandlers = function () {
@@ -65,14 +56,18 @@ function PostListView() {
 	};
 	
 	core.handlers = {
-		retweetIn: function (evt) {
-			$(evt.currentTarget).animate(
-				{backgroundColor: '#000000'}, 'fast');
-		},
-		
-		retweetOut: function (evt) {
-			$(evt.currentTarget).animate(
-				{backgroundColor: '#3F3F3F'}, 'fast');
+		resizeBaseLayout: function (evt, callback) {
+			var cb = callback;
+			var baseLayoutHeight = 800;
+			var targetLayoutHeight = 
+			($(core.region).height() > baseLayoutHeight)
+			? $(core.region).height() + 100
+			: baseLayoutHeight;
+			
+			$('#layout').css('height', targetLayoutHeight + 'px');
+			$('#rightPart').css('height', 
+			(targetLayoutHeight - 30 ) + 'px');
+			if (cb) cb();
 		}
 	};
 	

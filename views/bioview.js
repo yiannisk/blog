@@ -22,6 +22,8 @@ function BioView() {
 			core.templates.bio.apply(null, function (data) {
 				$(data).appendTo($(core.region));
 				core.attachEventHandlers();
+				console.log("Loaded bio");
+				core.handlers.adjustPosition();
 				if (cb) cb();
 			});
 		});
@@ -34,6 +36,7 @@ function BioView() {
 	core.attachEventHandlers = function () {
 		$("#logo").click(core.handlers.logoClick);
 		$(".bioClose").click(core.handlers.bioCloseClick);
+		$(window).resize(core.handlers.adjustPosition);
 	};
 	
 	core.detachEventHandlers = function () {
@@ -41,20 +44,17 @@ function BioView() {
 	};
 	
 	core.handlers = {
+		adjustPosition: function () {
+			$(core.region).css({
+				height: $('#layout').innerHeight() + "px",
+				left: $('#leftPart').position().left + "px"
+			});
+		},
+		
 		logoClick: function () {
 			core.showSearch = $("#search").is(":visible");
 			core.showComments = $("#comments").is(":visible");
-
 			location.hash = "#!profile";
-			
-			$(core.region).css({
-				height: $('#layout').innerHeight() + "px",
-				left: ($('#layout').position().left
-					- 126
-					+ (($('#layout').outerWidth() - 550) / 2)) 
-					+ "px"
-			});
-				
 			$(core.region).fadeIn("slow");
 			
 			if (core.showSearch)
@@ -74,9 +74,8 @@ function BioView() {
 			$(core.region).fadeOut("fast");
 			
 			setTimeout(function () {
-				if (core.showSearch) {
+				if (core.showSearch)
 					$("#search").fadeIn("slow");
-				}
 					
 				if (core.showComments)
 					$("#comments").fadeIn("slow");

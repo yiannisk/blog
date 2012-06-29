@@ -1,0 +1,12 @@
+GEM
+  remote: http://rubygems.org/
+  specs:
+    json (1.6.3)
+    json (1.6.3-java)
+
+PLATFORMS
+  java
+  ruby
+
+DEPENDENCIES
+  json

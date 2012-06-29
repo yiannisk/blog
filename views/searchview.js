@@ -23,16 +23,16 @@ function SearchView() {
 					+ 'id="clearSearch" />')
 						.appendTo('#search');
 					
-				$('#clearSearch')
-					.css({	position: "absolute", 
-							display: "none"})
-					.bind('click', core.handlers.clearSearch);
+				$('#clearSearch').css({	
+					position: "absolute", 
+					display: "none"
+				});
 					
 				core.adjustClearSearchPosition();
 				
 				$(core.region).fadeIn();
 				setTimeout(
-					core.adjustMagnifyingLensPosition,
+					core.adjustLensPosition,
 					100);
 				
 				core.attachEventHandlers();
@@ -48,7 +48,7 @@ function SearchView() {
 	
 	core.onMessageReceived = function (message, callback) {
 		if (message == 'HEADER_HIDDEN') {
-			core.adjustMagnifyingLensPosition();
+			core.adjustLensPosition();
 			core.adjustClearSearchPosition();
 		}
 		
@@ -61,9 +61,8 @@ function SearchView() {
 			.hide()
 			.fadeIn();
 		
-		core.adjustMagnifyingLensPosition();
+		core.adjustLensPosition();
 		core.attachEventHandlers();
-
 		if (enterCallBack) enterCallBack();
 	};
 	
@@ -91,7 +90,7 @@ function SearchView() {
 				+ 'px');
 	};
 	
-	core.adjustMagnifyingLensPosition = function () {
+	core.adjustLensPosition = function () {
 		$('#magnifyingLens').css('left', 
 			$('#searchText').position().left 
 				+ $('#searchText').outerWidth()
@@ -115,8 +114,15 @@ function SearchView() {
 			
 		$("#allposts")
 			.bind('click', core.handlers.allPostsClick);
+		
+		$("#clearSearch")
+			.bind('click', core.handlers.clearSearch);
+			
+		$(window).bind('resize', function () {
+			core.adjustClearSearchPosition();
+			core.adjustLensPosition();
+		});
 	};
-	
 	
 	core.detachEventHandlers = function () {
 		$('#searchText')

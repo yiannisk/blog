@@ -1,0 +1,45 @@
+require 'rake/clean'
+
+task :default => [:build]
+task :pack => [:pack_scripts, :pack_styles]
+
+task :build => [:clear, :structure, :pack, :seo, :apache] do |t|
+end
+
+desc "Remove all files from the output folder to accomodate next build"
+task :clear do
+	sh "rm -rf output/*"
+end
+
+desc "Build the final directory structure"
+task :structure do
+	sh "mkdir output/static"
+end
+
+desc "Build all SEO - related stuff, like static pages and the sitemap"
+task :seo do
+	# build all static scripts.
+end
+
+desc "Get and minify all scripts into one, then update production HTML"
+task :pack_scripts do
+	# retrieve all scripts
+	
+	# join and minify them into a single file
+	
+	# modify all HTMLs referring to the scripts, so that they refer
+	# 	to the minified version
+end
+
+desc "Get and minify all styles into one, then update production HTML"
+task :pack_styles do
+end
+
+desc "Take care of apache configuration options (htaccess et al.)"
+task :apache do
+	# modify the .htaccess file to account for the production root.
+end
+
+desc "Deploys the site"
+task :deploy => [:build] do |t|
+end
