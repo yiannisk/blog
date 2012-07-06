@@ -13,7 +13,7 @@ function PostView(id) {
 	core.onEnterRegion = function (callback) {
 		enterCallBack = callback;
 		
-		core.template2('entry', function () {
+		core.template('entry', function () {
 			core.model.single(core.id, core.loadDataComplete);
 		});
 	};

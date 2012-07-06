@@ -9,7 +9,7 @@ function HeaderView() {
 	core.onEnterRegion = function (callback) {
 		enterCallBack = callback;
 		
-		core.template2('header', function () {
+		core.template('header', function () {
 			core.model.single('header', core.loadDataComplete);
 		});
 	};

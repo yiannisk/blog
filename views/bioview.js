@@ -5,20 +5,16 @@ function BioView() {
 	core.showComments = false;
 	core.supportedHashes = ["profile"];
 	
-	core.onHashRequest = function (hash) {
-		if (hash == "profile") $("#logo").click();
-	};
-	
 	core.onEnterRegion = function (callback) {
 		var cb = callback;
 	
-		core.template2('bioSide', function () {
+		core.template('bioSide', function () {
 			core.templates.bioSide.apply(null, function (data) {
 				$("#bioSide").hide().html(data);
 			})
 		});
 		
-		core.template2('bio', function () {
+		core.template('bio', function () {
 			core.templates.bio.apply(null, function (data) {
 				$(data).appendTo($(core.region));
 				core.attachEventHandlers();
@@ -44,29 +40,34 @@ function BioView() {
 	
 	core.onMessageReceived = function (message, callback) {
 		if (message == 'HEADER_HIDDEN')
-		core.handlers.adjustPosition();
-		
+			core.handlers.adjustPosition();
 		if (callback) callback();
 	};
 
 	core.handlers = {
 		adjustPosition: function () {
 			$(core.region).css({
-				height: $('#layout').innerHeight() + "px",
-				left: $('#leftPart').position().left + "px"
+				height: $('#layout').height() + "px",
+				left: ($('#leftPart').position().left + 2) + "px"
 			});
 		},
 		
 		logoClick: function () {
+			if ($(core.region).is(":visible")) return;
+			
 			core.showSearch = $("#search").is(":visible");
 			core.showComments = $("#comments").is(":visible");
+
+			core.previousLocationHash = location.hash;
 			location.hash = "#!profile";
+			
+			core.handlers.adjustPosition();
 			$(core.region).fadeIn("slow");
 			
-			if (core.showSearch)
+			if (core.showSearch === true)
 				$("#search").fadeOut("fast");
 				
-			if (core.showComments)
+			if (core.showComments === true)
 				$("#comments").fadeOut("fast");
 
 			setTimeout(function () {
@@ -74,16 +75,16 @@ function BioView() {
 		},
 		
 		bioCloseClick: function () {
-			location.hash = "";
+			location.hash = core.previousLocationHash;
 			
 			$("#bioSide").fadeOut("fast");
 			$(core.region).fadeOut("fast");
 			
 			setTimeout(function () {
-				if (core.showSearch)
+				if (core.showSearch === true)
 					$("#search").fadeIn("slow");
 					
-				if (core.showComments)
+				if (core.showComments === true)
 					$("#comments").fadeIn("slow");
 			}, 150);
 		}

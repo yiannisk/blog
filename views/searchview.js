@@ -14,7 +14,7 @@ function SearchView() {
 	core.onEnterRegion = function (callback) {
 		enterCallBack = callback;
 		
-		core.template2('entrySearch', function () {
+		core.template('entrySearch', function () {
 			core.templates.entrySearch.apply(null, function (tplData) {
 				$(core.region).hide().html('');
 				$(tplData).appendTo($(core.region));
@@ -177,7 +177,7 @@ function SearchView() {
 			var searchData = data;
 			if (!searchData.length) return;
 			
-			core.template2('entrySearchResults', function () {
+			core.template('entrySearchResults', function () {
 				core.templates.entrySearchResults.apply(searchData,
 					function(tplData) {
 						$(tplData).appendTo('#searchResults');

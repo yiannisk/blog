@@ -8,7 +8,7 @@ function PostListView() {
 	core.onEnterRegion = function (callback) {
 		enterCallBack = callback;
 		
-		core.template2('latestEntries', function () {
+		core.template('latestEntries', function () {
 			core.model.latest(core.loadDataComplete);
 		});
 	};

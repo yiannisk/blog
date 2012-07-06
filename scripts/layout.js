@@ -86,24 +86,7 @@ function Layout() {
 					
 			this.views[view].message(message, callback);
 			return true;
-		},
-		
-		hash: function () {
-			var hashValue = location.hash.indexOf("#!") == 0 ? 
-				location.hash.substring(2) :
-				location.hash.substring(1) ;
-				
-			for(viewName in this.views) {
-				if (this.views[viewName].canHandle(hashValue)) {
-					this.views[viewName].hash(hashValue);
-					return;
-				}
-			}
 		}
-	});
-	
-	$(window).hashchange(function () {
-		core.hash();
 	});
 	
 	return core;

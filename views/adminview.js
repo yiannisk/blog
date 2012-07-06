@@ -18,7 +18,7 @@ function AdminView() {
 		
 		showLogin = !showLogin;
 		if (showLogin) {
-			core.template2('adminLogin', function () {
+			core.template('adminLogin', function () {
 				core.templates.adminLogin.apply({}, 
 					function (rendered) {
 						$(core.region).html(rendered).fadeIn();

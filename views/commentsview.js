@@ -24,7 +24,7 @@ function CommentsView(entryid) {
 		}
 			
 		enterCallBack = callback;
-		core.template2('latestComments', function () {
+		core.template('latestComments', function () {
 			core.model.latest(core.entryid, core.loadDataComplete);
 		});
 	};
