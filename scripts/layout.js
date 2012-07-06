@@ -1,7 +1,6 @@
 function Layout() {
 	var core = new Dynamic();
 	core.completeJoin = new Join(function () {
-		core.hash(location.hash);
 		if (core.loadComplete) core.loadComplete();
 	});
 	

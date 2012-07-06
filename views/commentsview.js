@@ -124,35 +124,39 @@ function CommentsView(entryid) {
 		},
 		
 		noButtonClick: function (evt) {
-			if (!core.validateForm()) return false;
 			evt.stopPropagation();
+			if (!core.validateForm()) return false;
 			core.mathModel.answer("false", core.handlers.answerSuccess);
 			return false;
 		},
 
 		yesButtonClick: function (evt) {
-			if (!core.validateForm()) return false;
 			evt.stopPropagation();
+			if (!core.validateForm()) return false;
 			core.mathModel.answer("true", core.handlers.answerSuccess);
 			return false;
 		},
 
 		answerSuccess: function (data) {
 			if (data == 'success') {
-				core.model.post({
+				core.model.post(
+					{
 						entryId: core.entryid,
 						author: $("#email").val(),
 						contents: $("#comment").val()
-					}, 'text', function(data) {
-						if (data != 'success') return;
+					}, 
+					'text', 
+					function(data) {
+						if (data.indexOf('success') == -1) return;
 						
 						var complete = function (data) {
 							$.colorbox.close();
 							core.loadDataComplete(data);
 						}
-						
+					
 						core.model.latest(core.entryid, complete);
-					});
+					}
+				);
 
 				return;
 			}

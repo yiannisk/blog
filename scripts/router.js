@@ -3,8 +3,6 @@ function Route(pattern, action) {
 	this.action = action;
 	this.applies = function (str) {
 		var s = str;
-		// pattern is stateful, so for lack of a better cleanup method,
-		// recompiling it will clean it up.
 		this.pattern.compile(this.pattern);
 		if (this.pattern.exec(s) != null) {
 			this.action();
