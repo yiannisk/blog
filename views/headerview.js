@@ -3,7 +3,6 @@ function HeaderView() {
 	var enterCallBack = null;
 	
 	core.name = 'header';
-	core.template = 'headerTemplate';
 	core.model = new StaticModel();
 	
 	core.onEnterRegion = function (callback) {

@@ -32,10 +32,8 @@ function PostListView() {
 			}
 			
 			$(core.region).fadeIn();
-			core.handlers.resizeBaseLayout(null, function () {
-				$(window).trigger('resize');
-			});
 			core.attachEventHandlers();
+			$(window).trigger('resize');
 			if (enterCallBack) enterCallBack();
 		});
 	};
