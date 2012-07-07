@@ -26,7 +26,9 @@ function Model() {
 	core.mapMethod = function (method, cacheable, dataType) {
 		var method = method, obj = {}, 
 			cacheable = cacheable == null ? true : cacheable,
-			dataType = dataType || 'json';
+			dataType = dataType || 'json',
+			params = params;
+			
 
 		obj[method] = function () {
 			var args = [], callback = null;

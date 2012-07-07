@@ -5,8 +5,10 @@ function StackOverflowModel() {
 			var callback = callback;
 			
 			core.ajax({
-				url: "https://api.stackexchange.com/docs/users-by-ids#order=desc&sort=reputation&ids=366313&filter=default&site=stackoverflow&run=true",
+				url: "https://api.stackexchange.com/2.0/users/366313?site=stackoverflow",
 				type: "GET",
+				dataType: "jsonp",
+				contentType: "application/javascript",
 				success: function (data) {
 					if (callback) callback(data);
 				},

@@ -14,6 +14,7 @@ function GitHubView() {
 	};
 	
 	core.loadDataComplete = function (data, textStatus, jqXHR) {
+		var data = data.data;
 		for(var i = 0; i < data.length; i++)
 			data[i].full_name = 
 				data[i].full_name.replace('yiannisk/', '');
