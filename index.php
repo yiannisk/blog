@@ -42,7 +42,7 @@
 	<!-- Fonts -->
 	<link href='http://fonts.googleapis.com/css?family=Philosopher' 
 		rel='stylesheet' type='text/css' />
-		
+
 	<link rel="stylesheet" type="text/css" 
 		href='styles/external/colorbox.css' />
 </head>
@@ -63,7 +63,24 @@
 		
 		<div id="bio"></div>
 	</div>
+	<div id="footer">
+		<div id="twitter">
+			<img src="resources/twitter-bird-dark-bgs.png" 
+				class="footerSectionLogo" />
+			<div id="twitter_update_list"></div>
+		</div>
+		<div id="github">
+			<img src="resources/github-white-logo.png"
+				class="footerSectionLogo" />
+			<div id="github_repos"></div>
+		</div>
+	</div>
 	
+	<script type="text/javascript" 
+		src="http://twitter.com/javascripts/blogger.js"></script>
+	<script type="text/javascript" 
+		src="http://twitter.com/statuses/user_timeline/ikaradimas.json?callback=twitterCallback2&count=3">
+		</script>
 	<script type="text/javascript" 
 		src="http://code.jquery.com/jquery-latest.min.js"></script>
 	<script type="text/javascript" 
@@ -102,13 +119,16 @@
 	<script type="text/javascript" src="views/commentsview.js"></script>
 	<script type="text/javascript" src="views/bioview.js"></script>
 	<script type="text/javascript" src="views/adminview.js"></script>
+	<script type="text/javascript" src="views/githubview.js"></script>
 	
 	<!-- Models -->
 	<script type="text/javascript" src="models/model.js"></script>
 	<script type="text/javascript" src="models/staticmodel.js"></script>
 	<script type="text/javascript" src="models/entrymodel.js"></script>
-	<script type="text/javascript" src="models/commentmodel.js"></script>
+	<script type="text/javascript" src="models/commentmodel.js">
+		</script>
 	<script type="text/javascript" src="models/mathmodel.js"></script>
+	<script type="text/javascript" src="models/githubmodel.js"></script>
 
 	<script type="text/javascript">
 		var layout = {};
@@ -121,6 +141,7 @@
 			layout.draw(new SearchView(), "search");
 			layout.draw(new BioView(), "bio");
 			layout.draw(new AdminView(), "adminSide");
+			layout.draw(new GitHubView(), "github_repos");
 
 			router.initialize();
 		});

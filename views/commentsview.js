@@ -169,3 +169,6 @@ function CommentsView(entryid) {
 	
 	return core;	
 }
+
+//http://search.twitter.com/search.atom?q=from:" . $twitterid . "&rpp=" . $numberoftweets . "";
+

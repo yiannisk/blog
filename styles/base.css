@@ -69,7 +69,8 @@ table{
 
 body 
 { 
-	font-family: 'Philosopher',Arial,Helvetica; 
+	font-family: 'Philosopher',	Arial;
+	letter-spacing: .06em;
 	background: url(../resources/pattern02.gif); 
 	margin: 0px; 
 	color: white;
@@ -84,8 +85,11 @@ h5 { display: block; font-size: 1.1em; }
 
 .entry { width: 500px; margin-bottom: 30px; }
 
-.entry .preview, .entry .contents {
-	line-height: 1.1em;
+.entry h1 { margin-bottom: 20px; }
+
+.entry .preview, .entry .content {
+	margin-top: 15px;
+	line-height: 1.3em; 
 }
 
 .preview { margin-top: 10px; }
@@ -569,4 +573,66 @@ pre.blockCode, code.blockCode {
 .important h4 {
 	margin-bottom: 10px;
 	font-weight: bold;
+}
+
+#footer {
+	clear: both;
+	margin-left: auto;
+	margin-right: auto;
+	width: 1000px;
+	height: 400px;
+	color: white;
+}
+
+#footer .footerSectionLogo {
+	margin-left: auto;
+	margin-right: auto;
+	display: block;
+	margin-bottom: 10px;
+	margin-top: 30px;
+}
+
+#footer #twitter {
+	float: left;
+	display: inline-block;
+	background: #666;
+	width: 277px;
+	padding: 20px;
+}
+
+#footer #twitter li {
+	list-style-type: none;
+	line-height: 24px;
+	text-align: center;
+	margin-bottom: 20px;
+}
+
+#footer #twitter li a {
+	display: none;
+}
+
+#footer #twitter li span {
+	font-size: 14px;
+	display: inline-block;
+}
+
+#footer #twitter li span a {
+	display: inline;
+}
+
+#footer #github {
+	background: #828282;
+	width: 294px;
+	padding: 20px;
+	float: left;
+	display: inline-block;
+}
+
+.repo {
+	text-align: center;
+	margin-bottom: 20px;
+}
+
+.repo a {
+	font-size: .8em;
 }
