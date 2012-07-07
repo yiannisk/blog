@@ -42,6 +42,10 @@ q:before,q:after{
   content:'';
   content:none;
 }
+
+b, strong {
+	font-weight: 700;
+}
 /* remember to define visible focus styles!
 :focus{
   outline:?????;
@@ -598,6 +602,7 @@ pre.blockCode, code.blockCode {
 	background: #666;
 	width: 277px;
 	padding: 20px;
+	height: 100%;
 }
 
 #footer #twitter li {
@@ -622,10 +627,11 @@ pre.blockCode, code.blockCode {
 
 #footer #github {
 	background: #828282;
-	width: 294px;
+	width: 293px;
 	padding: 20px;
 	float: left;
 	display: inline-block;
+	height: 100%;
 }
 
 .repo {
@@ -635,4 +641,25 @@ pre.blockCode, code.blockCode {
 
 .repo a {
 	font-size: .8em;
+}
+
+#footer #stack_overflow {
+	background: #373737;
+	width: 310px;
+	padding: 20px;
+	display: inline-block;
+	height: 100%;
+}
+
+#stack_overflow_profile {
+	text-align: center;
+}
+
+#stack_overflow_profile h4 {
+	margin-bottom: 10px;
+}
+
+#stack_overflow_profile p {
+	line-height: 22px;
+	font-size: .9em;
 }

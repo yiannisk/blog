@@ -27,7 +27,6 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8" />
-	<!--meta name="fragment" content="!"-->
 	<title>Ioannis Karadimas' Blog</title>
 	
 	<link rel="stylesheet" type="text/css" href="styles/base.css" />
@@ -40,8 +39,8 @@
 	<![endif]-->
 	
 	<!-- Fonts -->
-	<link href='http://fonts.googleapis.com/css?family=Philosopher' 
-		rel='stylesheet' type='text/css' />
+	<link href='http://fonts.googleapis.com/css?family=Philosopher:400,700,400italic,700italic' 
+		rel='stylesheet' type='text/css'>
 
 	<link rel="stylesheet" type="text/css" 
 		href='styles/external/colorbox.css' />
@@ -66,13 +65,20 @@
 	<div id="footer">
 		<div id="twitter">
 			<img src="resources/twitter-bird-dark-bgs.png" 
-				class="footerSectionLogo" />
+				class="footerSectionLogo" alt="My latest tweets" />
 			<div id="twitter_update_list"></div>
 		</div>
 		<div id="github">
 			<img src="resources/github-white-logo.png"
-				class="footerSectionLogo" />
+				class="footerSectionLogo" 
+				alt="My latest repo activity" />
 			<div id="github_repos"></div>
+		</div>
+		<div id="stack_overflow">
+			<img src="resources/stackoverflow.png"
+				class="footerSectionLogo" 
+				alt="My profile on StackOverflow" />
+			<div id="stack_overflow_profile"></div>
 		</div>
 	</div>
 	
@@ -120,6 +126,7 @@
 	<script type="text/javascript" src="views/bioview.js"></script>
 	<script type="text/javascript" src="views/adminview.js"></script>
 	<script type="text/javascript" src="views/githubview.js"></script>
+	<script type="text/javascript" src="views/soview.js"></script>
 	
 	<!-- Models -->
 	<script type="text/javascript" src="models/model.js"></script>
@@ -129,6 +136,7 @@
 		</script>
 	<script type="text/javascript" src="models/mathmodel.js"></script>
 	<script type="text/javascript" src="models/githubmodel.js"></script>
+	<script type="text/javascript" src="models/somodel.js"></script>
 
 	<script type="text/javascript">
 		var layout = {};
@@ -142,6 +150,8 @@
 			layout.draw(new BioView(), "bio");
 			layout.draw(new AdminView(), "adminSide");
 			layout.draw(new GitHubView(), "github_repos");
+			layout.draw(new StackOverflowView(), 
+				"stack_overflow_profile");
 
 			router.initialize();
 		});

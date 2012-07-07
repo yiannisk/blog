@@ -15,10 +15,8 @@ function GitHubView() {
 	
 	core.loadDataComplete = function (data, textStatus, jqXHR) {
 		for(var i = 0; i < data.length; i++)
-		{
 			data[i].full_name = 
 				data[i].full_name.replace('yiannisk/', '');
-		}
 		
 		core.templates.github.apply(data, function (tplData) {
 			$(core.region).hide().html('');
