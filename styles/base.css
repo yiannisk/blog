@@ -181,6 +181,8 @@ h5 { display: block; font-size: 1.1em; }
 	margin-left: auto;
 	background: #333333; 
 	clear: both;
+    border-left: 3px solid #999;
+    border-right: 3px solid #ccc;
 }
 
 #header h5 { float: left; padding: 5px; padding-left: 30px; 
@@ -209,6 +211,8 @@ h5 { display: block; font-size: 1.1em; }
 	margin-left: auto; 
 	background: #3F3F3F; 
 	clear: both; 
+    border-left: 3px solid #999;
+    border-right: 3px solid #ccc;
 }
 
 #logo, #leftPart { float: left; }
@@ -586,6 +590,8 @@ pre.blockCode, code.blockCode {
 	width: 1000px;
 	height: 500px;
 	color: white;
+    border-left: 3px solid #999;
+    border-right: 3px solid #ccc;
 }
 
 #footer .footerSectionLogo {
@@ -601,8 +607,9 @@ pre.blockCode, code.blockCode {
 	display: inline-block;
 	background: #666;
 	width: 277px;
-	padding: 20px;
-	height: 100%;
+	padding-left: 20px;
+	padding-right: 20px;
+	height: 500px;
 }
 
 #footer #twitter li {
@@ -628,10 +635,12 @@ pre.blockCode, code.blockCode {
 #footer #github {
 	background: #828282;
 	width: 293px;
-	padding: 20px;
 	float: left;
 	display: inline-block;
 	height: 100%;
+    padding-left: 20px;
+    padding-right: 20px;
+    height: 500px;
 }
 
 .repo {
@@ -646,9 +655,10 @@ pre.blockCode, code.blockCode {
 #footer #stack_overflow {
 	background: #373737;
 	width: 310px;
-	padding: 20px;
 	display: inline-block;
-	height: 100%;
+    padding-left: 20px;
+    padding-right: 20px;
+    height: 500px;
 }
 
 #stack_overflow_profile {
