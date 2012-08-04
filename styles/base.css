@@ -204,7 +204,7 @@ h5 { display: block; font-size: 1.1em; }
 { 
 	display: block; 
 	width: 1000px; 
-	min-height: 800px; 
+	min-height: 600px; 
 	margin-right: auto; 
 	margin-left: auto; 
 	background: #3F3F3F; 
@@ -584,7 +584,6 @@ pre.blockCode, code.blockCode {
 	margin-left: auto;
 	margin-right: auto;
 	width: 1000px;
-	height: 400px;
 	color: white;
 }
 
@@ -602,7 +601,6 @@ pre.blockCode, code.blockCode {
 	background: #666;
 	width: 277px;
 	padding: 20px;
-	height: 100%;
 }
 
 #footer #twitter li {
@@ -631,7 +629,6 @@ pre.blockCode, code.blockCode {
 	padding: 20px;
 	float: left;
 	display: inline-block;
-	height: 100%;
 }
 
 .repo {
@@ -648,7 +645,6 @@ pre.blockCode, code.blockCode {
 	width: 310px;
 	padding: 20px;
 	display: inline-block;
-	height: 100%;
 }
 
 #stack_overflow_profile {

@@ -9,7 +9,7 @@ function PostListView() {
 		enterCallBack = callback;
 		
 		core.template('latestEntries', function () {
-			core.model.latest(core.loadDataComplete);
+			core.model.latest(2, core.loadDataComplete);
 		});
 	};
 	
@@ -24,10 +24,14 @@ function PostListView() {
 					$("#readmore" + item.code).hide();
 				}
 				
+				var tagsHtml = 
+					"<div class='tag'>"
+						 + item.tags
+						 	.replace(/,/gi, "</div><div class='tag'>")
+						 + "</div";
+				
 				if (item.tags && item.tags != "") {
-					$("#tags" + item.id).html("<div class='tag'>"
-						 + item.tags.replace(/,/gi, "</div><div class='tag'>")
-						 + "</div");
+					$("#tags" + item.id).html(tagsHtml);
 				}
 			}
 			
@@ -55,7 +59,7 @@ function PostListView() {
 	core.handlers = {
 		resizeBaseLayout: function (evt, callback) {
 			var cb = callback;
-			var baseLayoutHeight = 800;
+			var baseLayoutHeight = 500;
 			var targetLayoutHeight = 
 			($(core.region).height() > baseLayoutHeight)
 			? $(core.region).height() + 100

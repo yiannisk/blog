@@ -85,7 +85,7 @@
 	<script type="text/javascript" 
 		src="http://twitter.com/javascripts/blogger.js"></script>
 	<script type="text/javascript" 
-		src="http://twitter.com/statuses/user_timeline/ikaradimas.json?callback=twitterCallback2&count=3">
+		src="http://twitter.com/statuses/user_timeline/ikaradimas.json?callback=twitterCallback2&count=5">
 		</script>
 	<script type="text/javascript" 
 		src="http://code.jquery.com/jquery-latest.min.js"></script>
