@@ -29,7 +29,8 @@ function Layout() {
 			// Iterate through the collection of views for
 			// the view taking the region now requested.
 			for (var viewName in self.views) {
-				if ((self.views[viewName].region) && (self.views[viewName].region.id == regionId)) {
+				if ((self.views[viewName].region) 
+				    && (self.views[viewName].region.id == regionId)) {
 
 					self.views[viewName].leave(function() {
 						self.views[viewName].region = null;
@@ -48,7 +49,7 @@ function Layout() {
 			// taking calls again, and notify the invoker that
 			// all's clear.
 			self.wait = false;
-			callBack();
+			if (callBack) callBack();
 		},
 
 		// This method can alone handle the total functionality of
@@ -82,7 +83,8 @@ function Layout() {
 			if (!this.views[view])
 				return false;
 			if (!this.views[view].message)
-				throw new Error("The view specified does not support messaging.");
+				throw new Error(
+			        "The view specified does not support messaging.");
 
 			this.views[view].message(message, callback);
 			return true;

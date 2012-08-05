@@ -10,8 +10,7 @@ function ToolsView() {
             .appendTo("body")[0];
         core.handlers.adjustPanelPosition();
         $(core.region).fadeIn("slow");
-        $(""
-            + "<div class='letterSize selectedLetter selected'>A</div>"
+        $("<div class='letterSize selectedLetter selected'>A</div>"
             + "<div class='letterSize small'>A</div>"
             + "<div class='letterSize medium'>A</div>"
             + "<div class='letterSize large selected'>A</div>"
@@ -45,9 +44,7 @@ function ToolsView() {
             $(core.region).css({
                left: $("#rightPart").position().left 
                         - $(core.region).width()
-                        - 40
-                    
-            });
+                        - 40});
         },
         
         selectedLetterIn: function (evt) {
@@ -82,7 +79,11 @@ function ToolsView() {
                     : "small";
             
             selectedFontSize = newSelectedFontSize;
+            
+            // load css file.
             core.loadCss(selectedFontSize);
+            
+            // refresh the layout.
             setTimeout(function(){$(window).trigger('resize');}, 1);
         }
     };

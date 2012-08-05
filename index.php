@@ -148,15 +148,16 @@
 			
 			layout.draw(new HeaderView(), "header");
 			layout.draw(new SearchView(), "search");
-			layout.draw(new BioView(), "bio");
+            layout.draw(new BioView(), "bio");
 			layout.draw(new AdminView(), "adminSide");
 			layout.draw(new GitHubView(), "github_repos");
+			
 			layout.draw(new StackOverflowView(), 
 				"stack_overflow_profile");
-            
+				
             layout.draw(new ToolsView(), "tools");
-
-			router.initialize();
+            
+            router.initialize();    
 		});
 	</script>
 </body>

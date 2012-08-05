@@ -27,6 +27,10 @@ function Router() {
 		
 		new Route(/^.{0}$/, function () {
 			layout.draw(new PostListView(), "leftPartContents");
+		}),
+		
+		new Route(/^profile$/, function () {
+		    setTimeout(function () {$("#logo").click();}, 500); 
 		})
 	];
  
