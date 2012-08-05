@@ -64,6 +64,12 @@ function PostView(id) {
             var baseLayoutHeight = 10;
             
             var targetLayoutHeight = 
+                ($(core.region).height() + 100) 
+                    < ($('#search').height() + $('#comments').height() + 100)
+                        ? $('#search').height() + $('#comments').height() + 100
+                        : $(core.region).height() + 100;
+                  
+            
                  $(core.region).height() + 100;
             
             $('#layout').clearQueue()

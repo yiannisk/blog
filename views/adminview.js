@@ -21,7 +21,11 @@ function AdminView() {
 			core.template('adminLogin', function () {
 				core.templates.adminLogin.apply({}, 
 					function (rendered) {
-						$(core.region).html(rendered).fadeIn();
+						$.colorbox({
+						    html: rendered,
+						    width: "400px",
+						    height: "170px"
+						});
 					});
 			})
 		} else {

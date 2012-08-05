@@ -181,6 +181,9 @@ function SearchView() {
 				core.templates.entrySearchResults.apply(searchData,
 					function(tplData) {
 						$(tplData).appendTo('#searchResults');
+						setTimeout(function() {
+						    $(window).trigger('resize');
+						}, 1);
 						$('#searchResults').fadeIn();					
 						core.adjustClearSearchPosition();
 						$('#clearSearch').fadeIn();				

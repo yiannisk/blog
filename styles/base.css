@@ -728,3 +728,26 @@ pre.blockCode, code.blockCode {
 .letterSize.selected {
     text-decoration: underline;
 }
+
+#username, #password {
+    margin-top: 10px;
+    padding: 5px;
+    font: inherit;
+    padding-right: 30px;
+    color: black;
+    width: 180px;
+}
+
+#loginContainer {
+    background: #06A8F9 url(../resources/commentsBackground.jpg) 
+        repeat-x;
+    text-align: center;
+    padding: 10px;
+    padding-top: 20px;
+    height: 110px; 
+}
+
+#loginContainer label {
+    margin-right: 10px;
+    display: inline-block;
+}
