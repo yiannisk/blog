@@ -59,15 +59,11 @@ function PostListView() {
 	core.handlers = {
 		resizeBaseLayout: function (evt, callback) {
 			var cb = callback;
-			var baseLayoutHeight = 500;
-			var targetLayoutHeight = 
-			($(core.region).height() > baseLayoutHeight)
-			? $(core.region).height() + 100
-			: baseLayoutHeight;
-			
-			$('#layout').css('height', targetLayoutHeight + 'px');
-			$('#rightPart').css('height', 
-			(targetLayoutHeight - 30 ) + 'px');
+			var baseLayoutHeight = 10;
+			var targetLayoutHeight = $(core.region).height() + 100;
+			console.log("targetLayoutHeight ", targetLayoutHeight );
+    		$('#layout').animate({height: targetLayoutHeight});
+			$('#rightPart').animate({height: targetLayoutHeight-30});
 			if (cb) cb();
 		}
 	};

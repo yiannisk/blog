@@ -53,6 +53,7 @@ function BioView() {
 		},
 		
 		logoClick: function () {
+            $(core.region).css("z-index", "1000");
 			if ($(core.region).is(":visible")) return;
 			
 			core.showSearch = $("#search").is(":visible");

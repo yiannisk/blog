@@ -6,3 +6,4 @@ hash.php
 static/*.html
 static/*.xml
 temp
+*_list.txt

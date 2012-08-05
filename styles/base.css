@@ -206,7 +206,6 @@ h5 { display: block; font-size: 1.1em; }
 { 
 	display: block; 
 	width: 1000px; 
-	min-height: 600px; 
 	margin-right: auto; 
 	margin-left: auto; 
 	background: #3F3F3F; 
@@ -672,4 +671,60 @@ pre.blockCode, code.blockCode {
 #stack_overflow_profile p {
 	line-height: 22px;
 	font-size: .9em;
+}
+
+.tools {
+    width: 150px;
+    height: 40px;
+    position: absolute;
+    background: #3F3F3F;
+    top: 70px;
+    left: 0px;
+    display: none;
+    padding: 10px;
+}
+
+.letterSize {
+    background: #06A8F9;
+    text-align: center;
+    vertical-align: center;
+    color: white;
+    font-size: 25px;
+    padding: 5px;
+    width: 25px;
+    height: 30px;
+    line-height: 30px;
+    font-weight: bold;
+    float: right;
+    display: none;
+    cursor: pointer;
+}
+
+.letterSize:hover {
+    background: #3f3f3f;
+    color: #06A8F9;
+}
+
+.letterSize.selectedLetter {
+    background: #3F3F3F;
+    color: #06A8F9;
+    display: block;
+}
+
+.letterSize.selectedLetter:hover {
+    color: white;
+}
+
+.letterSize.small {
+    font-size: 10px;
+    width: 10px;
+}
+
+.letterSize.medium {
+    font-size: 18px;
+    width: 15px;
+}
+
+.letterSize.selected {
+    text-decoration: underline;
 }

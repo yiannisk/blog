@@ -127,6 +127,7 @@
 	<script type="text/javascript" src="views/adminview.js"></script>
 	<script type="text/javascript" src="views/githubview.js"></script>
 	<script type="text/javascript" src="views/soview.js"></script>
+	<script type="text/javascript" src="views/toolsview.js"></script>
 	
 	<!-- Models -->
 	<script type="text/javascript" src="models/model.js"></script>
@@ -152,6 +153,8 @@
 			layout.draw(new GitHubView(), "github_repos");
 			layout.draw(new StackOverflowView(), 
 				"stack_overflow_profile");
+            
+            layout.draw(new ToolsView(), "tools");
 
 			router.initialize();
 		});

@@ -1,0 +1,24 @@
+h1 { font-size: 2em; }
+h3 { font-size: 1.5em; }
+.time { font-size: 0.8em; }
+.entry .preview, .entry .content { 
+    line-height: 1.3em;
+    font-size: 16px; 
+}
+
+.readmore {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+#twitter {
+    font-size: 16px;
+}
+
+#github {
+    font-size: 16px;
+}
+
+#stack_overflow {
+    font-size: 16px;
+}
