@@ -10,10 +10,12 @@ function ToolsView() {
             .appendTo("body")[0];
         core.handlers.adjustPanelPosition();
         $(core.region).fadeIn("slow");
-        $("<div class='letterSize selectedLetter selected'>A</div>"
+        $(""
+            + "<div class='letterSize selectedLetter selected'>A</div>"
             + "<div class='letterSize small'>A</div>"
             + "<div class='letterSize medium'>A</div>"
-            + "<div class='letterSize large selected'>A</div>")
+            + "<div class='letterSize large selected'>A</div>"
+            + "<div style='float: right; line-height: 40px; margin-right: 10px;'>Letter Size:</div>")
             .appendTo($(core.region));
             
         core.addEventHandlers();
@@ -78,7 +80,6 @@ function ToolsView() {
                 : $(this).hasClass("medium")
                     ? "medium"
                     : "small";
-            
             
             selectedFontSize = newSelectedFontSize;
             core.loadCss(selectedFontSize);
