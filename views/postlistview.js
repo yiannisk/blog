@@ -48,21 +48,28 @@ function PostListView() {
 	};
 	
 	core.attachEventHandlers = function () {
-		$(window).bind('resize', 
-			core.handlers.resizeBaseLayout);
+		$(window).bind('resize', core.handlers.resizeBaseLayout);
 	};
 	
 	core.detachEventHandlers = function () {
 		$(".retweet").unbind("hover");
+		$(window).unbind('resize', core.handlers.resizeBaseLayout);
 	};
 	
 	core.handlers = {
 		resizeBaseLayout: function (evt, callback) {
 			var cb = callback;
 			var baseLayoutHeight = 10;
-			var targetLayoutHeight = $(core.region).height() + 100;
-    		$('#layout').animate({height: targetLayoutHeight});
-			$('#rightPart').animate({height: targetLayoutHeight-30});
+			
+			var targetLayoutHeight = 
+			     $(core.region).height() + 100;
+    		
+    		$('#layout').clearQueue()
+                .animate({height: targetLayoutHeight});
+			
+			$('#rightPart').clearQueue()
+                .animate({height: targetLayoutHeight-30});
+			
 			if (cb) cb();
 		}
 	};

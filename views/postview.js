@@ -36,25 +36,16 @@ function PostView(id) {
 			}
 			
 			$(core.region).fadeIn();
-			
-			var baseLayoutHeight = 800;
-			var targetLayoutHeight = 
-				($(core.region).height() > baseLayoutHeight)
-					? $(core.region).height() + 100
-					: baseLayoutHeight;
-				
-			$('#layout').css('height', targetLayoutHeight + 'px');
-			$('#rightPart').css('height', 
-				(targetLayoutHeight - 30) + 'px');
-				
 			core.attachEventHandlers();
 			layout.draw(new CommentsView(id), "comments");
+			$(window).trigger('resize');
 			if (enterCallBack) enterCallBack();
 		});
 	};
 	
 	core.attachEventHandlers = function () {
 		$(".backtotop").click( core.handlers.backToTopClick );
+		$(window).resize(core.handlers.resizeBaseLayout);
 	};
 	
 	core.detachEventHandlers = function () {
@@ -66,7 +57,23 @@ function PostView(id) {
 			evt.stopPropagation();
 			window.toTop();
 			return false;
-		}
+		},
+		
+		resizeBaseLayout: function (evt, callback) {
+            var cb = callback;
+            var baseLayoutHeight = 10;
+            
+            var targetLayoutHeight = 
+                 $(core.region).height() + 100;
+            
+            $('#layout').clearQueue()
+                .animate({height: targetLayoutHeight});
+            
+            $('#rightPart').clearQueue()
+                .animate({height: targetLayoutHeight-30});
+            
+            if (cb) cb();
+        }
 	};
 	
 	return core;

@@ -31,7 +31,10 @@ function BioView() {
 	core.attachEventHandlers = function () {
 		$("#logo").click(core.handlers.logoClick);
 		$(".bioClose").click(core.handlers.bioCloseClick);
-		$(window).resize(core.handlers.adjustPosition);
+		$(window).resize(function () {
+		    core.handlers.adjustPosition();
+		    core.handlers.resizeBaseLayout();
+	    });
 	};
 	
 	core.detachEventHandlers = function () {
@@ -88,7 +91,16 @@ function BioView() {
 				if (core.showComments === true)
 					$("#comments").fadeIn("slow");
 			}, 150);
-		}
+		},
+		
+		resizeBaseLayout: function (evt, callback) {
+            var cb = callback;
+            var baseLayoutHeight = 10;
+            var targetLayoutHeight = $(core.region).height() + 100;
+            $('#layout').clearQueue().animate({height: targetLayoutHeight});
+            $('#rightPart').clearQueue().animate({height: targetLayoutHeight-30});
+            if (cb) cb();
+        }
 	};
 	
 	return core;
