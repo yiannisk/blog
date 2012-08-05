@@ -61,7 +61,6 @@ function PostListView() {
 			var cb = callback;
 			var baseLayoutHeight = 10;
 			var targetLayoutHeight = $(core.region).height() + 100;
-			console.log("targetLayoutHeight ", targetLayoutHeight );
     		$('#layout').animate({height: targetLayoutHeight});
 			$('#rightPart').animate({height: targetLayoutHeight-30});
 			if (cb) cb();
