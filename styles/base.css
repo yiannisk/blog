@@ -242,7 +242,8 @@ h5 { display: block; font-size: 1.1em; }
 	padding-right: 10px; 
 	width: 33%; 
 	height: 770px; 
-	background: #06A8F9; float: right; 
+	background: #06A8F9 url(../resources/rightSideBack.png) no-repeat; 
+	float: right; 
 }
 
 #search

@@ -1,0 +1,55 @@
+<html>
+    <head>
+        <title>2D atomic excitation animation</title>
+        <script type="text/javascript"
+                src="scripts/atomic_representation_model.js">
+        </script>
+    </head>
+    <body>
+        <h1>2D Atomic Excitation animation</h1>
+        
+        <p>This is built to follow on a viable 2d atomic
+           excitation animation of radioactive material.</p>
+        
+        <h3>The plan</h3>
+        <ol type="i">
+            <li>Animation system</li>
+            <li>Modelling</li>
+            <li>Collision detection</li>
+        </ol>
+        
+        <h3>Animation system</h3>
+        <p>Before anything else, we need an animation system that will
+           help us focus on specifying effects on parts of the system.
+           </p>
+        
+        <h3>Modelling</h3>
+        <p>Basic - traditional - particles will be of a type.
+           </p>
+        
+        <h3>Collision detection</h3>
+        
+        <style>
+            canvas { border: 1px solid red; }
+        </style>
+        
+        <script type="text/javascript" 
+                src="http://code.jquery.com/jquery-latest.min.js">
+                </script>
+                
+        <canvas width="550" height="400" id="canvas">
+            No canvas? Switch to a browser that supports it.
+        </canvas>
+        
+        <script type="text/javascript">
+            $(function () {
+                var canvas = $('#canvas')[0];
+                var ctx = canvas.getContext('2d');
+                
+                var c = Molecule.uraniumDioxide.clone();
+                c.position = new Position(100, 100);
+                c.draw(ctx);
+            });
+        </script>
+    </body>
+</html>
