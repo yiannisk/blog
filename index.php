@@ -31,7 +31,7 @@
 	
 	<link rel="stylesheet" type="text/css" href="styles/base.css" />
 	<link rel="stylesheet" type="text/css" 
-		href='styles/external/jquery-ui-1.8.13.custom.css' />
+		href='styles/external/jquery-ui-1.8.22.custom.css' />
 		
 	<!-- handle CSS compatibility issues below -->
 	<!--[if IE]>
