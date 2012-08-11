@@ -96,7 +96,7 @@
 	<script type="text/javascript" 
 		src="scripts/external/jquery.tmpl.min.js"></script>
 	<script type="text/javascript" 
-		src="scripts/external/jquery-ui-1.8.13.custom.min.js"></script>
+		src="scripts/external/jquery-ui-1.8.22.custom.min.js"></script>
 	<script type="text/javascript" 
 		src="scripts/external/jquery.snippet.min.js"></script>
 	<script type="text/javascript" 

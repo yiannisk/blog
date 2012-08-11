@@ -4,7 +4,7 @@
 	
 	class LoginController extends Controller {
 		public function login($req) {
-			$username = $req->arguments['username'];
+		    $username = $req->arguments['username'];
 			$password = $req->arguments['password'];
 			
 			$securityModel = new SecurityModel();

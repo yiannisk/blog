@@ -93,16 +93,16 @@ function SearchView() {
 	core.adjustLensPosition = function () {
 		$('#magnifyingLens').css('left', 
 			$('#searchText').position().left 
-				+ $('#searchText').outerWidth()
+				+ $('#searchText').outerWidth(false)
 				- $('#magnifyingLens').width()
 				-3 
 				+ 'px');
 				
 		$('#magnifyingLens').css('top', 
 			$('#searchText').position().top 
-				+ $('#searchText').outerHeight() 
+				+ $('#searchText').outerHeight(false) 
 				- $('#magnifyingLens').width() 
-				-3 
+				- 2 
 				+ 'px');
 	};
 	
