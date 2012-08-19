@@ -18,6 +18,19 @@ function HeaderView() {
 		$(region).fadeOut("fast", callback);
 	};
 	
+	core.onMessageReceived = function (message, callback) {
+	    if (message == 'ADMIN_MODE') {
+	        if (!$("#header").is(":visible")) {
+	            console.log("Displaying header...");
+	            $("#header").fadeIn('fast');
+	            $(window).trigger('resize');
+	        }
+	        
+	        $("#closeIcon").fadeOut();
+	        $("#headerLogo").addClass("adminLogo");
+	    }
+	};
+	
 	core.loadDataComplete = function (data, textStatus, jqXHR) {
 		core.templates.header.apply(data, function (data) {
 			$(core.region).hide().html('');

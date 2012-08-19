@@ -59,21 +59,27 @@
 					else
 					{
 						$arguments = $_POST;
-						error_log('Arguments: ' . var_export($arguments, true), 0);
-						error_log('POST: ' . var_export($_POST, true), 0);
+						
+						error_log('Arguments: ' . 
+						  var_export($arguments, true), 0);
+						
+						error_log('POST: ' . 
+						  var_export($_POST, true), 0);
 					}
 					
 					break;
 					
 				case 'PUT':
 				case 'DELETE':
-					parse_str(file_get_contents('php://input'), $arguments);
+					parse_str(file_get_contents('php://input'), 
+					   $arguments);
 					break;
 			}
 			
 			$accept = $_SERVER['HTTP_ACCEPT'];
 			
-			$req = new Request($url, $method, $arguments, $accept, $route);
+			$req = new Request($url, $method, $arguments, $accept, 
+			     $route);
 			
 			$this->handleRequest($req);
 		}

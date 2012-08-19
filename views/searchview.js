@@ -79,14 +79,14 @@ function SearchView() {
 			$('#searchText').position().left 
 				+ $('#searchText').outerWidth()
 				- $('#clearSearch').width()
-				-25
+				- 25
 				+ 'px');
 				
 		$('#clearSearch').css('top', 
 			$('#searchText').position().top 
 				+ $('#searchText').outerHeight() 
 				- $('#clearSearch').width() 
-				-6
+				- 6
 				+ 'px');
 	};
 	
@@ -95,7 +95,7 @@ function SearchView() {
 			$('#searchText').position().left 
 				+ $('#searchText').outerWidth(false)
 				- $('#magnifyingLens').width()
-				-3 
+				- 3 
 				+ 'px');
 				
 		$('#magnifyingLens').css('top', 

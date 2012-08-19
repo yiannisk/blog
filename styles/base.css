@@ -202,6 +202,14 @@ h5 { display: block; font-size: 1.1em; }
 	cursor: pointer;
 }
 
+#headerLogo.adminLogo {
+    display: block;
+    float: left;
+    background: url(../resources/adminHeaderIcon.png) no-repeat 30px;
+    width: 32px;
+    height: 32px;
+}
+
 #layout
 { 
 	display: block; 
@@ -745,10 +753,39 @@ pre.blockCode, code.blockCode {
     text-align: center;
     padding: 10px;
     padding-top: 20px;
-    height: 110px; 
+    height: 130px;
+    width: 300px; 
 }
 
 #loginContainer label {
     margin-right: 10px;
     display: inline-block;
+    float: left;
+    line-height: 30px;
+    margin-top: 10px; 
+}
+
+#loginContainer input {
+    float: right;
+    clear: right;
+}
+
+#loginContainer #doLogin {
+    width: 80px;
+    background: #06a8f9;
+    border: none;
+    display: inline-block;
+    margin-top: 10px;
+    height: 30px;
+    font-family: inherit;
+    font-weight: 700;
+    font-size: 1.1em;
+    color: white;
+}
+
+
+#loginContainer #doLogin:hover {
+    background: #444;
+    color: #06a8f9;
+    cursor: pointer;
 }
