@@ -14,7 +14,7 @@ function ToolsView() {
             + "<div class='letterSize small'>A</div>"
             + "<div class='letterSize medium'>A</div>"
             + "<div class='letterSize large selected'>A</div>"
-            + "<div style='float: right; line-height: 40px; margin-right: 10px;'>Letter Size:</div>")
+            + "<div class='hidden selectedLetterLabel'>Letter Size</div>")
             .appendTo($(core.region));
             
         core.addEventHandlers();
@@ -48,10 +48,14 @@ function ToolsView() {
         },
         
         selectedLetterIn: function (evt) {
+            $(".tools").addClass("background");
+            $(".tools .selectedLetterLabel").removeClass("hidden");
             $(".tools").find(".letterSize").fadeIn("fast");
         },
         
         toolsOut: function (evt) {
+            $(".tools").removeClass("background");
+            $(".tools .selectedLetterLabel").addClass("hidden");
             $(".tools")
                 .find(".letterSize:not(.selectedLetter)")
                 .fadeOut("fast");

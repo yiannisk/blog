@@ -42,8 +42,12 @@
 	<link href='http://fonts.googleapis.com/css?family=Philosopher:400,700,400italic,700italic' 
 		rel='stylesheet' type='text/css'>
 
-	<link rel="stylesheet" type="text/css" 
-		href='styles/external/colorbox.css' />
+    <!-- other stuff -->
+	<link rel="stylesheet" type="text/css" href='styles/external/colorbox.css' />
+	<link type="text/css" href="styles/external/jquery.jscrollpane.css" rel="stylesheet" media="all" />
+
+    <!-- overrides -->
+    <link rel="stylesheet" type="text/css" href="styles/overrides.css" />
 </head>
 <body id="home">
 
@@ -115,6 +119,8 @@
 	<script type="text/javascript" src="scripts/markdown.js"></script>
 	<script type="text/javascript" src="scripts/template.js"></script>
 	<script type="text/javascript" src="scripts/router.js"></script>
+	<script type="text/javascript" src="scripts/external/jquery.mousewheel.js"></script>
+	<script type="text/javascript" src="scripts/external/jquery.jscrollpane.min.js"></script>
 	
 	<!-- Views -->
 	<script type="text/javascript" src="views/view.js"></script>

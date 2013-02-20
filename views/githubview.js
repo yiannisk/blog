@@ -23,6 +23,8 @@ function GitHubView() {
 			$(core.region).hide().html('');
 			$(tplData).appendTo($(core.region));
 			$(core.region).fadeIn();
+			
+			$("#github").jScrollPane();
 		});
 	};
 	

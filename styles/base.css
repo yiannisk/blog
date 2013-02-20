@@ -1,205 +1,221 @@
 /*------------------------------------*\
-  RESET
-\*------------------------------------*/
+ RESET
+ \*------------------------------------*/
 /* http://meyerweb.com/eric/tools/css/reset/
-   v2.0b1 | 201101
-   NOTE:WORK IN PROGRESS
-   USE WITH CAUTION AND TEST WITH ABANDON */
+ v2.0b1 | 201101
+ NOTE:WORK IN PROGRESS
+ USE WITH CAUTION AND TEST WITH ABANDON */
 
-html,body,div,span,applet,object,iframe,
-h1,h2,h3,h4,h5,h6,p,blockquote,pre,
-a,abbr,acronym,address,big,cite,
-del,dfn,em,img,ins,kbd,q,s,samp,
-small,strike,strong,sub,sup,tt,var,
-b,u,i,center,
-dl,dt,dd,ol,ul,li,
-fieldset,form,label,legend,
-table,caption,tbody,tfoot,thead,tr,th,td,
-article,aside,canvas,details,figcaption,figure,
-footer,header,hgroup,menu,nav,section,summary,
-time,mark,audio,video{
-  margin:0;
-  padding:0;
-  border:0;
-  outline:0;
-  font-size:100%;
-  font:inherit;
-  vertical-align:baseline;
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary, time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
 }
 /* HTML5 display-role reset for older browsers */
-article,aside,details,figcaption,figure,
-footer,header,hgroup,menu,nav,section{
-  display:block;
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+    display: block;
 }
-body{
-  line-height:1;
+body {
+    line-height: 1;
 }
-blockquote,q{
-  quotes:none;
+blockquote, q {
+    quotes: none;
 }
-blockquote:before,blockquote:after,
-q:before,q:after{
-  content:'';
-  content:none;
+blockquote:before, blockquote:after, q:before, q:after {
+    content: '';
+    content: none;
 }
 
 b, strong {
-	font-weight: 700;
+    font-weight: 700;
 }
 /* remember to define visible focus styles!
-:focus{
-  outline:?????;
-} */
+ :focus{
+ outline:?????;
+ } */
 
 /* remember to highlight inserts somehow! */
-ins{
-  text-decoration:none;
+ins {
+    text-decoration: none;
 }
-del{
-  text-decoration:line-through;
-} 
-
-table{
-  border-collapse:collapse;
-  border-spacing:0;
+del {
+    text-decoration: line-through;
 }
 
-*:focus, *:active {-moz-outline:0px none red; outline:0px none red;}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+*:focus, *:active {
+    -moz-outline: 0px none red;
+    outline: 0px none red;
+}
 
 /*------------------------------------*\
-  MAIN
-\*------------------------------------*/
+ MAIN
+ \*------------------------------------*/
 /* GO! */
 
-body 
-{ 
-	font-family: 'Philosopher',	Arial;
-	letter-spacing: .06em;
-	background: url(../resources/pattern02.gif); 
-	margin: 0px; 
-	color: white;
+body {
+    font-family: 'Philosopher', Arial;
+    letter-spacing: .06em;
+    background: url(../resources/pattern02.gif);
+    margin: 0px;
+    color: white;
 }
 
-a { color: inherit; }
-h1 { display: block; font-size: 2em; }
-h2 { display: block; font-size: 1.75em; }
-h3 { display: block; font-size: 1.5em; }
-h4 { display: block; font-size: 1.25em; }
-h5 { display: block; font-size: 1.1em; }
+a {
+    color: inherit;
+}
+h1 {
+    display: block;
+    font-size: 2em;
+}
+h2 {
+    display: block;
+    font-size: 1.75em;
+}
+h3 {
+    display: block;
+    font-size: 1.5em;
+}
+h4 {
+    display: block;
+    font-size: 1.25em;
+}
+h5 {
+    display: block;
+    font-size: 1.1em;
+}
 
-.entry { width: 500px; margin-bottom: 30px; }
+.entry {
+    width: 500px;
+    margin-bottom: 30px;
+}
 
-.entry h1 { margin-bottom: 20px; }
+.entry h1 {
+    margin-bottom: 20px;
+}
 
 .entry .preview, .entry .content {
-	margin-top: 15px;
-	line-height: 1.3em; 
+    margin-top: 15px;
+    line-height: 1.3em;
 }
 
-.preview { margin-top: 10px; }
-.time { font-size: .8em; margin-top: 7px; color: #ddd; display: inline-block; }
-
-.retweet:before 
-{ 
-	Content: url(../resources/twitter_plain_white.png);
-	line-height: 1.3em;
-	display: inline-block;
-	vertical-align: middle;
-	padding: 1px;
-	padding-left: 5px;
-	padding-right: 5px;
-	cursor: pointer;
+.preview {
+    margin-top: 10px;
+}
+.time {
+    font-size: .8em;
+    margin-top: 7px;
+    color: #ddd;
+    display: inline-block;
 }
 
-.retweet 
-{ 
-	padding: 1px;
-	padding-left: 0px;
-	padding-right: 5px;
-	margin-left: 10px; 
-	display: inline-block;
-	line-height: 1.3em;
-	vertical-align: middle;
-	font-size: .7em;
-	cursor: pointer;
+.retweet:before {
+    Content: url(../resources/twitter_plain_white.png);
+    line-height: 1.3em;
+    display: inline-block;
+    vertical-align: middle;
+    padding: 1px;
+    padding-left: 5px;
+    padding-right: 5px;
+    cursor: pointer;
 }
 
-.backtotop, .backtolist
-{ 
-	background: #333; 
-	padding: 5px; 
-	margin-top: 15px; 
-	text-align: center; 
-	color: #06A8F9;
-	cursor: pointer;
-	display: inline-block;
-	text-decoration: none;
-	width: 46%;
+.retweet {
+    padding: 1px;
+    padding-left: 0px;
+    padding-right: 5px;
+    margin-left: 10px;
+    display: inline-block;
+    line-height: 1.3em;
+    vertical-align: middle;
+    font-size: .7em;
+    cursor: pointer;
 }
 
-.backtotop:hover, .backtolist:hover
-{
-	color: #333;
-	background: #06A8F9; 
-	font-weight: bold;
+.backtotop, .backtolist {
+    background: #333;
+    padding: 5px;
+    margin-top: 15px;
+    text-align: center;
+    color: #06A8F9;
+    cursor: pointer;
+    display: inline-block;
+    text-decoration: none;
+    width: 46%;
 }
 
-.readmore 
-{ 
-	background: #333; 
-	padding: 5px; 
-	margin-top: 15px; 
-	text-align: center; 
-	color: #06A8F9;
-	cursor: pointer;
-	display: block;
-	text-decoration: none;
+.backtotop:hover, .backtolist:hover {
+    color: #333;
+    background: #06A8F9;
+    font-weight: bold;
 }
 
-.readmore:hover
-{
-	color: #333;
-	background: #06A8F9; 
-	font-weight: bold;
+.readmore {
+    background: #333;
+    padding: 5px;
+    margin-top: 15px;
+    text-align: center;
+    color: #06A8F9;
+    cursor: pointer;
+    display: block;
+    text-decoration: none;
 }
 
-#closeIcon 
-{ 
-	display: block; 
-	background: url(../resources/close.png) no-repeat; 
-	width: 32px; 
-	height: 32px;
-	cursor: pointer;
+.readmore:hover {
+    color: #333;
+    background: #06A8F9;
+    font-weight: bold;
 }
 
-#header 
-{ 
-	display: block; 
-	width: 1000px; 
-	height: 50px; 
-	margin-right: auto; 
-	margin-left: auto;
-	background: #333333; 
-	clear: both;
+#closeIcon {
+    display: block;
+    background: url(../resources/close.png) no-repeat;
+    width: 32px;
+    height: 32px;
+    cursor: pointer;
+}
+
+#header {
+    display: block;
+    width: 1000px;
+    height: 50px;
+    margin-right: auto;
+    margin-left: auto;
+    background: #333333;
+    clear: both;
     border-left: 3px solid #999;
     border-right: 3px solid #ccc;
 }
 
-#header h5 { float: left; padding: 5px; padding-left: 30px; 
-	width: 800px; }
-#header #closeIcon { background-position: 9px 9px; float: right; 
-	padding: 9px; }
+#header h5 {
+    float: left;
+    padding: 5px;
+    padding-left: 30px;
+    width: 800px;
+}
+#header #closeIcon {
+    background-position: 9px 9px;
+    float: right;
+    padding: 9px;
+}
 
-#headerLogo 
-{ 
-	display: block; 
-	float: left; 
-	background: url(../resources/home_32x32.png) no-repeat 35px 9px; 
-	width: 32px; 
-	height: 32px; 
-	padding: 9px; 
-	padding-left: 35px; 
-	cursor: pointer;
+#headerLogo {
+    display: block;
+    float: left;
+    background: url(../resources/home_32x32.png) no-repeat 35px 9px;
+    width: 32px;
+    height: 32px;
+    padding: 9px;
+    padding-left: 35px;
+    cursor: pointer;
 }
 
 #headerLogo.adminLogo {
@@ -210,487 +226,490 @@ h5 { display: block; font-size: 1.1em; }
     height: 32px;
 }
 
-#layout
-{ 
-	display: block; 
-	width: 1000px; 
-	margin-right: auto; 
-	margin-left: auto; 
-	background: #3F3F3F; 
-	clear: both; 
+#layout {
+    display: block;
+    width: 1000px;
+    margin-right: auto;
+    margin-left: auto;
+    background: #3F3F3F;
+    clear: both;
     border-left: 3px solid #999;
     border-right: 3px solid #ccc;
 }
 
-#logo, #leftPart { float: left; }
-#logo 
-{ 
-	display: block; 
-	background: url(../resources/logo.gif) no-repeat 20px 35px; 
-	padding-top: 35px; 
-	padding-left: 20px; 
-	padding-right: 10px; 
-	width: 68px; 
-	height: 402px; 
-	cursor: pointer;
+#logo, #leftPart {
+    float: left;
 }
-#leftPart 
-{ 
-	display: block; 
-	padding-top: 30px; 
-	padding-left: 10px; 
-	padding-right: 0px; 
+#logo {
+    display: block;
+    background: url(../resources/logo.gif) no-repeat 20px 35px;
+    padding-top: 35px;
+    padding-left: 20px;
+    padding-right: 10px;
+    width: 68px;
+    height: 402px;
+    cursor: pointer;
 }
-
-#rightPart 
-{ 
-	display: block; 
-	padding-top: 30px; 
-	padding-left: 10px; 
-	padding-right: 10px; 
-	width: 33%; 
-	height: 770px; 
-	background: #06A8F9 url(../resources/rightSideBack.png) no-repeat; 
-	float: right; 
+#leftPart {
+    display: block;
+    padding-top: 30px;
+    padding-left: 10px;
+    padding-right: 0px;
 }
 
-#search
-{
-	margin-left: 10px;
-	margin-right: 10px;
+#rightPart {
+    display: block;
+    padding-top: 30px;
+    padding-left: 10px;
+    padding-right: 10px;
+    width: 33%;
+    height: 770px;
+    background: #06A8F9 url(../resources/rightSideBack.png) no-repeat;
+    float: right;
 }
 
-.searchBox
-{
-	padding: 5px;
-	font: inherit;
-	padding-right: 30px;
-	color: black;
-	width: 180px;
+#search {
+    margin-left: 10px;
+    margin-right: 10px;
 }
 
-.searchBox.inactive 
-{
-	color: #999;
+.searchBox {
+    padding: 5px;
+    font: inherit;
+    padding-right: 30px;
+    color: black;
+    width: 180px;
 }
 
-.searchButton
-{
-	padding: 8px;
-	font: inherit;
-	border: none;
-	background: #333333;
-	color: white;
-	font-weight: bold;
-	font-size: .9em;
-	cursor: pointer;
-	text-decoration: none;
+.searchBox.inactive {
+    color: #999;
 }
 
-.searchButton:hover
-{
-	color: #06A8F9;
-	background: black;
+.searchButton {
+    padding: 8px;
+    font: inherit;
+    border: none;
+    background: #333333;
+    color: white;
+    font-weight: bold;
+    font-size: .9em;
+    cursor: pointer;
+    text-decoration: none;
 }
 
-.rightPartHint
-{
-	font-size: .9em;
+.searchButton:hover {
+    color: #06A8F9;
+    background: black;
 }
 
-#searchHint.rightPartHint
-{
-	padding-top: 5px;
-	display: none;
+.rightPartHint {
+    font-size: .9em;
 }
 
-#magnifyingLens
-{
-	background: url(../resources/maglen_active.png) no-repeat;
-	position: absolute;
-	cursor: pointer;
-	width: 24px;
-	height: 24px;
-	cursor: pointer;
+#searchHint.rightPartHint {
+    padding-top: 5px;
+    display: none;
 }
 
-#magnifyingLens.inactive
-{
-	background: url(../resources/maglen_inactive.png) no-repeat;
+#magnifyingLens {
+    background: url(../resources/maglen_active.png) no-repeat;
+    position: absolute;
+    cursor: pointer;
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
 }
 
-#magnifyingLens.loading
-{
-	background: url(../resources/loader2.gif) no-repeat center center;
+#magnifyingLens.inactive {
+    background: url(../resources/maglen_inactive.png) no-repeat;
 }
 
-#searchResults
-{
-	margin-top: 10px;
-	display: none;
-	text-align: left;
+#magnifyingLens.loading {
+    background: url(../resources/loader2.gif) no-repeat center center;
+}
+
+#searchResults {
+    margin-top: 10px;
+    display: none;
+    text-align: left;
 }
 
 #searchResults:before {
-	Content: "Search Results";
-	font-weight: bold;
-	font-size: 1.3em;
-	padding-top: 10px;
+    Content: "Search Results";
+    font-weight: bold;
+    font-size: 1.3em;
+    padding-top: 10px;
 }
 
-.searchItemTitle
-{
-	font-weight: bold;
+.searchItemTitle {
+    font-weight: bold;
 }
 
-.searchItem
-{
-	padding: 5px;
-	padding-left: 2px;
-	background: #06A8F9;
-	text-decoration: none;
-	display: block;
+.searchItem {
+    padding: 5px;
+    padding-left: 2px;
+    background: #06A8F9;
+    text-decoration: none;
+    display: block;
 }
 
 #comments {
-	display: none;
-	margin-top: 10px;
+    display: none;
+    margin-top: 10px;
 }
 
 #comments:before {
-	Content: "Comments";
-	font-weight: bold;
-	display: block;
-	font-size: 1.3em;
-	padding-top: 10px;
-	margin-left: 10px;
+    Content: "Comments";
+    font-weight: bold;
+    display: block;
+    font-size: 1.3em;
+    padding-top: 10px;
+    margin-left: 10px;
 }
 
-#comments a.addComment 
-{
-	font-size: .75em;
-	margin-left: 10px;
-	margin-right: 10px;
-	margin-top: 5px;
-	padding: 5px;
-	display: block;
-	background: #006ea5;
-	text-align: right;
-	text-decoration: none;
+#comments a.addComment {
+    font-size: .75em;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 5px;
+    padding: 5px;
+    display: block;
+    background: #006ea5;
+    text-align: right;
+    text-decoration: none;
 }
 
-#comments a.addComment:hover 
-{
-	background: black;
+#comments a.addComment:hover {
+    background: black;
 }
 
-.comment
-{
-	margin-left: 10px;
-	margin-right: 10px;
-	padding: 5px;
+.comment {
+    margin-left: 10px;
+    margin-right: 10px;
+    padding: 5px;
 }
 
 .comment .author {
-	color: #eee;
-	padding-bottom: 3px;
+    color: #eee;
+    padding-bottom: 3px;
 }
 
 .comment .content {
-	font-size: .9em;
-	color: #444;
+    font-size: .9em;
+    color: #444;
 }
 
-.addCommentTitle 
-{
-	text-align: center;
+.addCommentTitle {
+    text-align: center;
 }
 
-#addComment 
-{ 
-	background: #06A8F9 url(../resources/commentsBackground.jpg) 
-		repeat-x; 
-	height: 360px;
-	width: 340px;
-	padding: 20px;
-	padding-left: 30px;
-	padding-right: 30px;
-	text-align: left;
+#addComment {
+    background: #06A8F9 url(../resources/commentsBackground.jpg) repeat-x;
+    height: 360px;
+    width: 340px;
+    padding: 20px;
+    padding-left: 30px;
+    padding-right: 30px;
+    text-align: left;
 }
 
-#addComment label 
-{ 
-	font-size: .9em; 
-	display: inline-block; 
-	margin-bottom: 5px; 
+#addComment label {
+    font-size: .9em;
+    display: inline-block;
+    margin-bottom: 5px;
 }
 
-#addComment input, #addComment textarea { 
-	width: 99%; 
-	border: 1px solid white;
-	background: #333;
-	font-family: inherit;
-	font-size: 1em;
-	color: white;
-} 
+#addComment input, #addComment textarea {
+    width: 99%;
+    border: 1px solid white;
+    background: #333;
+    font-family: inherit;
+    font-size: 1em;
+    color: white;
+}
 
 #addComment input {
-	padding: 3px;
+    padding: 3px;
 }
 
-#addComment textarea { 
-	height: 150px;
+#addComment textarea {
+    height: 150px;
 }
 
 #commentLabel {
-	float: left;
+    float: left;
 }
 
 #textCounter {
-	float: right;
-	color: #ccc;
+    float: right;
+    color: #ccc;
 }
 
-#questionBox 
-{
-	float: left;
+#questionBox {
+    float: left;
 }
 
-#question 
-{
-	font-size: .9em;
-	margin-top: 25px;
-	font-weight: bold;
+#question {
+    font-size: .9em;
+    margin-top: 25px;
+    font-weight: bold;
 }
 
-#answer 
-{
-	margin-top: 5px;
-	font-size: 1.4em;
-	font-weight: bold;
+#answer {
+    margin-top: 5px;
+    font-size: 1.4em;
+    font-weight: bold;
 }
 
-#bio 
-{
-	display: none;
-	background: #222;
-	position: absolute;
-	width: 550px;
+#bio {
+    display: none;
+    background: #222;
+    position: absolute;
+    width: 550px;
 }
 
-#bioSide 
-{
-	display: none;
-	margin-left: 20px;
+#bioSide {
+    display: none;
+    margin-left: 20px;
 }
 
 #bioSide a {
-	text-decoration: none;
+    text-decoration: none;
 }
 
 #bioSide a:hover {
-	text-decoration: underline;
+    text-decoration: underline;
 }
 
-.answerButton 
-{
-	background: url(../resources/buttonOut.png) no-repeat;
-	display: inline-block;
-	width: 58px;
-	height: 22px;
-	padding: 15px;
-	margin-top: 25px;
-	margin-left: 10px;
-	font-size: 1.3em;
-	text-align: center;
-	text-decoration: none;
-	color: #06A8F9;
+.answerButton {
+    background: url(../resources/buttonOut.png) no-repeat;
+    display: inline-block;
+    width: 58px;
+    height: 22px;
+    padding: 15px;
+    margin-top: 25px;
+    margin-left: 10px;
+    font-size: 1.3em;
+    text-align: center;
+    text-decoration: none;
+    color: #06A8F9;
 }
 
-.answerButton:hover
-{
-	background: url(../resources/buttonIn.png) no-repeat;
-	color: white;
+.answerButton:hover {
+    background: url(../resources/buttonIn.png) no-repeat;
+    color: white;
 }
 
-#addComment .answerButton
-{
-	float: right;
+#addComment .answerButton {
+    float: right;
 }
 
-.marginBottom10px { margin-bottom: 10px; }
-.moderateText { font-size: 1.1em; }
-.justified { text-align: justify; }
-.blue { color: #57c7ff; }
-.lightGrey { color: #ddd; }
+.marginBottom10px {
+    margin-bottom: 10px;
+}
+.moderateText {
+    font-size: 1.1em;
+}
+.justified {
+    text-align: justify;
+}
+.blue {
+    color: #57c7ff;
+}
+.lightGrey {
+    color: #ddd;
+}
 
-.bioContainer { margin: 30px; margin-top: 35px; }
-.bioText { float: left; width: 440px; }
-.bioPhoto { float: right; margin-left: 20px; margin-bottom: 10px; }
-.bioClose { float: right; cursor: pointer; }
+.bioContainer {
+    margin: 30px;
+    margin-top: 35px;
+}
+.bioText {
+    float: left;
+    width: 440px;
+}
+.bioPhoto {
+    float: right;
+    margin-left: 20px;
+    margin-bottom: 10px;
+}
+.bioClose {
+    float: right;
+    cursor: pointer;
+}
 
 .invalid {
-	border: 1px solid yellow !important;
-	color: yellow !important;
+    border: 1px solid yellow !important;
+    color: yellow !important;
 }
 
 ol, ul {
-	margin-left: 25px;
-	margin-bottom: 10px;
+    margin-left: 25px;
+    margin-bottom: 10px;
 }
 
 .bullets1 li {
-	display: list-item;
-	list-item-type: disc !important;
-	margin-bottom: 10px;
-	margin-left: 10px;
+    display: list-item;
+    list-item-type: disc !important;
+    margin-bottom: 10px;
+    margin-left: 10px;
 }
 
 code, pre {
-	font-family: 'courier new', courier;
-	font-size: .8em;
-	font-weight: bold;
-	background: #222;
-	color: #a5c9e0;
-	padding-left: 5px;
-	padding-right: 5px;
+    font-family: 'courier new', courier;
+    font-size: .8em;
+    font-weight: bold;
+    background: #222;
+    color: #a5c9e0;
+    padding-left: 5px;
+    padding-right: 5px;
 }
 
 pre.blockCode, code.blockCode {
-	display: block;
-	padding-top: 5px;
-	padding-bottom: 5px;
-	margin-top: 15px;
-	margin-bottom: 15px;
+    display: block;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin-top: 15px;
+    margin-bottom: 15px;
 }
 
 .tags {
-	margin-top: 5px;
-	margin-bottom: -5px;
+    margin-top: 5px;
+    margin-bottom: -5px;
 }
 
 .tag {
-	display: inline-block;
-	border: 1px solid #666;
-	background: #222;
-	font-size: .7em;
-	color: #06A8F9;
-	padding: 3px;
-	margin: 2px;
+    display: inline-block;
+    border: 1px solid #666;
+    background: #222;
+    font-size: .7em;
+    color: #06A8F9;
+    padding: 3px;
+    margin: 2px;
 }
 
 .important {
-	padding: 10px;
-	background: #333;
-	border: 3px solid #222;
-	margin-bottom: 10px;
+    padding: 10px;
+    background: #333;
+    border: 3px solid #222;
+    margin-bottom: 10px;
 }
 
 .important h4 {
-	margin-bottom: 10px;
-	font-weight: bold;
+    margin-bottom: 10px;
+    font-weight: bold;
 }
 
 #footer {
-	clear: both;
-	margin-left: auto;
-	margin-right: auto;
-	width: 1000px;
-	height: 500px;
-	color: white;
+    clear: both;
+    margin-left: auto;
+    margin-right: auto;
+    width: 1000px;
+    height: 500px;
+    color: white;
     border-left: 3px solid #999;
     border-right: 3px solid #ccc;
 }
 
 #footer .footerSectionLogo {
-	margin-left: auto;
-	margin-right: auto;
-	display: block;
-	margin-bottom: 10px;
-	margin-top: 30px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    margin-bottom: 10px;
+    margin-top: 30px;
 }
 
 #footer #twitter {
-	float: left;
-	display: inline-block;
-	background: #666;
-	width: 277px;
-	padding-left: 20px;
-	padding-right: 20px;
-	height: 500px;
+    float: left;
+    display: inline-block;
+    background: #666;
+    width: 277px;
+    padding-left: 20px;
+    padding-right: 20px;
+    height: 500px;
 }
 
 #footer #twitter li {
-	list-style-type: none;
-	line-height: 24px;
-	text-align: center;
-	margin-bottom: 20px;
+    list-style-type: none;
+    line-height: 24px;
+    text-align: center;
+    margin-bottom: 20px;
 }
 
 #footer #twitter li a {
-	display: none;
+    display: none;
 }
 
 #footer #twitter li span {
-	font-size: 14px;
-	display: inline-block;
+    font-size: 14px;
+    display: inline-block;
 }
 
 #footer #twitter li span a {
-	display: inline;
+    display: inline;
 }
 
 #footer #github {
-	background: #828282;
-	width: 293px;
-	float: left;
-	display: inline-block;
-	height: 100%;
+    background: #828282;
+    width: 293px;
+    float: left;
+    display: inline-block;
+    height: 100%;
     padding-left: 20px;
     padding-right: 20px;
     height: 500px;
 }
 
 .repo {
-	text-align: center;
-	margin-bottom: 20px;
+    text-align: center;
+    margin-bottom: 20px;
 }
 
 .repo a {
-	font-size: .8em;
+    font-size: .8em;
 }
 
 #footer #stack_overflow {
-	background: #373737;
-	width: 310px;
-	display: inline-block;
+    background: #373737;
+    width: 310px;
+    display: inline-block;
     padding-left: 20px;
     padding-right: 20px;
     height: 500px;
 }
 
 #stack_overflow_profile {
-	text-align: center;
+    text-align: center;
 }
 
 #stack_overflow_profile h4 {
-	margin-bottom: 10px;
+    margin-bottom: 10px;
 }
 
 #stack_overflow_profile p {
-	line-height: 22px;
-	font-size: .9em;
+    line-height: 22px;
+    font-size: .9em;
 }
 
 .tools {
-    width: 220px;
+    width: 215px;
     height: 40px;
     position: absolute;
-    background: #3F3F3F;
     top: 70px;
     left: 0px;
     display: none;
     padding: 10px;
+}
+
+.tools.background {
+    background: rgb(54, 54, 54);
+}
+
+.selectedLetterLabel {
+    float: right;
+    line-height: 40px;
+    margin-right: 20px;
+    font-weight: 700;
 }
 
 .letterSize {
@@ -748,13 +767,12 @@ pre.blockCode, code.blockCode {
 }
 
 #loginContainer {
-    background: #06A8F9 url(../resources/commentsBackground.jpg) 
-        repeat-x;
+    background: #06A8F9 url(../resources/commentsBackground.jpg) repeat-x;
     text-align: center;
     padding: 10px;
     padding-top: 20px;
     height: 130px;
-    width: 300px; 
+    width: 300px;
 }
 
 #loginContainer label {
@@ -762,7 +780,7 @@ pre.blockCode, code.blockCode {
     display: inline-block;
     float: left;
     line-height: 30px;
-    margin-top: 10px; 
+    margin-top: 10px;
 }
 
 #loginContainer input {
@@ -783,9 +801,12 @@ pre.blockCode, code.blockCode {
     color: white;
 }
 
-
 #loginContainer #doLogin:hover {
     background: #444;
     color: #06a8f9;
     cursor: pointer;
+}
+
+.hidden {
+    display: none;
 }
