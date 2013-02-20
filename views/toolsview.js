@@ -4,6 +4,7 @@ function ToolsView() {
     var selectedFontSize = 'large';
     
     core.name = "tools";
+    core.closeTimeout = null;
    
     core.onEnterRegion = function (callback) {
         core.region = $("<div id='tools' class='tools'></div>")
@@ -14,7 +15,7 @@ function ToolsView() {
             + "<div class='letterSize small'>A</div>"
             + "<div class='letterSize medium'>A</div>"
             + "<div class='letterSize large selected'>A</div>"
-            + "<div class='hidden selectedLetterLabel'>Letter Size</div>")
+            + "<div class='hidden selectedLetterLabel'>Letter Size:</div>")
             .appendTo($(core.region));
             
         core.addEventHandlers();
@@ -30,6 +31,7 @@ function ToolsView() {
             .mouseover(core.handlers.selectedLetterIn);
         
         $(".letterSize").mouseout(core.handlers.stopDead);
+        
         
         $(".letterSize:not(.selectedLetter)")
             .click(core.handlers.letterSizeClick);
@@ -49,7 +51,10 @@ function ToolsView() {
         
         selectedLetterIn: function (evt) {
             $(".tools").addClass("background");
+            
             $(".tools .selectedLetterLabel").removeClass("hidden");
+            $(".selectedLetterLabel").mouseout(core.handlers.stopDead);
+            
             $(".tools").find(".letterSize").fadeIn("fast");
         },
         
@@ -62,7 +67,7 @@ function ToolsView() {
         },
         
         stopDead: function (evt) {
-            evt.stopPropagation();
+            evt.stopImmediatePropagation();
             return false;
         },
         

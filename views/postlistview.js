@@ -49,6 +49,16 @@ function PostListView() {
 	
 	core.attachEventHandlers = function () {
 		$(window).bind('resize', core.handlers.resizeBaseLayout);
+		
+		$(".tag").hover(function (evt) {
+		   $(this).addClass("searchable");
+		}, function (evt) {
+		   $(this).removeClass("searchable"); 
+		});
+		
+		$(".tag").click(function (evt) {
+		   $("#searchText").val($(this).text()).trigger('keyup');
+		});
 	};
 	
 	core.detachEventHandlers = function () {

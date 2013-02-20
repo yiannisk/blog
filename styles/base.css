@@ -582,10 +582,12 @@ pre.blockCode, code.blockCode {
     display: inline-block;
     border: 1px solid #666;
     background: #222;
-    font-size: .7em;
+    font-size: .6em;
     color: #06A8F9;
-    padding: 3px;
+    padding: 4px;
     margin: 2px;
+    min-width: 30px;
+    text-align: center;
 }
 
 .important {
@@ -703,12 +705,13 @@ pre.blockCode, code.blockCode {
 
 .tools.background {
     background: rgb(54, 54, 54);
+    border: 1px solid rgb(77, 77, 77);
 }
 
 .selectedLetterLabel {
     float: right;
     line-height: 40px;
-    margin-right: 20px;
+    margin-right: 15px;
     font-weight: 700;
 }
 
@@ -807,6 +810,10 @@ pre.blockCode, code.blockCode {
     cursor: pointer;
 }
 
-.hidden {
-    display: none;
+.hidden { display: none; }
+.searchable { 
+    height: 30px;
+    background: #3d3d3d url(../resources/tag_search.png) no-repeat center 17px;
+    cursor: pointer;
 }
+

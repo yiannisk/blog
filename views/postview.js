@@ -46,6 +46,16 @@ function PostView(id) {
 	core.attachEventHandlers = function () {
 		$(".backtotop").click( core.handlers.backToTopClick );
 		$(window).resize(core.handlers.resizeBaseLayout);
+		
+        $(".tag").hover(function (evt) {
+           $(this).addClass("searchable");
+        }, function (evt) {
+           $(this).removeClass("searchable"); 
+        });
+        
+        $(".tag").click(function (evt) {
+           $("#searchText").val($(this).text()).trigger('keyup');
+        });
 	};
 	
 	core.detachEventHandlers = function () {
