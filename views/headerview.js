@@ -11,6 +11,8 @@ function HeaderView() {
 		core.template('header', function () {
 			core.model.single('header', core.loadDataComplete);
 		});
+		
+		setTimeout(core.handlers.closeIconClick, 20000);
 	};
 	
 	core.onLeaveRegion = function (callback) {

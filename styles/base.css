@@ -271,6 +271,7 @@ h5 {
 #search {
     margin-left: 10px;
     margin-right: 10px;
+    margin-bottom: 60px;
 }
 
 .searchBox {
@@ -617,7 +618,7 @@ pre.blockCode, code.blockCode {
     margin-left: auto;
     margin-right: auto;
     display: block;
-    margin-bottom: 10px;
+    padding-bottom: 35px;
     margin-top: 30px;
 }
 
@@ -626,6 +627,7 @@ pre.blockCode, code.blockCode {
     display: inline-block;
     background: #666;
     width: 277px;
+    height: 100%;
     padding-left: 20px;
     padding-right: 20px;
     height: 500px;

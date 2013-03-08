@@ -1,3 +1,5 @@
 /* Scrollbar overrides */
 #github .jspDrag { background: rgb(176, 176, 177); }
 #github .jspTrack { background: rgb(122, 122, 122); }
+#twitter .jspDrag { background: #06a8f9; }
+#twitter .jspTrack { background: #373737; }
